@@ -3,7 +3,7 @@ As per it's counter part (mental-space-app) reachable [HERE](https://github.com/
 
 I know very well how a mental illness can impact an individual and all the people around him/her.
 
-o i decided to start my project "Mental Space" where it aim to help the user to have a better understanding of it's situation but most of all to create a system that would help it's professional helper (Psychiatrist and/or Psychologist) to do better their job.
+So i decided to start my project "Mental Space" where it aim to help the user to have a better understanding of it's situation but most of all to create a system that would help it's professional helper (Psychiatrist and/or Psychologist) to do better their job.
 
 This back-end, that initially i started as private thing, is now Public with a creative common license and i truly hope to find some good contributors in order to make this project BETTER.
 
