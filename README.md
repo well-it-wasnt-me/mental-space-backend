@@ -9,6 +9,7 @@ This back-end, that initially i started as private thing, is now Public with a c
 
 # STACK
 - PHP ^7 | ^8
+- Composer
 - MySQL
 - Apache
 
@@ -31,8 +32,10 @@ Honestly i can't remember everything since it's quite some time i don't open thi
 - Stripe Integration
 - Patient Management
 
-## Collaboration & Issues
+## Collaboration, Issues & Security
+- PLEASE, check CONTRIBUTING.md & CODE_OF_CONDUCT.md - theyt are not the usual boilerplate
+- For now i will dedicate all my weekends to this (actively). So don't go crazy if you may have to wait few days for a reply
+- In case of **Security** issues, check the effing SECURITY.md
 
-Feel free to open an issue in case something doesn't work or you want to suggest anything. Just remember: i will take care of it all in the weekends.
+  Thank you !
 
-For collaborations, well you know what to do. I'm gonna provide more docs/info very soon.
