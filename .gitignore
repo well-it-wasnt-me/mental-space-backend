@@ -5,3 +5,4 @@ composer.lock
 data/*.png
 data/*.jpeg
 logs/*.log
+.DS_Store
