@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up PHP 8.3
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+
+    - name: Install Composer dependencies
+      run: composer install
+
+    - name: Run PHPUnit tests
+      run: vendor/bin/phpunit
+
+    - name: Install deepsecrets
+      run: |
+        python -m pip install deepsecrets
+
+    - name: Scan for secrets using deepsecrets
+      run: deepsecrets --target-dir . --outfile $GITHUB_WORKSPACE/deepsecrets-results/sec_report-$(date +"%Y%m%d").json
+
+    - name: Upload deepsecrets scan results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: deepsecrets-results
+        path: $GITHUB_WORKSPACE/deepsecrets-results
