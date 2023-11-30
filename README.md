@@ -7,6 +7,9 @@ So i decided to start my project "Mental Space" where it aim to help the user to
 
 This back-end, that initially i started as private thing, is now Public with a creative common license and i truly hope to find some good contributors in order to make this project BETTER.
 
+# WIKI
+For most detailed and useful information, please refer to the [WIKI](https://github.com/pazDontExist/mental-space-backend/wiki)
+
 # STACK
 - PHP ^7 | ^8
 - Composer
