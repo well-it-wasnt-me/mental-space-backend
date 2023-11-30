@@ -1,0 +1,897 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mental Space\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-23 13:10+0100\n"
+"PO-Revision-Date: 2023-03-23 13:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hr_HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: templates/patients/add.php:15
+msgid "Nuovo Paziente"
+msgstr "Novi Pacijent"
+
+#: templates/patients/add.php:20 templates/layout/layout.php:131
+msgid "Pazienti"
+msgstr "Pacijenti"
+
+#: templates/patients/add.php:22 templates/doctor/reports.php:17
+msgid "Nuovo"
+msgstr "Novo"
+
+#: templates/patients/add.php:39 templates/patients/add.php:84
+msgid "Dati Base"
+msgstr "Osnovni podaci"
+
+#: templates/patients/add.php:40
+msgid "Informazioni di base"
+msgstr "Osnovne informacije"
+
+#: templates/patients/add.php:51 templates/patients/add.php:149
+msgid "Dati Clinici"
+msgstr "Klinički podaci"
+
+#: templates/patients/add.php:52
+msgid "Qualcosa di Rilevante"
+msgstr "Nešto relevantno"
+
+#: templates/patients/add.php:63 templates/patients/add.php:193
+#: templates/consulto/home.php:94 templates/patients/view.php:126
+msgid "Relazione"
+msgstr "Izvješće"
+
+#: templates/patients/add.php:64
+msgid "Una prima impressione"
+msgstr "Prvi dojam"
+
+#: templates/patients/add.php:75 templates/patients/add.php:274
+msgid "Applicazione"
+msgstr "Primjena"
+
+#: templates/patients/add.php:76
+msgid "Invita ad usare App"
+msgstr "Pozovite na korištenje aplikacije"
+
+#: templates/patients/add.php:85
+msgid "Ogni cosa è importante."
+msgstr "Sve je važno."
+
+#: templates/patients/add.php:92 templates/register/doc.php:95
+#: templates/doctor/view.php:99 templates/patients/view.php:436
+msgid "Cognome"
+msgstr "Prezime"
+
+#: templates/patients/add.php:96 templates/register/doc.php:91
+#: templates/doctor/view.php:91 templates/patients/view.php:430
+msgid "Nome"
+msgstr "Ime"
+
+#: templates/patients/add.php:100 templates/patients/view.php:442
+msgid "Codice Fiscale"
+msgstr "Osobni identifikacijski broj"
+
+#: templates/patients/add.php:104 templates/home/doctor.php:96
+msgid "Data di Nascita"
+msgstr "Datum rođenja"
+
+#: templates/patients/add.php:108 templates/patients/add.php:129
+msgid "Telefono"
+msgstr "Broj telefona"
+
+#: templates/patients/add.php:113 templates/register/doc.php:99
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: templates/patients/add.php:117 templates/patients/view.php:72
+msgid "Indirizzo Completo"
+msgstr "Adresa"
+
+#: templates/patients/add.php:123 templates/patients/view.php:68
+#: templates/patients/view.php:460
+msgid "Contatto di Emergenza"
+msgstr "Kontakt za hitne slučajeve"
+
+#: templates/patients/add.php:125 templates/home/doctor.php:93
+msgid "Nome e Cognome"
+msgstr "Ime i prezime"
+
+#: templates/patients/add.php:139 templates/patients/add.php:183
+#: templates/patients/add.php:264 templates/patients/add.php:288
+#: templates/doctor/reports.php:94 templates/doctor/reports.php:143
+#: templates/doctor/reports.php:175 templates/doctor/reports.php:201
+msgid "Indietro"
+msgstr "Povratak"
+
+#: templates/patients/add.php:142 templates/patients/add.php:186
+#: templates/patients/add.php:267 templates/doctor/reports.php:97
+#: templates/doctor/reports.php:146 templates/doctor/reports.php:178
+msgid "Avanti"
+msgstr "Sljedeći"
+
+#: templates/patients/add.php:150
+msgid "Qualcosa di rilevante"
+msgstr "Nešto važno"
+
+#: templates/patients/add.php:155
+msgid "Altezza (cm)"
+msgstr "Visina (centimetri)"
+
+#: templates/patients/add.php:159
+msgid "Peso (kg)"
+msgstr "Težina (kg)"
+
+#: templates/patients/add.php:163
+msgid "Diagnosi (come da DSM-5)"
+msgstr "Dijagnoza ( DSM-5)"
+
+#: templates/patients/add.php:170
+msgid "Trattamento Farmacologico in Corso"
+msgstr "Trenutno liječenje lijekovima"
+
+#: templates/patients/add.php:175
+msgid "Farmaco non in elenco"
+msgstr "Lijek nije na popisu"
+
+#: templates/patients/add.php:176
+msgid "Aggiungi Nuovo Farmaco"
+msgstr "Dodaj novi lijek"
+
+#: templates/patients/add.php:194
+msgid "Le tue impressioni"
+msgstr "Vaš dojam"
+
+#: templates/patients/add.php:244
+msgid "Relazione su Paziente"
+msgstr "Izvješće pacijenta"
+
+#: templates/patients/add.php:247
+msgid "Scrivere qui"
+msgstr "Pišite ovdje"
+
+#: templates/patients/add.php:275
+msgid "Invito"
+msgstr "Pozovite"
+
+#: templates/patients/add.php:281
+msgid "Invita a scaricare APP"
+msgstr "Poziv za preuzimanje aplikacije"
+
+#: templates/patients/add.php:290
+msgid "Inserisci"
+msgstr "Dodaj"
+
+#: templates/patients/add.php:311
+msgid "Nuovo Farmaco"
+msgstr "Novi lijek"
+
+#: templates/patients/add.php:315
+msgid "Principio Attivo"
+msgstr "Aktivni princip"
+
+#: templates/patients/add.php:319
+msgid "Descrizione Gruppo"
+msgstr "Opis grupe"
+
+#: templates/patients/add.php:323 templates/patients/view.php:506
+msgid "Denominazione"
+msgstr "Naziv"
+
+#: templates/patients/add.php:327
+msgid "Prezzo"
+msgstr "Cijena"
+
+#: templates/patients/add.php:330 templates/doctor/calendar.php:128
+#: templates/layout/layout.php:133 templates/patients/view.php:511
+msgid "Aggiungi"
+msgstr "Dodaj"
+
+#: templates/patients/add.php:331 templates/doctor/calendar.php:129
+msgid "Cancella"
+msgstr "Izbriši"
+
+#: templates/doctor/calendar.php:18 templates/doctor/calendar.php:77
+msgid "Aggiungi Appuntamento"
+msgstr "Dodaj termin"
+
+#: templates/doctor/calendar.php:23
+msgid "Filtro"
+msgstr "Filter"
+
+#: templates/doctor/calendar.php:27
+msgid "Vedi tutto"
+msgstr "Vidi sve"
+
+#: templates/doctor/calendar.php:32 templates/doctor/calendar.php:89
+msgid "Personale"
+msgstr "Osobno"
+
+#: templates/doctor/calendar.php:36 templates/doctor/calendar.php:88
+msgid "Lavoro"
+msgstr "Posao"
+
+#: templates/doctor/calendar.php:40 templates/doctor/calendar.php:90
+msgid "Famiglia"
+msgstr "Obitelj"
+
+#: templates/doctor/calendar.php:44 templates/doctor/calendar.php:91
+msgid "Festa"
+msgstr "Praznici"
+
+#: templates/doctor/calendar.php:48 templates/doctor/calendar.php:92
+msgid "Altro"
+msgstr "Ostalo"
+
+#: templates/doctor/calendar.php:82
+msgid "Titolo"
+msgstr "Titula"
+
+#: templates/doctor/calendar.php:86
+msgid "Tipo Appuntamento"
+msgstr "Vrsta ugovorenog sastanka"
+
+#: templates/doctor/calendar.php:96
+msgid "Data Inizio"
+msgstr "Datum početka"
+
+#: templates/doctor/calendar.php:100
+msgid "Data Fine"
+msgstr "Datum završetka"
+
+#: templates/doctor/calendar.php:106
+msgid "Tutto il Giorno"
+msgstr "Cijeli dan"
+
+#: templates/doctor/calendar.php:110
+msgid "URL Evento"
+msgstr "URL događaja"
+
+#: templates/doctor/calendar.php:114
+msgid "Aggiungi Partecipante"
+msgstr "Dodaj sudionika"
+
+#: templates/doctor/calendar.php:120
+msgid "Luogo"
+msgstr "Mjesto"
+
+#: templates/doctor/calendar.php:124
+msgid "Descrizione"
+msgstr "Opis"
+
+#: templates/doctor/calendar.php:130 templates/patients/view.php:484
+msgid "Aggiorna"
+msgstr "Ažuriraj"
+
+#: templates/doctor/calendar.php:131 templates/patients/view.php:81
+msgid "Elimina"
+msgstr "Izbriši"
+
+#: templates/layout/consulto.php:90 templates/login/login_doctor.php:84
+#: templates/login/login_doctor.php:91
+msgid "Crea Account"
+msgstr "Napravi račun"
+
+#: templates/register/doc.php:86
+msgid "La tua avventura comincia qui"
+msgstr "Vaša avantura počinje ovdje"
+
+#: templates/register/doc.php:87
+msgid "Registrati ora"
+msgstr "Registriraj se"
+
+#: templates/register/doc.php:104
+msgid "Password"
+msgstr "Lozinka"
+
+#: templates/register/doc.php:115
+msgid "Accetto le"
+msgstr "Prihvaćam"
+
+#: templates/register/doc.php:115
+msgid "termini e condizioni"
+msgstr "odredbe i uvjeti"
+
+#: templates/register/doc.php:119
+msgid "Registrami"
+msgstr "Registriraj me"
+
+#: templates/register/doc.php:123
+msgid "Hai gia un account ?"
+msgstr "Već imate račun ?"
+
+#: templates/register/doc.php:125
+msgid "Effettua Login"
+msgstr " Login"
+
+#: templates/register/doc.php:183
+msgid ""
+"Spiacente ma devi accettere privacy, termini e condizioni per poter "
+"usufruire del nostro servizio"
+msgstr ""
+"Žao nam je, ali morate prihvatiti politiku privatnosti i odredbe i uvjete "
+"da biste koristili naše usluge "
+
+#: templates/home/doctor.php:15
+msgid "Riepilogo"
+msgstr "Sažetak"
+
+#: templates/home/doctor.php:28
+msgid "Miei Pazienti"
+msgstr "Moji pacijenti"
+
+#: templates/home/doctor.php:41
+msgid "Appuntamenti oggi"
+msgstr "Današnji termini"
+
+#: templates/home/doctor.php:54
+msgid "Guadagno di questo mese"
+msgstr "Ovomjesečna zarada"
+
+#: templates/home/doctor.php:67
+msgid "Messaggi non letti"
+msgstr "Nepročitane poruke"
+
+#: templates/home/doctor.php:85
+msgid "I Miei Pazienti"
+msgstr "Moji pacijenti"
+
+#: templates/home/doctor.php:94
+msgid "Diagnosi Attuale"
+msgstr "Prava dijagnoza"
+
+#: templates/home/doctor.php:95
+msgid "In Cura dal"
+msgstr "U lijeku od"
+
+#: templates/home/doctor.php:97
+msgid "REGISTRATO SU APP"
+msgstr "Registriraj na APP"
+
+#: templates/home/doctor.php:98 templates/patients/view.php:147
+msgid "Azioni"
+msgstr "Radnje"
+
+#: templates/consulto/home.php:22
+msgid "Modalità Privacy ON"
+msgstr "Način privatnosti uključen"
+
+#: templates/consulto/home.php:33 templates/patients/view.php:34
+msgid "Passi Effettuati Oggi"
+msgstr "Broj koraka(today)"
+
+#: templates/consulto/home.php:42 templates/patients/view.php:43
+msgid "Post Creati"
+msgstr "Dnevnički zapisi"
+
+#: templates/consulto/home.php:46 templates/patients/view.php:47
+msgid "Dettagli"
+msgstr "Detalji"
+
+#: templates/consulto/home.php:50 templates/patients/view.php:51
+msgid "Codice Utente"
+msgstr "Korisnički kod"
+
+#: templates/consulto/home.php:54 templates/doctor/reports.php:116
+#: templates/doctor/reports.php:168 templates/patients/view.php:56
+#: templates/patients/view.php:478
+msgid "Diagnosi"
+msgstr "Dijagnoza"
+
+#: templates/consulto/home.php:73 templates/patients/view.php:99
+msgid "Dati Base Paziente"
+msgstr "Osnovni podaci o pacijentu"
+
+#: templates/consulto/home.php:78 templates/patients/view.php:104
+msgid "Diario del Paziente"
+msgstr "Pacijentov dnevnik"
+
+#: templates/consulto/home.php:84 templates/layout/layout.php:135
+#: templates/patients/view.php:116
+msgid "Report"
+msgstr "Izvješće"
+
+#: templates/consulto/home.php:89 templates/patients/view.php:121
+msgid "Annotazioni"
+msgstr "Pribilješka"
+
+#: templates/consulto/home.php:99 templates/patients/view.php:131
+msgid "Test"
+msgstr "Test"
+
+#: templates/consulto/home.php:107 templates/patients/view.php:139
+msgid "Trattamento Farmacologico"
+msgstr "Farmakološko liječenje"
+
+#: templates/consulto/home.php:118 templates/patients/view.php:157
+msgid "Ultime 10 registrazioni Umore"
+msgstr "Posljednjih 10 snimaka raspoloženja"
+
+#: templates/consulto/home.php:132 templates/patients/view.php:185
+msgid "Il Suo Diario"
+msgstr "Dnevnik"
+
+#: templates/consulto/home.php:147 templates/patients/view.php:244
+msgid "Statistiche (Ultimi 7 Giorni)"
+msgstr "Statistika (Zadnjih 7 Dana)"
+
+#: templates/consulto/home.php:151
+msgid "DIARIO"
+msgstr "DNEVNIK"
+
+#: templates/consulto/home.php:154
+msgid "COMPORTAMENTI"
+msgstr "PONAŠANJE"
+
+#: templates/consulto/home.php:157
+msgid "EMOZIONI"
+msgstr "EMOCIJE"
+
+#: templates/consulto/home.php:160
+msgid "MEDIANA EMOZIONI"
+msgstr "PROSJEK EMOCIJA"
+
+#: templates/consulto/home.php:174 templates/patients/view.php:262
+msgid "Elenco Annotazioni"
+msgstr "Popis napomena"
+
+#: templates/consulto/home.php:208 templates/patients/view.php:366
+msgid "Esito dei Test"
+msgstr "Rezultati testiranja"
+
+#: templates/consulto/home.php:211 templates/patients/view.php:369
+msgid "PHQ-9 (Depressione)"
+msgstr "PHQ-9 (Depresija)"
+
+#: templates/consulto/home.php:214 templates/patients/view.php:374
+msgid "Comportamenti Impulsivi"
+msgstr "Impulzivna ponašanja"
+
+#: templates/consulto/home.php:217 templates/doctor/reports.php:120
+#: templates/patients/view.php:379
+msgid "Emozioni"
+msgstr "Emocije"
+
+#: templates/consulto/home.php:240
+msgid "Accesso Cartella Assistito"
+msgstr "Pristup mapi pacijenta"
+
+#: templates/consulto/home.php:241
+msgid "Perfavore, inserisca il codice di accesso ricevuto via e-mail"
+msgstr "Unesite pristupni kod koji ste primili e-poštom"
+
+#: templates/consulto/home.php:246
+msgid "Codice PIN"
+msgstr "PIN kod"
+
+#: templates/consulto/home.php:255
+msgid "Entra"
+msgstr "Unesi"
+
+#: templates/layout/layout.php:125
+msgid "Dashboard"
+msgstr "Nadzorna ploča"
+
+#: templates/layout/layout.php:137
+msgid "Calendario"
+msgstr "Kalendar"
+
+#: templates/layout/layout.php:139
+msgid "Messaggi"
+msgstr "Poruke"
+
+#: templates/layout/layout.php:144
+msgid "Account"
+msgstr "Račun"
+
+#: templates/layout/layout.php:146
+msgid "Dettagli &<br> Impostazioni"
+msgstr "Pojedinosti &<br> Postavke"
+
+#: templates/login/login_doctor.php:74
+msgid "Benvenuto/a !"
+msgstr "Dobrodošli !"
+
+#: templates/login/login_doctor.php:75
+msgid "Perfavore, effettua il login"
+msgstr "Molimo, prijavite se"
+
+#: templates/login/login_doctor.php:84
+msgid "Password dimenticata ?"
+msgstr "Zaboravili ste lozinku ?"
+
+#: templates/login/login_doctor.php:143
+msgid "Login Ok, andando alla tua dashboard"
+msgstr "Prijava uspješna, ide se na kontrolnu ploču"
+
+#: templates/login/login_doctor.php:146
+msgid "Email o Password non validi"
+msgstr "E-mail ili lozinka su nevažeći"
+
+#: templates/login/login_doctor.php:149
+msgid "Qualcosa è andato storto, riprova tra poco o contattaci"
+msgstr "Nešto nije u redu, pokušajte ponovo kasnije ili nas kontaktirajte"
+
+#: templates/doctor/reports.php:34 templates/doctor/reports.php:79
+msgid "Selezione Base"
+msgstr "Odabir baze"
+
+#: templates/doctor/reports.php:35
+msgid "Seleziona un assistito, qualcuno in più o nessuno"
+msgstr "Odaberite pacijenta, nekoliko ili nikoga"
+
+#: templates/doctor/reports.php:46 templates/doctor/reports.php:104
+msgid "Seleziona Dati"
+msgstr "Odaberite podatke"
+
+#: templates/doctor/reports.php:47
+msgid "Cosa vorresti tirare fuori"
+msgstr "Što želite od toga"
+
+#: templates/doctor/reports.php:58 templates/doctor/reports.php:153
+msgid "Raggruppamento"
+msgstr "Grupiranje"
+
+#: templates/doctor/reports.php:59
+msgid "Come vuoi raggruppare il dato"
+msgstr "Kako želite grupirati podatke"
+
+#: templates/doctor/reports.php:70 templates/doctor/reports.php:185
+msgid "Finale"
+msgstr "Kraj"
+
+#: templates/doctor/reports.php:71
+msgid "Vedi cosa è uscito fuori"
+msgstr "Vidite što dobivate"
+
+#: templates/doctor/reports.php:80
+msgid "Da dove partiamo ?"
+msgstr "Odakle počinjemo ?"
+
+#: templates/doctor/reports.php:85
+msgid "Assistiti (lasciare vuoto per selezionarli tutti)"
+msgstr "Pacijenti (ostavite prazno da biste ih sve odabrali)"
+
+#: templates/doctor/reports.php:105
+msgid "Su cosa vuoi lavorare ?"
+msgstr "Na čemu želite raditi?"
+
+#: templates/doctor/reports.php:112
+msgid "Analisi Diario"
+msgstr "Analiza dnevnika"
+
+#: templates/doctor/reports.php:124
+msgid "Farmaci"
+msgstr "Lijekovi"
+
+#: templates/doctor/reports.php:128
+msgid "Umore"
+msgstr "Raspoloženje"
+
+#: templates/doctor/reports.php:132
+msgid "Passi"
+msgstr "Koraci"
+
+#: templates/doctor/reports.php:136 templates/patients/view.php:398
+msgid "Depressione"
+msgstr "Depresija"
+
+#: templates/doctor/reports.php:154
+msgid "Cosa vuoi aggregare"
+msgstr "Što želite grupirati"
+
+#: templates/doctor/reports.php:160
+msgid "Età"
+msgstr "Godine"
+
+#: templates/doctor/reports.php:164
+msgid "Assistito"
+msgstr "Pacijent"
+
+#: templates/doctor/reports.php:186
+msgid "Genera Risultato"
+msgstr "Generiraj rezultat"
+
+#: templates/doctor/reports.php:191
+msgid "Premi il pulsante \"CREA\" per avere il pdf del risultato"
+msgstr "Pritisnite tipku \"KREIRAJ\" kako biste dobili rezultat u PDF-u"
+
+#: templates/doctor/reports.php:203
+msgid "Crea!"
+msgstr "Kreiraj!"
+
+#: templates/doctor/view.php:14
+msgid "Dottore"
+msgstr "Doktor"
+
+#: templates/doctor/view.php:40
+msgid "Sicurezza"
+msgstr "Sigurnost"
+
+#: templates/doctor/view.php:47
+msgid "Abbonamento"
+msgstr "Pretplata"
+
+#: templates/doctor/view.php:61
+msgid "Dettaglio Profilo"
+msgstr "Detalji profila"
+
+#: templates/doctor/view.php:79
+msgid "File permessi: png, jpg, jpeg."
+msgstr "Dopuštene datoteke: png, jpg, jpeg."
+
+#: templates/doctor/view.php:112
+msgid "Ragione Sociale"
+msgstr "Naziv tvrtke"
+
+#: templates/doctor/view.php:119 templates/patients/view.php:64
+#: templates/patients/view.php:454
+msgid "Cellulare"
+msgstr "Telefon"
+
+#: templates/doctor/view.php:126 templates/patients/view.php:471
+msgid "Indirizzo"
+msgstr "Adresa"
+
+#: templates/doctor/view.php:133
+msgid "Tariffa Oraria (€)"
+msgstr "Satnica (€)"
+
+#: templates/doctor/view.php:140
+msgid "Partita IVA"
+msgstr "PDV broj"
+
+#: templates/doctor/view.php:147
+msgid "Account PayPal"
+msgstr "PayPal Račun"
+
+#: templates/doctor/view.php:155 templates/doctor/view.php:253
+msgid "Salva"
+msgstr "Spremi"
+
+#: templates/doctor/view.php:157 templates/doctor/view.php:255
+#: templates/patients/view.php:488 templates/patients/view.php:512
+#: templates/patients/view.php:555
+msgid "Annulla"
+msgstr "Otkaži"
+
+#: templates/doctor/view.php:168
+msgid "Eliminazione Account"
+msgstr "Izbriši račun"
+
+#: templates/doctor/view.php:172
+msgid "Sei sicuro di voler cancellare il tuo account ?"
+msgstr "Jeste li sigurni da želite izbrisati svoj račun?"
+
+#: templates/doctor/view.php:174
+msgid "Questa operazione è irreversibile e perderai tutti i tuoi dati"
+msgstr "Ova je operacija nepovratna i izgubit ćete sve svoje podatke"
+
+#: templates/doctor/view.php:184
+msgid "Confermo l'eliminazione del mio account"
+msgstr "Potvrđujem brisanje svog računa"
+
+#: templates/doctor/view.php:189
+msgid "Elimina Account"
+msgstr "Izbriši račun"
+
+#: templates/doctor/view.php:201
+msgid "Cambio Password"
+msgstr "Promjena lozinke"
+
+#: templates/doctor/view.php:209
+msgid "Password Attuale"
+msgstr "Stvarna lozinka"
+
+#: templates/doctor/view.php:224
+msgid "Nuova Password"
+msgstr "Nova lozinka"
+
+#: templates/doctor/view.php:235
+msgid "Riscrivi Nuova Password"
+msgstr "ponovi novu lozinku"
+
+#: templates/doctor/view.php:245
+msgid "Requisiti Password:"
+msgstr "Zahtjevi za lozinku:"
+
+#: templates/doctor/view.php:247
+msgid "Minimo 8 caratteri"
+msgstr "Minimalno 8 znakova"
+
+#: templates/doctor/view.php:248
+msgid "Maiuscole e Minuscole"
+msgstr "Velika i mala slova"
+
+#: templates/doctor/view.php:303
+msgid "INDIRIZZO IP"
+msgstr "IP Adresa"
+
+#: templates/doctor/view.php:304
+msgid "DISPOSITIVO"
+msgstr "Uređaj"
+
+#: templates/doctor/view.php:305
+msgid "LOCATION"
+msgstr "Lokacija"
+
+#: templates/doctor/view.php:306
+msgid "DATA ATTIVITA'"
+msgstr "Datum kativnosti"
+
+#: templates/doctor/view.php:325
+msgid "Piano Corrente"
+msgstr "Trenutni plan"
+
+#: templates/doctor/view.php:331
+msgid "Attenzione!"
+msgstr "Upozorenje!"
+
+#: templates/doctor/view.php:333
+msgid ""
+"Da oggi per gestire pagamenti ed abbonamenti abbiamo messo a disposizione\n"
+"                                               portale Stripe, clicca \n"
+"                                               <a target=\"_blank\" "
+"href=\"https://billing.stripe.com/p/login/00g01A2xyfWMdxe9AA\" class=\"btn "
+"btn-sm btn-primary\">QUI</a>"
+msgstr ""
+"Od sada, za rukovanje uplatama i pretplataman\n"
+"                                               pružili smo portal sa "
+"Stripe. Click  \n"
+"                                               <a target=\"_blank\" "
+"href=\"https://billing.stripe.com/p/login/00g01A2xyfWMdxe9AA\" class=\"btn "
+"btn-sm btn-primary\">HERE</a>"
+
+#: templates/patients/view.php:23
+msgid "C.F. non settato"
+msgstr "SSN Nije postavljne"
+
+#: templates/patients/view.php:60
+msgid "Indirizzo E-Mail"
+msgstr "E-Mail Adresa"
+
+#: templates/patients/view.php:61
+msgid "E-Mail non registrata"
+msgstr "E-Mail nije registriran"
+
+#: templates/patients/view.php:65
+msgid "Telefono non inserito"
+msgstr "Broj telefona nije postavljen"
+
+#: templates/patients/view.php:79
+msgid "Modifica"
+msgstr "Modificiraj"
+
+#: templates/patients/view.php:82
+msgid "Consulto"
+msgstr "Konzultiraj"
+
+#: templates/patients/view.php:110
+msgid "Documenti Condivisi"
+msgstr "Djeljeni dokumenti"
+
+#: templates/patients/view.php:145
+msgid "Molecola"
+msgstr "Molekule"
+
+#: templates/patients/view.php:146
+msgid "Nome Farmaco"
+msgstr "Ime lijeka"
+
+#: templates/patients/view.php:197
+msgid "File Condivisi"
+msgstr "Djeljeni dokumenti"
+
+#: templates/patients/view.php:206
+msgid "CARICA FILE"
+msgstr "Učitaj datoteku"
+
+#: templates/patients/view.php:216
+msgid "Grafico Umore"
+msgstr "Graf raspoloženja"
+
+#: templates/patients/view.php:226
+msgid "Grafico Andamento Depressione"
+msgstr "Graf depresije"
+
+#: templates/patients/view.php:232
+msgid "5-9 = Sintomi depressivi minimi / Depressione sottosoglia"
+msgstr "5-9 = Minimalni simptomi depresije / Depresija ispod praga"
+
+#: templates/patients/view.php:233
+msgid "10-14 = Depressione minore / Depressione maggiore lieve"
+msgstr "10-14 = Mala depresija / blaga teška depresija"
+
+#: templates/patients/view.php:234
+msgid "15-19 = Depressione maggiore moderata"
+msgstr "15-19 = Umjerena teška depresija"
+
+#: templates/patients/view.php:235
+msgid "≥ 20 = Depressione maggiore severa"
+msgstr "≥ 20 = Teška velika depresija"
+
+#: templates/patients/view.php:247
+msgid "Caricamento in corso"
+msgstr "Učitavanje"
+
+#: templates/patients/view.php:273
+msgid "Nuova Annotazione"
+msgstr "Nova primjedba"
+
+#: templates/patients/view.php:340
+msgid "Caricamento in corso....."
+msgstr "Učitavanje...."
+
+#: templates/patients/view.php:352
+msgid "SALVA RELAZIONE"
+msgstr "Spremi izvješće"
+
+#: templates/patients/view.php:371 templates/patients/view.php:376
+#: templates/patients/view.php:381
+msgid "Ancora Nulla"
+msgstr "Još ništa"
+
+#: templates/patients/view.php:393
+msgid "Sottoponi Test"
+msgstr "Pošalji test"
+
+#: templates/patients/view.php:401
+msgid "Test selezionato:"
+msgstr "Izaberi Test:"
+
+#: templates/patients/view.php:404
+msgid "Invia Test"
+msgstr "Pošalji Test"
+
+#: templates/patients/view.php:425
+msgid "Modifica informazioni Paziente"
+msgstr "Ažurirajte podatke o pacijentu"
+
+#: templates/patients/view.php:426
+msgid "Attenzione ! Indietro non si torna !"
+msgstr "Upozorenje! Nema povratka !"
+
+#: templates/patients/view.php:448
+msgid "Indirizzo Email:"
+msgstr "E-Mail adresa:"
+
+#: templates/patients/view.php:465
+msgid "Numero Contatto di Emergenza"
+msgstr "Kontakt broj za hitne slučajeve"
+
+#: templates/patients/view.php:502
+msgid "Aggiunta Farmaco"
+msgstr "Dodaj lijek"
+
+#: templates/patients/view.php:527
+msgid "Richiesta Consulto"
+msgstr "Zatražite konzultacije"
+
+#: templates/patients/view.php:528
+msgid ""
+"Qui potrai generare un link valido massimo 48 ore da inviare ad un "
+"collega\n"
+"                            per darti una mano a capire meglio il tuo "
+"paziente."
+msgstr ""
+"Ovdje možete generirati čarobnu poveznicu koja vrijedi 48 sati i poslati je na "
+"kolega\n"
+"                            kako bi dobili pomoć u razumijevanju ovog "
+"pacijenta."
+
+#: templates/patients/view.php:542
+msgid "Inviti inviati ancora attivi"
+msgstr "Poslana pozivnica još uvijek je aktivna"
+
+#: templates/patients/view.php:551
+msgid "Invia"
+msgstr "Pošalji"

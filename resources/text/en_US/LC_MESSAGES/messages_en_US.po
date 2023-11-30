@@ -1,0 +1,952 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mental Space\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-23 13:10+0100\n"
+"PO-Revision-Date: 2023-03-24 09:38+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: templates/patients/add.php:15
+msgid "Nuovo Paziente"
+msgstr "New Patient"
+
+#: templates/patients/add.php:20 templates/layout/layout.php:131
+msgid "Pazienti"
+msgstr "Patients"
+
+#: templates/patients/add.php:22 templates/doctor/reports.php:17
+msgid "Nuovo"
+msgstr "New"
+
+#: templates/patients/add.php:39 templates/patients/add.php:84
+msgid "Dati Base"
+msgstr "Basic Data"
+
+#: templates/patients/add.php:40
+msgid "Informazioni di base"
+msgstr "Basic information"
+
+#: templates/patients/add.php:51 templates/patients/add.php:149
+msgid "Dati Clinici"
+msgstr "Clinical Data"
+
+#: templates/patients/add.php:52
+msgid "Qualcosa di Rilevante"
+msgstr "Something Relevant"
+
+#: templates/patients/add.php:63 templates/patients/add.php:193
+#: templates/consulto/home.php:94 templates/patients/view.php:126
+msgid "Relazione"
+msgstr "Report"
+
+#: templates/patients/add.php:64
+msgid "Una prima impressione"
+msgstr "First Impression"
+
+#: templates/patients/add.php:75 templates/patients/add.php:274
+msgid "Applicazione"
+msgstr "Application"
+
+#: templates/patients/add.php:76
+msgid "Invita ad usare App"
+msgstr "Invite to use the app"
+
+#: templates/patients/add.php:85
+msgid "Ogni cosa è importante."
+msgstr "Everything is important."
+
+#: templates/patients/add.php:92 templates/register/doc.php:95
+#: templates/doctor/view.php:99 templates/patients/view.php:436
+msgid "Cognome"
+msgstr "Surname"
+
+#: templates/patients/add.php:96 templates/register/doc.php:91
+#: templates/doctor/view.php:91 templates/patients/view.php:430
+msgid "Nome"
+msgstr "Name"
+
+#: templates/patients/add.php:100 templates/patients/view.php:442
+msgid "Codice Fiscale"
+msgstr "Social Security Number"
+
+#: templates/patients/add.php:104 templates/home/doctor.php:96
+msgid "Data di Nascita"
+msgstr "Birthday"
+
+#: templates/patients/add.php:108 templates/patients/add.php:129
+msgid "Telefono"
+msgstr "Phone"
+
+#: templates/patients/add.php:113 templates/register/doc.php:99
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: templates/patients/add.php:117 templates/patients/view.php:72
+msgid "Indirizzo Completo"
+msgstr "Full Address"
+
+#: templates/patients/add.php:123 templates/patients/view.php:68
+#: templates/patients/view.php:460
+msgid "Contatto di Emergenza"
+msgstr "Emergency Contact"
+
+#: templates/patients/add.php:125 templates/home/doctor.php:93
+msgid "Nome e Cognome"
+msgstr "Name and Surname"
+
+#: templates/patients/add.php:139 templates/patients/add.php:183
+#: templates/patients/add.php:264 templates/patients/add.php:288
+#: templates/doctor/reports.php:94 templates/doctor/reports.php:143
+#: templates/doctor/reports.php:175 templates/doctor/reports.php:201
+msgid "Indietro"
+msgstr "Back"
+
+#: templates/patients/add.php:142 templates/patients/add.php:186
+#: templates/patients/add.php:267 templates/doctor/reports.php:97
+#: templates/doctor/reports.php:146 templates/doctor/reports.php:178
+msgid "Avanti"
+msgstr "Next"
+
+#: templates/patients/add.php:150
+msgid "Qualcosa di rilevante"
+msgstr "Something important"
+
+#: templates/patients/add.php:155
+msgid "Altezza (cm)"
+msgstr "Height (centimeters)"
+
+#: templates/patients/add.php:159
+msgid "Peso (kg)"
+msgstr "Weight (kg)"
+
+#: templates/patients/add.php:163
+msgid "Diagnosi (come da DSM-5)"
+msgstr "Diagnosis (as per DSM-5)"
+
+#: templates/patients/add.php:170
+msgid "Trattamento Farmacologico in Corso"
+msgstr "Current Drug treatment"
+
+#: templates/patients/add.php:175
+msgid "Farmaco non in elenco"
+msgstr "Drug not listed"
+
+#: templates/patients/add.php:176
+msgid "Aggiungi Nuovo Farmaco"
+msgstr "Add new Drug"
+
+#: templates/patients/add.php:194
+msgid "Le tue impressioni"
+msgstr "Your Impression"
+
+#: templates/patients/add.php:244
+msgid "Relazione su Paziente"
+msgstr "Patient Report"
+
+#: templates/patients/add.php:247
+msgid "Scrivere qui"
+msgstr "Write here"
+
+#: templates/patients/add.php:275
+msgid "Invito"
+msgstr "Invite"
+
+#: templates/patients/add.php:281
+msgid "Invita a scaricare APP"
+msgstr "Invite to download the App"
+
+#: templates/patients/add.php:290
+msgid "Inserisci"
+msgstr "Add"
+
+#: templates/patients/add.php:311
+msgid "Nuovo Farmaco"
+msgstr "New Drug"
+
+#: templates/patients/add.php:315
+msgid "Principio Attivo"
+msgstr "Active Principle"
+
+#: templates/patients/add.php:319
+msgid "Descrizione Gruppo"
+msgstr "Group Description"
+
+#: templates/patients/add.php:323 templates/patients/view.php:506
+msgid "Denominazione"
+msgstr "Denomination"
+
+#: templates/patients/add.php:327
+msgid "Prezzo"
+msgstr "Price"
+
+#: templates/patients/add.php:330 templates/doctor/calendar.php:128
+#: templates/layout/layout.php:133 templates/patients/view.php:511
+msgid "Aggiungi"
+msgstr "Add"
+
+#: templates/patients/add.php:331 templates/doctor/calendar.php:129
+msgid "Cancella"
+msgstr "Delete"
+
+#: templates/doctor/calendar.php:18 templates/doctor/calendar.php:77
+msgid "Aggiungi Appuntamento"
+msgstr "Add Appointment"
+
+#: templates/doctor/calendar.php:23
+msgid "Filtro"
+msgstr "Filter"
+
+#: templates/doctor/calendar.php:27
+msgid "Vedi tutto"
+msgstr "See All"
+
+#: templates/doctor/calendar.php:32 templates/doctor/calendar.php:89
+msgid "Personale"
+msgstr "Personal"
+
+#: templates/doctor/calendar.php:36 templates/doctor/calendar.php:88
+msgid "Lavoro"
+msgstr "Work"
+
+#: templates/doctor/calendar.php:40 templates/doctor/calendar.php:90
+msgid "Famiglia"
+msgstr "Family"
+
+#: templates/doctor/calendar.php:44 templates/doctor/calendar.php:91
+msgid "Festa"
+msgstr "Holiday"
+
+#: templates/doctor/calendar.php:48 templates/doctor/calendar.php:92
+msgid "Altro"
+msgstr "Other"
+
+#: templates/doctor/calendar.php:82
+msgid "Titolo"
+msgstr "Title"
+
+#: templates/doctor/calendar.php:86
+msgid "Tipo Appuntamento"
+msgstr "Type of Appointment"
+
+#: templates/doctor/calendar.php:96
+msgid "Data Inizio"
+msgstr "Date Start"
+
+#: templates/doctor/calendar.php:100
+msgid "Data Fine"
+msgstr "Date End"
+
+#: templates/doctor/calendar.php:106
+msgid "Tutto il Giorno"
+msgstr "All Day"
+
+#: templates/doctor/calendar.php:110
+msgid "URL Evento"
+msgstr "Event URL"
+
+#: templates/doctor/calendar.php:114
+msgid "Aggiungi Partecipante"
+msgstr "Add Partecipant"
+
+#: templates/doctor/calendar.php:120
+msgid "Luogo"
+msgstr "Place"
+
+#: templates/doctor/calendar.php:124
+msgid "Descrizione"
+msgstr "Description"
+
+#: templates/doctor/calendar.php:130 templates/patients/view.php:484
+msgid "Aggiorna"
+msgstr "Update"
+
+#: templates/doctor/calendar.php:131 templates/patients/view.php:81
+msgid "Elimina"
+msgstr "Delete"
+
+#: templates/layout/consulto.php:90 templates/login/login_doctor.php:84
+#: templates/login/login_doctor.php:91
+msgid "Crea Account"
+msgstr "Create Account"
+
+#: templates/register/doc.php:86
+msgid "La tua avventura comincia qui"
+msgstr "Your adventure start here"
+
+#: templates/register/doc.php:87
+msgid "Registrati ora"
+msgstr "Register Now"
+
+#: templates/register/doc.php:104
+msgid "Password"
+msgstr "Password"
+
+#: templates/register/doc.php:115
+msgid "Accetto le"
+msgstr "I accept the"
+
+#: templates/register/doc.php:115
+msgid "termini e condizioni"
+msgstr "terms & condition"
+
+#: templates/register/doc.php:119
+msgid "Registrami"
+msgstr "Register Me"
+
+#: templates/register/doc.php:123
+msgid "Hai gia un account ?"
+msgstr "Already have an account ?"
+
+#: templates/register/doc.php:125
+msgid "Effettua Login"
+msgstr "Do Login"
+
+#: templates/register/doc.php:183
+msgid ""
+"Spiacente ma devi accettere privacy, termini e condizioni per poter "
+"usufruire del nostro servizio"
+msgstr ""
+"Sorry, but you have to accept privacy policy and terms and condition  in "
+"order to use our services"
+
+#: templates/home/doctor.php:15
+msgid "Riepilogo"
+msgstr "Summary"
+
+#: templates/home/doctor.php:28
+msgid "Miei Pazienti"
+msgstr "My Patients"
+
+#: templates/home/doctor.php:41
+msgid "Appuntamenti oggi"
+msgstr "Today's appointment"
+
+#: templates/home/doctor.php:54
+msgid "Guadagno di questo mese"
+msgstr "This month earnings"
+
+#: templates/home/doctor.php:67
+msgid "Messaggi non letti"
+msgstr "Unread Messages"
+
+#: templates/home/doctor.php:85
+msgid "I Miei Pazienti"
+msgstr "My Patients"
+
+#: templates/home/doctor.php:94
+msgid "Diagnosi Attuale"
+msgstr "Actual Diagnosis"
+
+#: templates/home/doctor.php:95
+msgid "In Cura dal"
+msgstr "In cure from"
+
+#: templates/home/doctor.php:97
+msgid "REGISTRATO SU APP"
+msgstr "Registered on APP"
+
+#: templates/home/doctor.php:98 templates/patients/view.php:147
+msgid "Azioni"
+msgstr "Actions"
+
+#: templates/consulto/home.php:22
+msgid "Modalità Privacy ON"
+msgstr "Privacy Mode ON"
+
+#: templates/consulto/home.php:33 templates/patients/view.php:34
+msgid "Passi Effettuati Oggi"
+msgstr "Number of steps (today)"
+
+#: templates/consulto/home.php:42 templates/patients/view.php:43
+msgid "Post Creati"
+msgstr "Diary Entries"
+
+#: templates/consulto/home.php:46 templates/patients/view.php:47
+msgid "Dettagli"
+msgstr "Details"
+
+#: templates/consulto/home.php:50 templates/patients/view.php:51
+msgid "Codice Utente"
+msgstr "User Code"
+
+#: templates/consulto/home.php:54 templates/doctor/reports.php:116
+#: templates/doctor/reports.php:168 templates/patients/view.php:56
+#: templates/patients/view.php:478
+msgid "Diagnosi"
+msgstr "Diagnosis"
+
+#: templates/consulto/home.php:73 templates/patients/view.php:99
+msgid "Dati Base Paziente"
+msgstr "Patient's Base Data"
+
+#: templates/consulto/home.php:78 templates/patients/view.php:104
+msgid "Diario del Paziente"
+msgstr "Patient Diary"
+
+#: templates/consulto/home.php:84 templates/layout/layout.php:135
+#: templates/patients/view.php:116
+msgid "Report"
+msgstr "Report"
+
+#: templates/consulto/home.php:89 templates/patients/view.php:121
+msgid "Annotazioni"
+msgstr "Annotation"
+
+#: templates/consulto/home.php:99 templates/patients/view.php:131
+msgid "Test"
+msgstr "Test"
+
+#: templates/consulto/home.php:107 templates/patients/view.php:139
+msgid "Trattamento Farmacologico"
+msgstr "Pharmacological treatment"
+
+#: templates/consulto/home.php:118 templates/patients/view.php:157
+msgid "Ultime 10 registrazioni Umore"
+msgstr "Last 10 Mood recordings"
+
+#: templates/consulto/home.php:132 templates/patients/view.php:185
+msgid "Il Suo Diario"
+msgstr "The Diary"
+
+#: templates/consulto/home.php:147 templates/patients/view.php:244
+msgid "Statistiche (Ultimi 7 Giorni)"
+msgstr "Statistics (Last 7 Days)"
+
+#: templates/consulto/home.php:151
+msgid "DIARIO"
+msgstr "DIARY"
+
+#: templates/consulto/home.php:154
+msgid "COMPORTAMENTI"
+msgstr "BEHAVIOUR"
+
+#: templates/consulto/home.php:157
+msgid "EMOZIONI"
+msgstr "EMOTIONS"
+
+#: templates/consulto/home.php:160
+msgid "MEDIANA EMOZIONI"
+msgstr "AVERAGE OF EMOTIONS"
+
+#: templates/consulto/home.php:174 templates/patients/view.php:262
+msgid "Elenco Annotazioni"
+msgstr "Annotation's List"
+
+#: templates/consulto/home.php:208 templates/patients/view.php:366
+msgid "Esito dei Test"
+msgstr "Tests Result"
+
+#: templates/consulto/home.php:211 templates/patients/view.php:369
+msgid "PHQ-9 (Depressione)"
+msgstr "PHQ-9 (Depression)"
+
+#: templates/consulto/home.php:214 templates/patients/view.php:374
+msgid "Comportamenti Impulsivi"
+msgstr "Impulsive behaviors"
+
+#: templates/consulto/home.php:217 templates/doctor/reports.php:120
+#: templates/patients/view.php:379
+msgid "Emozioni"
+msgstr "Emotions"
+
+#: templates/consulto/home.php:240
+msgid "Accesso Cartella Assistito"
+msgstr "Patient Folder Access"
+
+#: templates/consulto/home.php:241
+msgid "Perfavore, inserisca il codice di accesso ricevuto via e-mail"
+msgstr "Please enter the access code received by email"
+
+#: templates/consulto/home.php:246
+msgid "Codice PIN"
+msgstr "PIN Code"
+
+#: templates/consulto/home.php:255
+msgid "Entra"
+msgstr "Enter"
+
+#: templates/layout/layout.php:125
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/layout/layout.php:137
+msgid "Calendario"
+msgstr "Calendar"
+
+#: templates/layout/layout.php:139
+msgid "Messaggi"
+msgstr "Messages"
+
+#: templates/layout/layout.php:144
+msgid "Account"
+msgstr "Account"
+
+#: templates/layout/layout.php:146
+msgid "Dettagli &<br> Impostazioni"
+msgstr "Details &<br> Settings"
+
+#: templates/login/login_doctor.php:74
+msgid "Benvenuto/a !"
+msgstr "Welcome !"
+
+#: templates/login/login_doctor.php:75
+msgid "Perfavore, effettua il login"
+msgstr "Please, do login"
+
+#: templates/login/login_doctor.php:84
+msgid "Password dimenticata ?"
+msgstr "Forgot your password ?"
+
+#: templates/login/login_doctor.php:143
+msgid "Login Ok, andando alla tua dashboard"
+msgstr "Login Successfull, going to the dashboard"
+
+#: templates/login/login_doctor.php:146
+msgid "Email o Password non validi"
+msgstr "E-Mail or Password are invalid"
+
+#: templates/login/login_doctor.php:149
+msgid "Qualcosa è andato storto, riprova tra poco o contattaci"
+msgstr "Something went wrong, try again later or contact us"
+
+#: templates/doctor/reports.php:34 templates/doctor/reports.php:79
+msgid "Selezione Base"
+msgstr "Base Selection"
+
+#: templates/doctor/reports.php:35
+msgid "Seleziona un assistito, qualcuno in più o nessuno"
+msgstr "Select a patient, few more or no one"
+
+#: templates/doctor/reports.php:46 templates/doctor/reports.php:104
+msgid "Seleziona Dati"
+msgstr "Select Datas"
+
+#: templates/doctor/reports.php:47
+msgid "Cosa vorresti tirare fuori"
+msgstr "What you want from it"
+
+#: templates/doctor/reports.php:58 templates/doctor/reports.php:153
+msgid "Raggruppamento"
+msgstr "Grouping"
+
+#: templates/doctor/reports.php:59
+msgid "Come vuoi raggruppare il dato"
+msgstr "How do you want to group the data"
+
+#: templates/doctor/reports.php:70 templates/doctor/reports.php:185
+msgid "Finale"
+msgstr "Final"
+
+#: templates/doctor/reports.php:71
+msgid "Vedi cosa è uscito fuori"
+msgstr "See what you get"
+
+#: templates/doctor/reports.php:80
+msgid "Da dove partiamo ?"
+msgstr "From where we start ?"
+
+#: templates/doctor/reports.php:85
+msgid "Assistiti (lasciare vuoto per selezionarli tutti)"
+msgstr "Patients (leave empty to select them all)"
+
+#: templates/doctor/reports.php:105
+msgid "Su cosa vuoi lavorare ?"
+msgstr "On what you want to work on ?"
+
+#: templates/doctor/reports.php:112
+msgid "Analisi Diario"
+msgstr "Diary Analisis"
+
+#: templates/doctor/reports.php:124
+msgid "Farmaci"
+msgstr "Drugs"
+
+#: templates/doctor/reports.php:128
+msgid "Umore"
+msgstr "Mood"
+
+#: templates/doctor/reports.php:132
+msgid "Passi"
+msgstr "Steps"
+
+#: templates/doctor/reports.php:136 templates/patients/view.php:398
+msgid "Depressione"
+msgstr "Depression"
+
+#: templates/doctor/reports.php:154
+msgid "Cosa vuoi aggregare"
+msgstr "What you want to group"
+
+#: templates/doctor/reports.php:160
+msgid "Età"
+msgstr "Age"
+
+#: templates/doctor/reports.php:164
+msgid "Assistito"
+msgstr "Patient"
+
+#: templates/doctor/reports.php:186
+msgid "Genera Risultato"
+msgstr "Generate Result"
+
+#: templates/doctor/reports.php:191
+msgid "Premi il pulsante \"CREA\" per avere il pdf del risultato"
+msgstr "Press the button \"CREATE\" in order to have the result in PDF"
+
+#: templates/doctor/reports.php:203
+msgid "Crea!"
+msgstr "Create!"
+
+#: templates/doctor/view.php:14
+msgid "Dottore"
+msgstr "Doctor"
+
+#: templates/doctor/view.php:40
+msgid "Sicurezza"
+msgstr "Security"
+
+#: templates/doctor/view.php:47
+msgid "Abbonamento"
+msgstr "Subscription"
+
+#: templates/doctor/view.php:61
+msgid "Dettaglio Profilo"
+msgstr "Profile Detail"
+
+#: templates/doctor/view.php:79
+msgid "File permessi: png, jpg, jpeg."
+msgstr "Permitted files: png, jpg, jpeg."
+
+#: templates/doctor/view.php:112
+msgid "Ragione Sociale"
+msgstr "Business Name"
+
+#: templates/doctor/view.php:119 templates/patients/view.php:64
+#: templates/patients/view.php:454
+msgid "Cellulare"
+msgstr "Mobile"
+
+#: templates/doctor/view.php:126 templates/patients/view.php:471
+msgid "Indirizzo"
+msgstr "Address"
+
+#: templates/doctor/view.php:133
+msgid "Tariffa Oraria (€)"
+msgstr "Hourly Rate (€)"
+
+#: templates/doctor/view.php:140
+msgid "Partita IVA"
+msgstr "VAT Number"
+
+#: templates/doctor/view.php:147
+msgid "Account PayPal"
+msgstr "PayPal Account"
+
+#: templates/doctor/view.php:155 templates/doctor/view.php:253
+msgid "Salva"
+msgstr "Save"
+
+#: templates/doctor/view.php:157 templates/doctor/view.php:255
+#: templates/patients/view.php:488 templates/patients/view.php:512
+#: templates/patients/view.php:555
+msgid "Annulla"
+msgstr "Cancel"
+
+#: templates/doctor/view.php:168
+msgid "Eliminazione Account"
+msgstr "Delete Account"
+
+#: templates/doctor/view.php:172
+msgid "Sei sicuro di voler cancellare il tuo account ?"
+msgstr "Are you sure you want delete your accoutn ?"
+
+#: templates/doctor/view.php:174
+msgid "Questa operazione è irreversibile e perderai tutti i tuoi dati"
+msgstr "This operation is irreversible and you will lose all your data"
+
+#: templates/doctor/view.php:184
+msgid "Confermo l'eliminazione del mio account"
+msgstr "I confirm the deletion of my account"
+
+#: templates/doctor/view.php:189
+msgid "Elimina Account"
+msgstr "Delete Account"
+
+#: templates/doctor/view.php:201
+msgid "Cambio Password"
+msgstr "Change Password"
+
+#: templates/doctor/view.php:209
+msgid "Password Attuale"
+msgstr "Actual Password"
+
+#: templates/doctor/view.php:224
+msgid "Nuova Password"
+msgstr "New Password"
+
+#: templates/doctor/view.php:235
+msgid "Riscrivi Nuova Password"
+msgstr "Repeat new password"
+
+#: templates/doctor/view.php:245
+msgid "Requisiti Password:"
+msgstr "Password Requirements:"
+
+#: templates/doctor/view.php:247
+msgid "Minimo 8 caratteri"
+msgstr "Minimum 8 char"
+
+#: templates/doctor/view.php:248
+msgid "Maiuscole e Minuscole"
+msgstr "Upper and Lowe case"
+
+#: templates/doctor/view.php:303
+msgid "INDIRIZZO IP"
+msgstr "IP Address"
+
+#: templates/doctor/view.php:304
+msgid "DISPOSITIVO"
+msgstr "Device"
+
+#: templates/doctor/view.php:305
+msgid "LOCATION"
+msgstr "Location"
+
+#: templates/doctor/view.php:306
+msgid "DATA ATTIVITA'"
+msgstr "Date of Activity"
+
+#: templates/doctor/view.php:325
+msgid "Piano Corrente"
+msgstr "Current Plan"
+
+#: templates/doctor/view.php:331
+msgid "Attenzione!"
+msgstr "Warning!"
+
+#: templates/doctor/view.php:333
+msgid ""
+"Da oggi per gestire pagamenti ed abbonamenti abbiamo messo a disposizione\n"
+"                                               portale Stripe, clicca \n"
+"                                               <a target=\"_blank\" "
+"href=\"https://billing.stripe.com/p/login/00g01A2xyfWMdxe9AA\" class=\"btn "
+"btn-sm btn-primary\">QUI</a>"
+msgstr ""
+"From now on, in order to handle payments and subscription\n"
+"                                               we provided a portal with "
+"Stripe. Click  \n"
+"                                               <a target=\"_blank\" "
+"href=\"https://billing.stripe.com/p/login/00g01A2xyfWMdxe9AA\" class=\"btn "
+"btn-sm btn-primary\">HERE</a>"
+
+#: templates/patients/view.php:23
+msgid "C.F. non settato"
+msgstr "SSN Not Setted"
+
+#: templates/patients/view.php:60
+msgid "Indirizzo E-Mail"
+msgstr "E-Mail Address"
+
+#: templates/patients/view.php:61
+msgid "E-Mail non registrata"
+msgstr "E-Mail not registered"
+
+#: templates/patients/view.php:65
+msgid "Telefono non inserito"
+msgstr "Phone Number not setted"
+
+#: templates/patients/view.php:79
+msgid "Modifica"
+msgstr "Modify"
+
+#: templates/patients/view.php:82
+msgid "Consulto"
+msgstr "Consultation"
+
+#: templates/patients/view.php:110
+msgid "Documenti Condivisi"
+msgstr "Shared Documents"
+
+#: templates/patients/view.php:145
+msgid "Molecola"
+msgstr "Molecule"
+
+#: templates/patients/view.php:146
+msgid "Nome Farmaco"
+msgstr "Drug Name"
+
+#: templates/patients/view.php:197
+msgid "File Condivisi"
+msgstr "Shared Documents"
+
+#: templates/patients/view.php:206
+msgid "CARICA FILE"
+msgstr "Upload File"
+
+#: templates/patients/view.php:216
+msgid "Grafico Umore"
+msgstr "Mood Graph"
+
+#: templates/patients/view.php:226
+msgid "Grafico Andamento Depressione"
+msgstr "Depression Graph"
+
+#: templates/patients/view.php:232
+msgid "5-9 = Sintomi depressivi minimi / Depressione sottosoglia"
+msgstr "5-9 = Minimal depressive symptoms / Subthreshold depression"
+
+#: templates/patients/view.php:233
+msgid "10-14 = Depressione minore / Depressione maggiore lieve"
+msgstr "10-14 = Minor depression / Mild major depression"
+
+#: templates/patients/view.php:234
+msgid "15-19 = Depressione maggiore moderata"
+msgstr "15-19 = Moderate major depression"
+
+#: templates/patients/view.php:235
+msgid "≥ 20 = Depressione maggiore severa"
+msgstr "≥ 20 = Severe major depression"
+
+#: templates/patients/view.php:247
+msgid "Caricamento in corso"
+msgstr "Loading"
+
+#: templates/patients/view.php:273
+msgid "Nuova Annotazione"
+msgstr "New Annotation"
+
+#: templates/patients/view.php:340
+msgid "Caricamento in corso....."
+msgstr "Loading...."
+
+#: templates/patients/view.php:352
+msgid "SALVA RELAZIONE"
+msgstr "Save Report"
+
+#: templates/patients/view.php:371 templates/patients/view.php:376
+#: templates/patients/view.php:381
+msgid "Ancora Nulla"
+msgstr "Still Nothing"
+
+#: templates/patients/view.php:393
+msgid "Sottoponi Test"
+msgstr "Send Test"
+
+#: templates/patients/view.php:401
+msgid "Test selezionato:"
+msgstr "Selected Test:"
+
+#: templates/patients/view.php:404
+msgid "Invia Test"
+msgstr "Send Test"
+
+#: templates/patients/view.php:425
+msgid "Modifica informazioni Paziente"
+msgstr "Update Patient Information"
+
+#: templates/patients/view.php:426
+msgid "Attenzione ! Indietro non si torna !"
+msgstr "Warning ! There is no comeback !"
+
+#: templates/patients/view.php:448
+msgid "Indirizzo Email:"
+msgstr "E-Mail address:"
+
+#: templates/patients/view.php:465
+msgid "Numero Contatto di Emergenza"
+msgstr "Emergency Contact Number"
+
+#: templates/patients/view.php:502
+msgid "Aggiunta Farmaco"
+msgstr "Add Drug"
+
+#: templates/patients/view.php:527
+msgid "Richiesta Consulto"
+msgstr "Ask for Consultation"
+
+#: templates/patients/view.php:528
+msgid ""
+"Qui potrai generare un link valido massimo 48 ore da inviare ad un "
+"collega\n"
+"                            per darti una mano a capire meglio il tuo "
+"paziente."
+msgstr ""
+"Here you can generate a magic link valid 48 hour and send it to a "
+"collegue\n"
+"                            in order to have an help in understanding this "
+"patient."
+
+#: templates/patients/view.php:542
+msgid "Inviti inviati ancora attivi"
+msgstr "Invitation sent still actives"
+
+#: templates/patients/view.php:551
+msgid "Invia"
+msgstr "Send"
+
+#: src/Action/Patients/AddAnnotationPatientAction.php:47
+#: src/Action/Patients/DeleteAnnotationPatientAction.php:46
+msgid "No data received"
+msgstr "No data received"
+
+#: src/Domain/Consulti/Repository/ConsultiRepository.php:92
+msgid "Server Error, contatta Mental Space Support Team"
+msgstr "Server Error, contact Mnetal Space team"
+
+#: src/Domain/Consulti/Repository/ConsultiRepository.php:113
+msgid "Consulto Medico"
+msgstr "Doctor Consultation"
+
+#: src/Domain/Consulti/Repository/ConsultiRepository.php:122
+msgid ""
+"Errore invio E-Mail, se lo hai scritto correttamente contatta Mental Space "
+"Support Team"
+msgstr "Error while sending mail. if you wrote it right contact Mental Space"
+
+#: src/Domain/Consulti/Repository/ConsultiRepository.php:126
+msgid "Richiesta consulto inviata correttamente"
+msgstr "Medical Consultation request sent successfull"
+
+#: src/Domain/Patients/Repository/PatientsRepository.php:103
+msgid "Invito a partecipare a Mental Space"
+msgstr "Invite to partecipate at Mental Space"
+
+#: src/Domain/Users/Repository/UserRepository.php:173
+#: src/Domain/Users/Repository/UserRepository.php:199
+#: src/Domain/Users/Repository/UserRepository.php:308
+msgid "Something went wrong, try again later"
+msgstr "Something went wrong, try again later"
+
+#: src/Domain/Users/Repository/UserRepository.php:176
+#: src/Domain/Users/Repository/UserRepository.php:311
+msgid "Aggiornato con successo"
+msgstr "Update Successfull"
+
+#: src/Domain/Users/Repository/UserRepository.php:202
+msgid "Updated Successfull"
+msgstr "Updated Successfull"
+
+#: src/Domain/Users/Repository/UserRepository.php:355
+#, fuzzy
+msgid "Password attuale non esatta, riprovare"
+msgstr "Actual password is wrong, try again ?"
+
+#: src/Domain/Users/Repository/UserRepository.php:362
+msgid "Qualcosa è andato storto"
+msgstr "Something went wrong"
+
+#: src/Domain/Users/Repository/UserRepository.php:365
+msgid "Password Aggiornata con successo"
+msgstr "Password Update Successfull"

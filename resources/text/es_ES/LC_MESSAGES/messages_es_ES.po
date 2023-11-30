@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-07-17 14:43+0200\n"
+"PO-Revision-Date: 2022-05-30 19:43+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: .\n"
+
+msgid "Welcome to Saturn !"
+msgstr "Bienvenido en Saturn !"
+
+msgid "Please sign-in to your account"
+msgstr "Por favor inicia sesión en tu cuenta"
+
+msgid "Forgot password?"
+msgstr "Se te olvidó tu contraseña?"
+
+msgid "Coin In"
+msgstr "Jugado"
+
+msgid "Coin Out"
+msgstr "Premiado"
+
+msgid "Revenue Report"
+msgstr "Reporte de Ingresos"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Add"
+msgstr "Agregar"
+
+msgid "Statistics"
+msgstr "Estadisticas"
+
+msgid "Gaming Hall"
+msgstr "PDV"
+
+msgid "Machine Name"
+msgstr "Juego"
+
+msgid "Vendor"
+msgstr "Proveedor"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Gaming Hall Code"
+msgstr "Codigo PDV"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Address"
+msgstr "Direccion"
+
+msgid "ZIP Code"
+msgstr "Codigo Postal"
+
+msgid "Coordinate"
+msgstr "Coordenadas"
+
+msgid "MAC Address"
+msgstr "MAC"
+
+msgid "Machine Type"
+msgstr "Tipo Maquina"
+
+msgid "Machine Number"
+msgstr "Numero Maquina"
+
+msgid "Serial Number"
+msgstr "Numero de Serie"
+
+msgid "Hopper Conf"
+msgstr "Configuracion Hopper"
+
+msgid "Note"
+msgstr "Apunte"
+
+msgid "Game Version"
+msgstr "Version Juego"
+
+msgid "Billetero Version"
+msgstr "Version Billetero"
+
+msgid "Firmware Version"
+msgstr "Version Firmware"
+
+msgid "Electronic Counter"
+msgstr "Contador Electronico"
+
+msgid "Game counter for value"
+msgstr "Contadores de partidas por valor"
+
+msgid "Game counter by time period"
+msgstr "Contadores de partidas por franja horaria"
