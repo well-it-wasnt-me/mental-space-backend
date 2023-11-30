@@ -1,5 +1,5 @@
 # Mental Space
-As per it's counter part (mental-space-app) reachable [HERE(https://github.com/pazDontExist/mental-space-app), this project is very important to me.
+As per it's counter part (mental-space-app) reachable [HERE](https://github.com/pazDontExist/mental-space-app), this project is very important to me.
 
 I know very well how a mental illness can impact an individual and all the people around him/her.
 
@@ -8,7 +8,7 @@ o i decided to start my project "Mental Space" where it aim to help the user to 
 This back-end, that initially i started as private thing, is now Public with a creative common license and i truly hope to find some good contributors in order to make this project BETTER.
 
 # STACK
-- PHP ^7
+- PHP ^7 | ^8
 - MySQL
 - Apache
 
@@ -19,14 +19,17 @@ This back-end, that initially i started as private thing, is now Public with a c
 - I've implemented (before leaving this to the dust) a part where allow the Doctors registration after a successful Stripe payment
 - Please, if you decide to make money out of this, consider: End user *MUST NOT PAY** for anything. Doctor can pay between 20 to 50 € month (you decide what's better...don't be greedy)
 - I know that this project in real life present challenges, responsabilities and COSTs. But if you can, provide it for free.
+- Since i developed this only for me and my doctors you will find some stuff that are not properly in line with the actual security standard. Please, be kind, point them out on an issue or solve it (whatever is best for you)
 
 ## Actual "State of the Art"
 Honestly i can't remember everything since it's quite some time i don't open this project. But those things should work:
 - Mobile application API
-- Anti Manipulation System on the page used for when a doctor share infos about his patient to another doctor (ofc, keeps PII hidden and is password protected)
+- Anti Manipulation System (DOM live check) on the page used for when a doctor share infos about his patient to another doctor (ofc, keeps PII hidden and is password protected)
 - Login & Registration
 - Patient details (basic data, tests score and all other things collected from the app.....)
 - I'm for sure forgetting something
+- Stripe Integration
+- Patient Management
 
 ## Collaboration & Issues
 
