@@ -1,5 +1,5 @@
 # Mental Space
-As per it's counter part (mental-space-app) reachable (HERE)[#], this project is very important to me.
+As per it's counter part (mental-space-app) reachable [HERE(https://github.com/pazDontExist/mental-space-app), this project is very important to me.
 
 I know very well how a mental illness can impact an individual and all the people around him/her.
 
