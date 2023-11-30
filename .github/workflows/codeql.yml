@@ -81,4 +81,4 @@ jobs:
       with:
         category: "/language:${{matrix.language}}"
         paths-ignore: |
-          public/app-assets/js/scripts/**
+          public/app-assets/vendors/js/**
