@@ -295,7 +295,7 @@ function retrieveComportamentiTest() {
                 '<div class="card accordion-item">\n' +
                 '   <h2 class="accordion-header" id="paymentNone">\n' +
                 '       <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#cmp' + v['cmp_id'] + '" aria-expanded="false" aria-controls="cmp' + v['cmp_id'] + '">\n' +
-                '    ' + moment(v['data_compilazione'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['data_compilazione']).locale('it').fromNow() +
+                '    ' + moment(v['submission_date'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['submission_date']).locale('it').fromNow() +
                 '       </button>\n' +
                 '   </h2>\n' +
                 '\n' +
@@ -308,8 +308,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Gesti Autolesivi</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['gesti_autolesivi']).intenzione) + '</span><br>\n' +
-                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['gesti_autolesivi']).azione) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['selfharm_acts']).intenzione) + '</span><br>\n' +
+                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['selfharm_acts']).azione) + '</span>\n' +
                 '                                                </div>\n' +
                 '                                                \n' +
                 '    </div>\n' +
@@ -321,8 +321,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Tentativi di Suicidio</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['tentativi_suicidio']).pensiero) + '</span><br>\n' +
-                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['tentativi_suicidio']).azione) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['suicidal_attempts']).pensiero) + '</span><br>\n' +
+                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['suicidal_attempts']).azione) + '</span>\n' +
                 '                                                </div>\n' +
                 '                                                \n' +
                 '    </div>\n' +
@@ -334,8 +334,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Assunzione Alcool</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['assunzione_alcol']).intenzione) + '</span><br>\n' +
-                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['assunzione_alcol']).uso) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['alcohol_use']).intenzione) + '</span><br>\n' +
+                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['alcohol_use']).uso) + '</span>\n' +
                 '                                                </div>\n' +
                 '                                                \n' +
                 '    </div>\n' +
@@ -346,8 +346,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Assunzione Droghe</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['assunzione_droghe']).intenzione) + '</span><br>\n' +
-                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['assunzione_droghe']).uso) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['illegal_drug_use']).intenzione) + '</span><br>\n' +
+                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['illegal_drug_use']).uso) + '</span>\n' +
                 '                                                </div>\n' +
                 '                                                \n' +
                 '    </div>\n' +
@@ -358,7 +358,7 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Assunzione Farmaci con Prescrizione</p>\n' +
-                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['assunzione_droghe']).assunzione) + '</span>\n' +
+                '                                                    <span>Azione: ' + azioneConverter(JSON.parse(v['illegal_drug_use']).assunzione) + '</span>\n' +
                 '                                                </div>\n' +
                 '    </div>\n' +
                 '</div>' +
@@ -369,8 +369,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Abbuffate</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['abbuffate']).intenzione) + '</span>\n' +
-                '                                                    <br><span>Azione: ' + azioneConverter(JSON.parse(v['abbuffate']).azione) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['binge_eating']).intenzione) + '</span>\n' +
+                '                                                    <br><span>Azione: ' + azioneConverter(JSON.parse(v['binge_eating']).azione) + '</span>\n' +
                 '                                                </div>\n' +
                 '   </div>\n' +
                 '</div>' +
@@ -381,8 +381,8 @@ function retrieveComportamentiTest() {
                 '                                            <div class="d-flex justify-content-between flex-grow-1">\n' +
                 '                                                <div class="me-1">\n' +
                 '                                                    <p class="fw-bolder mb-0">Vomito</p>\n' +
-                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['vomito']).intenzione) + '</span>\n' +
-                '                                                    <br><span>Azione: ' + azioneConverter(JSON.parse(v['vomito']).azione) + '</span>\n' +
+                '                                                    <span>Intenzione: ' + intenzioneConverter(JSON.parse(v['puking']).intenzione) + '</span>\n' +
+                '                                                    <br><span>Azione: ' + azioneConverter(JSON.parse(v['puking']).azione) + '</span>\n' +
                 '                                                </div>\n' +
                 '   </div>\n' +
                 '</div>'
@@ -403,23 +403,23 @@ function retrievePhqTest() {
         $("#phq9-holder").html("");
         var score = 0;
         $.each(resp, function (i, v) {
-           score = parseInt(v['interesse']) +
-               parseInt(v['depresso']) +
-               parseInt(v['difficolta_sonno']) +
-               parseInt(v['stanco']) +
-               parseInt(v['poca_fame']) +
-               parseInt(v['sensi_di_colpa']) +
-               parseInt(v['difficolta_concentrazione']) +
-               parseInt(v['movimento']) +
-               parseInt(v['meglio_morte']) +
-               parseInt(v['difficolta_problemi']);
+           score = parseInt(v['interest']) +
+               parseInt(v['depressed']) +
+               parseInt(v['sleep_difficulty']) +
+               parseInt(v['tired']) +
+               parseInt(v['notso_hungry']) +
+               parseInt(v['sense_of_guilt']) +
+               parseInt(v['trouble_concentrating']) +
+               parseInt(v['movement']) +
+               parseInt(v['better_dead']) +
+               parseInt(v['propblems_difficulty']);
 
 
                $("#phq9-holder").append(
                 '<div class="card accordion-item">\n' +
                 '   <h2 class="accordion-header" id="paymentNoness">\n' +
                 '       <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#ph' + v['ph_id'] + '" aria-expanded="false" aria-controls="ph' + v['ph_id'] + '">\n' +
-                '    ' + moment(v['data_compilazione'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['data_compilazione']).locale('it').fromNow() +
+                '    ' + moment(v['submission_date'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['submission_date']).locale('it').fromNow() +
                 '       </button>\n' +
                 '   </h2>\n' +
                 '\n' +
@@ -508,7 +508,7 @@ function retrieveEmozioniTest(){
                 '<div class="card accordion-item">\n' +
                 '   <h2 class="accordion-header" id="paymentNones">\n' +
                 '       <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#em' + v['em_id'] + '" aria-expanded="false" aria-controls="em' + v['em_id'] + '">\n' +
-                '    ' + moment(v['data_compilazione'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['data_compilazione']).locale('it').fromNow() +
+                '    ' + moment(v['submission_date'], "YYYY-MM-DD hh:mm:ss").format('DD/MM/YYYY hh:mm:ss') + ' - ' + moment(v['submission_date']).locale('it').fromNow() +
                 '       </button>\n' +
                 '   </h2>\n' +
                 '\n' +

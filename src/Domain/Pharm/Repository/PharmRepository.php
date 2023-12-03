@@ -84,7 +84,7 @@ final class PharmRepository
             ->execute()
             ->fetchAll('assoc');
 
-        return $this->queryFactory->newDelete('assegnazione_farmaci')
+        return $this->queryFactory->newDelete('drugs_assignment')
             ->where('id = ' . $id . ' AND paz_id = ' . $pid[0]['paz_id'])
             ->execute();
     }
@@ -97,7 +97,7 @@ final class PharmRepository
 
         $data['paz_id'] = $pid[0]['paz_id'];
 
-        return $this->queryFactory->newInsert('assegnazione_farmaci', $data)->execute();
+        return $this->queryFactory->newInsert('drugs_assignment', $data)->execute();
     }
 
     public function userDrug($uid){
@@ -106,10 +106,10 @@ final class PharmRepository
             ->where('user_id = ' . $uid)
         ->execute()->fetchAll('assoc');
 
-        return $this->queryFactory->newSelect('assegnazione_farmaci')
-            ->innerJoin('farmaci', 'assegnazione_farmaci.farm_id = farmaci.id')
+        return $this->queryFactory->newSelect('drugs_assignment')
+            ->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id')
             ->select(['farmaci.principio_attivo', 'farmaci.denom', 'farmaci.prezzo'])
-            ->where('assegnazione_farmaci.paz_id = ' . $paz_id[0]['paz_id'])
+            ->where('drugs_assignment.paz_id = ' . $paz_id[0]['paz_id'])
             ->execute()->fetchAll('assoc');
     }
 }

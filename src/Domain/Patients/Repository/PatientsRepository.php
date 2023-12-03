@@ -70,12 +70,12 @@ final class PatientsRepository
         }
         $arr = (array)$rawData['curr_pharms'];
         foreach ($arr as $val) {
-            $this->queryFactory->newInsert('assegnazione_farmaci', ['paz_id' => $paz_id, 'farm_id' => $val])->execute();
+            $this->queryFactory->newInsert('drugs_assignment', ['paz_id' => $paz_id, 'farm_id' => $val])->execute();
         }
 
         $arr = (array)$rawData['dsm_id'];
         foreach ($arr as $val) {
-            $this->queryFactory->newInsert('assegnazione_diagnosi', ['paz_id' => $paz_id, 'dsm_id' => $val])->execute();
+            $this->queryFactory->newInsert('assignment_diagnosis', ['paz_id' => $paz_id, 'dsm_id' => $val])->execute();
         }
 
         if ($patientData->invito === 'checked') {
@@ -134,7 +134,7 @@ final class PatientsRepository
            'patients.data_inizio_cure',
            'users.email',
            'users.account_status',
-           '(SELECT GROUP_CONCAT(dsm.descrizione) FROM dsm INNER JOIN assegnazione_diagnosi ON assegnazione_diagnosi.dsm_id = dsm.id AND assegnazione_diagnosi.paz_id = patients.paz_id) AS descrizione',
+           '(SELECT GROUP_CONCAT(dsm.descrizione) FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = patients.paz_id) AS descrizione',
         ]);
 
         $query->where('patients.doc_id = ' . $_SESSION['user_id']);
@@ -158,7 +158,7 @@ final class PatientsRepository
             'patients.*',
             'users.*',
             '"" AS icd_ten',
-            '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assegnazione_diagnosi ON assegnazione_diagnosi.dsm_id = dsm.id AND assegnazione_diagnosi.paz_id = ' . $id .') AS descrizione',
+            '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = ' . $id .') AS descrizione',
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
             '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
         ]);
@@ -181,13 +181,13 @@ final class PatientsRepository
 
         }
 
-        $query = $this->queryFactory->newSelect('assegnazione_farmaci');
-        $query->innerJoin('farmaci', 'assegnazione_farmaci.farm_id = farmaci.id');
+        $query = $this->queryFactory->newSelect('drugs_assignment');
+        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
         $query->select([
             'farmaci.*',
-            'assegnazione_farmaci.id',
+            'drugs_assignment.id',
         ]);
-        $query->where('assegnazione_farmaci.paz_id = ' . $id_paz);
+        $query->where('drugs_assignment.paz_id = ' . $id_paz);
 
         $rows = $query->execute()->fetchAll('assoc') ?: [];
 
@@ -215,7 +215,7 @@ final class PatientsRepository
         $query = $this->queryFactory->newUpdate('patients', $sbs);
         $query->where('paz_id = ' . $data['paz_id']);
 
-        $query2 = $this->queryFactory->newDelete('assegnazione_diagnosi')
+        $query2 = $this->queryFactory->newDelete('assignment_diagnosis')
             ->where('paz_id = ' . $data['paz_id']);
 
         try {
@@ -223,7 +223,7 @@ final class PatientsRepository
             $query2->execute();
             $arr = (array)$rawData['modalEditUserDsm'];
             foreach ($arr as $val) {
-                $this->queryFactory->newInsert('assegnazione_diagnosi', ['paz_id' => $data['paz_id'], 'dsm_id' => $val])->execute();
+                $this->queryFactory->newInsert('assignment_diagnosis', ['paz_id' => $data['paz_id'], 'dsm_id' => $val])->execute();
             }
 
 
@@ -253,20 +253,20 @@ final class PatientsRepository
     public function listPharmPatMobile($id_paz): array
     {
 
-        $query = $this->queryFactory->newSelect('assegnazione_farmaci');
-        $query->innerJoin('farmaci', 'assegnazione_farmaci.farm_id = farmaci.id');
+        $query = $this->queryFactory->newSelect('drugs_assignment');
+        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
         $query->select([
             'farmaci.*',
-            'assegnazione_farmaci.id',
-            'assegnazione_farmaci.farm_id',
-            'assegnazione_farmaci.paz_id',
-            'assegnazione_farmaci.data_assegnazione',
-            'assegnazione_farmaci.oraPrimaDoseDoppia',
-            'assegnazione_farmaci.oraPrimaDoseSingola',
-            'assegnazione_farmaci.oraSecondaDoseDoppia',
-            'assegnazione_farmaci.scheduled',
+            'drugs_assignment.id',
+            'drugs_assignment.farm_id',
+            'drugs_assignment.paz_id',
+            'drugs_assignment.assignment_date',
+            'drugs_assignment.hourFirstDoubleDose',
+            'drugs_assignment.hourFirstSingleDose',
+            'drugs_assignment.hourSecondDoubleDose',
+            'drugs_assignment.scheduled',
         ]);
-        $query->where('assegnazione_farmaci.paz_id = ' . $this->getPazId($id_paz)['paz_id']);
+        $query->where('drugs_assignment.paz_id = ' . $this->getPazId($id_paz)['paz_id']);
 
         $rows = $query->execute()->fetchAll('assoc') ?: [];
 
@@ -331,7 +331,7 @@ final class PatientsRepository
     function addPill(int $pill_id, int $paz_id)
     {
         if ($this->queryFactory->newInsert(
-            'assegnazione_farmaci',
+            'drugs_assignment',
             ['paz_id' => $paz_id, 'farm_id' => $pill_id]
         )->execute()) {
             return ['status' => 'success', 'message' => 'Farmaco inserito con successo'];
@@ -342,7 +342,7 @@ final class PatientsRepository
 
     function delPill(int $paz_id, int $ass_id)
     {
-        if ($this->queryFactory->newDelete('assegnazione_farmaci')
+        if ($this->queryFactory->newDelete('drugs_assignment')
             ->where('paz_id = ' . $paz_id . ' AND id = ' . $ass_id)->execute()) {
             return ['status' => 'success', 'message' => 'Farmaco inserito con successo'];
         }
@@ -364,8 +364,8 @@ final class PatientsRepository
         if( !$consulto){
             $addWhere = " AND doc_id = " . $_SESSION['user_id'];
         }
-        return $this->queryFactory->newSelect('annotazioni')
-            ->select(['annotazione', 'ann_id', 'creation_date'])
+        return $this->queryFactory->newSelect('annotation')
+            ->select(['annotation', 'ann_id', 'creation_date'])
             ->orderDesc("creation_date")
             ->where('paz_id = ' . $paz_id . " $addWhere")
             ->execute()
@@ -374,7 +374,7 @@ final class PatientsRepository
 
     function addAnnotation(array $data){
         $data['doc_id'] = $_SESSION['user_id'];
-        if( $this->queryFactory->newInsert('annotazioni', $data)
+        if( $this->queryFactory->newInsert('annotation', $data)
             ->execute() ){
             return ['status' => 'success'];
         }
@@ -383,7 +383,7 @@ final class PatientsRepository
     }
 
     function deleteAnnotation(int $ann_id){
-        return $this->queryFactory->newDelete('annotazioni')
+        return $this->queryFactory->newDelete('annotation')
             ->where('ann_id = '. $ann_id . " AND doc_id = ".$_SESSION['user_id'])
             ->execute();
     }
@@ -442,7 +442,7 @@ WHERE paz_id = $paz_id ORDER BY data_compilazione ASC");
             'patients.*',
             'users.*',
             '"" AS icd_ten',
-            '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assegnazione_diagnosi ON assegnazione_diagnosi.dsm_id = dsm.id AND assegnazione_diagnosi.paz_id = ' . $id .') AS descrizione',
+            '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = ' . $id .') AS descrizione',
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
             '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
         ]);

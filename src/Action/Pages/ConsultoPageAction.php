@@ -215,7 +215,7 @@ final class ConsultoPageAction
             'diario' => empty($diario) ? 'Non ha scritto nulla negli ultimi 7 giorni':$diario,
             'lista_farmaci' => $farmaci,
             'registrazioni_mood' => $mood,
-            'annotazioni' => $annotazioni,
+            'annotation' => $annotazioni,
             'stats' => [
                 'diario' => empty($statDiario) ? 'Non ha scritto nulla negli ultimi 7 giorni':$statDiario,
                 'comportamento' => $statComportamento,

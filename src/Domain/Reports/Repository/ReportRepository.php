@@ -43,7 +43,7 @@ final class ReportRepository
         $comportamento = $this->queryFactory->rawQuery("
             SELECT COUNT(*) AS tot_test,
             DATE(data_compilazione) AS compilazione_ts
-            FROM comportamenti
+            FROM behaviours
             WHERE paz_id = $paz_id 
             AND DATE(data_compilazione) >= CURRENT_DATE - INTERVAL 7 DAY
             GROUP BY DATE(data_compilazione)

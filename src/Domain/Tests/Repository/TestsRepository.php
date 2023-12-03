@@ -29,7 +29,7 @@ final class TestsRepository
     public function addComportamentoTest(int $uid, array $testData){
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
-        return $this->queryFactory->newInsert('comportamenti', $testData)
+        return $this->queryFactory->newInsert('behaviours', $testData)
             ->execute();
     }
 
@@ -48,7 +48,7 @@ final class TestsRepository
     }
     public function listComportamentoTest(int $uid){
         $paz_id = $this->getPazIDByUserID($uid);
-        return $this->queryFactory->newSelect('comportamenti')
+        return $this->queryFactory->newSelect('behaviours')
             ->select(['*'])
             ->orderDesc('cmp_id')
             ->where('paz_id = ' . $paz_id)
