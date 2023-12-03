@@ -26,7 +26,7 @@ Before you voluntarily dive into the depths of developer purgatory, here's a lis
 
 1. **Branch Naming**: Choose a name – but that have at least some common sense.
 
-2. **Commit Messages**: Oh dear me...Check [this](https://github.com/pazDontExist/mental-space-backend/blob/master/.gitmessage)
+2. **Commit Messages**: Oh dear me...Check [this](https://www.conventionalcommits.org/en/v1.0.0/)
 
 3. **Test Inspection**: Run tests...please
 
