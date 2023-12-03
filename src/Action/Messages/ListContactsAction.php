@@ -5,7 +5,6 @@
 
 namespace App\Action\Messages;
 
-
 use App\Domain\Messages\Repository\MessagesRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -25,7 +24,7 @@ final class ListContactsAction
      * @param MessagesRepository $msgRepo The user index list viewer
      * @param Responder $responder The responder
      */
-    public function __construct( Responder $responder, MessagesRepository $msgRepo)
+    public function __construct(Responder $responder, MessagesRepository $msgRepo)
     {
         $this->msgRepo = $msgRepo;
         $this->responder = $responder;

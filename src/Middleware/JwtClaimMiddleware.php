@@ -1,10 +1,12 @@
 <?php
 namespace App\Middleware;
+
 use App\Routing\JwtAuth;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+
 /**
  * JWT Claim middleware.
  */

@@ -36,13 +36,13 @@ final class InviteDoctorAction
         $userId =  $request->getAttribute('uid');
         $userData = $this->repository->getUserById($userId);
 
-        if(empty($userData)){
+        if (empty($userData)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('User Not Found, who are you ?')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
         $data = (array)$request->getParsedBody();
-        if(empty($data)){
+        if (empty($data)) {
             $data = json_decode(file_get_contents('php://input'), true);
         }
 
@@ -55,7 +55,7 @@ final class InviteDoctorAction
 
         $docData = $this->repository->getDocByEmail($data['doc_email']);
 
-        if(empty($docData)){
+        if (empty($docData)) {
             $mail = new PHPMailer(true);
             try {
                 //Server settings
@@ -81,7 +81,6 @@ final class InviteDoctorAction
                 $mail_body = str_replace($search, $replace, $mail_body);
                 $mail->Body = $mail_body;
                 $mail->send();
-
             } catch (\Exception $e) {
                 return $this->responder
                     ->withJson($response, ['status' => 'error', 'messsage' => $e->getMessage()])
@@ -92,8 +91,7 @@ final class InviteDoctorAction
                 ->withJson($response, ['status' => 'success'])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         } else {
-
-            if( $this->patientsRepository->AssignDocToPaz($userId, $docData['user_id'])){
+            if ($this->patientsRepository->AssignDocToPaz($userId, $docData['user_id'])) {
                 $mail = new PHPMailer(true);
                 try {
                     //Server settings
@@ -119,7 +117,6 @@ final class InviteDoctorAction
                     $mail_body = str_replace($search, $replace, $mail_body);
                     $mail->Body = $mail_body;
                     $mail->send();
-
                 } catch (\Exception $e) {
                     return $this->responder
                         ->withJson($response, ['status' => 'error', 'messsage' => $e->getMessage()])

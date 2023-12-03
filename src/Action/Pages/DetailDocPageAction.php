@@ -53,10 +53,9 @@ final class DetailDocPageAction
 
 
             $docDetail = $this->repository->doctorDetail();
-            if(isset($args['esito'])){
-                $docDetail[0]['esito'] = $args['esito'];
-            }
+        if (isset($args['esito'])) {
+            $docDetail[0]['esito'] = $args['esito'];
+        }
             return $this->renderer->render($response, 'doctor/view.php', $docDetail[0]);
-
     }
 }

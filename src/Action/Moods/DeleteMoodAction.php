@@ -41,7 +41,7 @@ final class DeleteMoodAction
 
 
         $mood = $this->repository->deleteMood($mood_id, $user_id);
-        if ( $mood ) {
+        if ($mood) {
             $status = 'success';
         } else {
             $status = 'error';

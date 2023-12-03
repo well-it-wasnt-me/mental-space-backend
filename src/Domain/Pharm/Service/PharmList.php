@@ -11,27 +11,32 @@ final class PharmList
 {
     private PharmRepository $repository;
 
-    public function __construct(PharmRepository $repository){
+    public function __construct(PharmRepository $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function listPharm($for_select = false): array {
+    public function listPharm($for_select = false): array
+    {
         return $this->repository->listDrugs($for_select);
     }
 
-    public function searchPharm($denom): array {
+    public function searchPharm($denom): array
+    {
         return $this->repository->seaerchDrug($denom);
     }
 
-    public function deletePazDrug($id, $uid){
+    public function deletePazDrug($id, $uid)
+    {
         return $this->repository->deleteDrug($id, $uid);
     }
-    public function addDrugPaz($data, $uid){
+    public function addDrugPaz($data, $uid)
+    {
         return $this->repository->addDrug($data, $uid);
     }
 
-    public function webListPharm($term){
+    public function webListPharm($term)
+    {
         return $this->repository->webSearchDrug($term);
     }
-
 }

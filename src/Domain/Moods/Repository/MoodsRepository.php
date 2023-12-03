@@ -61,7 +61,8 @@ final class MoodsRepository
         return ['status' => 'success'];
     }
 
-    function ultimi10mood($uid){
+    function ultimi10mood($uid)
+    {
         $data = $this->queryFactory->newSelect('mood_trackings')
         ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
         ->select(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image','mood_trackings.trk_id', 'mood_trackings.warning_sign'])
@@ -71,7 +72,8 @@ final class MoodsRepository
         return [$data];
     }
 
-    function ultimi10moodGraph($uid){
+    function ultimi10moodGraph($uid)
+    {
         $data = $this->queryFactory->newSelect('mood_trackings')
             ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
             ->select(['COUNT(*) AS y', 'moods.value as x'])
@@ -81,18 +83,20 @@ final class MoodsRepository
         return [$data];
     }
 
-    function deleteMood($mood_id, $user_id){
+    function deleteMood($mood_id, $user_id)
+    {
         $data = $this->queryFactory->newDelete('mood_trackings')
             ->where('usr_id = ' . $user_id . ' AND trk_id = ' . $mood_id)
             ->execute();
-        if( $data->errorInfo()[0] === "00000" ) {
+        if ($data->errorInfo()[0] === "00000") {
             return true;
         }
 
         return false;
     }
 
-    function periodoMood($uid, $dataA, $dateB){
+    function periodoMood($uid, $dataA, $dateB)
+    {
         $data = $this->queryFactory->newSelect('mood_trackings')
             ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
             ->select(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image','mood_trackings.trk_id', 'mood_trackings.warning_sign'])

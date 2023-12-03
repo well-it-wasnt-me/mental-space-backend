@@ -48,7 +48,6 @@ return function (App $app) {
 
         $group->get("/patients/add", \App\Action\Pages\AddPatientsAction::class)->setName('add-patient');
         $group->get("/patients/list", \App\Action\Pages\ListSmartboxAction::class)->setName('list-patient');
-
     })->add(UserAuthMiddleware::class);
 
     // API endpoints. This group is protected with JWT.
@@ -59,7 +58,7 @@ return function (App $app) {
         $group->get('/patients/list/diary/{user_id}', \App\Action\Patients\ListDiaryPatientAction::class);
         $group->get('/patients/pharm/list/{paz_id}', \App\Action\Patients\ListPharmPatientAction::class);
         $group->post('/patients/update', \App\Action\Patients\UpdatePatientAction::class);
-        $group->get('/patients/file/list/{user_id}',\App\Action\Files\DocFileListAction::class);
+        $group->get('/patients/file/list/{user_id}', \App\Action\Files\DocFileListAction::class);
         $group->post('/patient/file/download', \App\Action\Files\DocFileDownloadAction::class);
         $group->post('/patient/file/upload', \App\Action\Files\DocFileUploadAction::class);
         $group->post('/patient/file/delete', \App\Action\Files\DocFileDeleteAction::class);
@@ -71,9 +70,9 @@ return function (App $app) {
         $group->post('/drugs/list/search', \App\Action\Pharm\WebSearchByNameAction::class);
         $group->get('/search/patient/{full_name}', \App\Action\Patients\SearchPatAction::class);
         $group->get('/invoices/list', \App\Action\Invoices\ListInvoiceAction::class);
-        $group->get('/patient/pills/add/{paz_id}/{pill_id}',\App\Action\Patients\AddPillPatientAction::class);
-        $group->get('/patient/pills/delete/{paz_id}/{ass_id}',\App\Action\Patients\DelPillPatientAction::class);
-        $group->get('/patient/delete/{paz_id}',\App\Action\Patients\DelPatientAction::class);
+        $group->get('/patient/pills/add/{paz_id}/{pill_id}', \App\Action\Patients\AddPillPatientAction::class);
+        $group->get('/patient/pills/delete/{paz_id}/{ass_id}', \App\Action\Patients\DelPillPatientAction::class);
+        $group->get('/patient/delete/{paz_id}', \App\Action\Patients\DelPatientAction::class);
         $group->get('/patients/list/annotation/{paz_id}', \App\Action\Patients\ListAnnotationPatientAction::class);
         $group->post('/patients/add/annotation', \App\Action\Patients\AddAnnotationPatientAction::class);
         $group->get('/patients/delete/annotation/{ann_id}', \App\Action\Patients\DeleteAnnotationPatientAction::class);
@@ -97,7 +96,7 @@ return function (App $app) {
 
         /*** END PATIENTS ***/
         $group->post('/doctor/update', \App\Action\Doctors\UpdateDoctorAction::class);
-        $group->get('/doctor/calendar',\App\Action\Doctors\UpdateDoctorAction::class);
+        $group->get('/doctor/calendar', \App\Action\Doctors\UpdateDoctorAction::class);
 
 
 
@@ -133,7 +132,6 @@ return function (App $app) {
         $group->post('/user/password/update', \App\Action\Users\UserPasswordChange::class);
 
         /********* END USER SECTION ************/
-
     })->add(UserAuthMiddleware::class);
 
     $app->group('/mobile/api', function (RouteCollectorProxy $group) {
@@ -177,8 +175,6 @@ return function (App $app) {
         $group->post('/patient/test/phq', \App\Action\Reports\Phq9TestAction::class);
         $group->get('/patient/test/phq', \App\Action\Reports\ListPhq9TestAction::class);
         $group->post('/register/notification', \App\Action\Notification\RegisterNotificationAction::class);
-
-
     })->add(\App\Middleware\JwtAuthMiddleware::class);
 
 
@@ -221,6 +217,4 @@ return function (App $app) {
     $app->options('/mobile/api/patient/health/passi', \App\CORS\CORSAction::class);
     $app->options('/mobile/api/patient/test/phq', \App\CORS\CORSAction::class);
     $app->options('/mobile/api/register/notification', \App\CORS\CORSAction::class);
-
-
 };

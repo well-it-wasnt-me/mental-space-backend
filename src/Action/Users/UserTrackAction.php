@@ -49,8 +49,7 @@ final class UserTrackAction
         // Invoke the domain (service class)
         $user = $this->userReader->trackUser($userId, $coord['coordinates'], $coord['addr']);
 
-        if ( $user )
-        {
+        if ($user) {
             return $this->responder
                 ->withJson($response, ['status' => 'success'])
                 ->withStatus(StatusCodeInterface::STATUS_OK);

@@ -78,7 +78,8 @@ final class UserCreator
         return $this->repository->insertDocUser($user);
     }
 
-    public function createPazUser(array $data): int {
+    public function createPazUser(array $data): int
+    {
         return $this->repository->insertPazUser($data);
     }
 }

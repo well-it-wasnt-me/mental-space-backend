@@ -54,6 +54,5 @@ final class CounterValuePeriodDiffStatAction
         ]);
 
         return $this->renderer->render($response, 'statistics/counter_period_diff.php');
-
     }
 }

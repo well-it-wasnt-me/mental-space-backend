@@ -5,7 +5,6 @@
 
 namespace App\Action\Obiettivi;
 
-
 use App\Domain\Obiettivi\Repository\ObiettiviRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -42,7 +41,7 @@ final class AddObiettivoAction
         $data = $request->getParsedBody();
         $q = $this->obiettiviRepository->addObjective($data, $request->getAttribute('uid'));
 
-        if( !$q ){
+        if (!$q) {
             $status = "error";
         } else {
             $status = "success";

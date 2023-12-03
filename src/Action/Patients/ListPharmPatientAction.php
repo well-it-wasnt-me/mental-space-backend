@@ -42,7 +42,7 @@ final class ListPharmPatientAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         // Optional: Pass parameters from the request to the findUsers method
-        if(empty($args)){
+        if (empty($args)) {
             $args = [];
         }
         $sb = $this->patientsList->listPharmPatient($args['paz_id']);

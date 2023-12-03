@@ -40,9 +40,5 @@ final class ListEmozioniTestAction
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

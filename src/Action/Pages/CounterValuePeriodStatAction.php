@@ -54,6 +54,5 @@ final class CounterValuePeriodStatAction
         ]);
 
         return $this->renderer->render($response, 'statistics/counter_period.php');
-
     }
 }

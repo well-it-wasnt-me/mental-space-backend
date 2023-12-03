@@ -35,8 +35,7 @@ final class Version1DocAction
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         // Path to the yaml file
         $yamlFile = __DIR__ . '/../../../resources/api/example_v1.yaml';
 

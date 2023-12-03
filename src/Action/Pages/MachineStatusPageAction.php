@@ -50,6 +50,5 @@ final class MachineStatusPageAction
         ]);
 
         return $this->renderer->render($response, 'statistics/machine_status.php');
-
     }
 }

@@ -11,7 +11,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Routing\RouteContext;
 use Stripe\Stripe;
 
-
 /**
  * Class DocLoginSubmitAction
  * @package App\Action\Auth
@@ -42,19 +41,19 @@ final class webhook
             $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
             $event = null;
 
-            try {
-                $event = \Stripe\Webhook::constructEvent(
-                    $payload, $sig_header, $endpoint_secret
-                );
-            } catch(\UnexpectedValueException $e) {
-                // Invalid payload
-                return $response->withStatus(400);
-
-            } catch(\Stripe\Exception\SignatureVerificationException $e) {
-                // Invalid signature
-                return $response->withStatus(400);
-
-            }
+        try {
+            $event = \Stripe\Webhook::constructEvent(
+                $payload,
+                $sig_header,
+                $endpoint_secret
+            );
+        } catch (\UnexpectedValueException $e) {
+            // Invalid payload
+            return $response->withStatus(400);
+        } catch (\Stripe\Exception\SignatureVerificationException $e) {
+            // Invalid signature
+            return $response->withStatus(400);
+        }
 
         switch ($event->type) {
             case 'checkout.session.async_payment_failed':
@@ -98,19 +97,17 @@ final class webhook
             // ... handle other event types
 
             default:
-
                 $elem['extra'] = ['status'=>'unknown', 'extra'=>$event->type];
         }
 
         $elem = ["payment_intent" => $paymentIntent, "subscription" => $subscriptionSchedule, 'session' => $session];
 
-        if( $this->payments->addPayment($paymentIntent, json_encode($elem))) {
+        if ($this->payments->addPayment($paymentIntent, json_encode($elem))) {
             $response = $response->withHeader('Content-Type', 'application/json');
             $response->getBody()->write((string)json_encode($elem, JSON_THROW_ON_ERROR));
             return $response->withStatus(200);
         }
 
         return $response->withStatus(500);
-
     }
 }

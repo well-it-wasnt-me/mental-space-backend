@@ -174,11 +174,10 @@ final class PatientsRepository
 
         $doc_id = $this->queryFactory->newSelect('patients')->select(['doc_id'])->where('paz_id = ' . $id_paz)->execute()->fetchAll();
 
-        if( !$consulto){
+        if (!$consulto) {
             if ($doc_id[0][0] != $_SESSION['user_id']) {
                 return [];
             }
-
         }
 
         $query = $this->queryFactory->newSelect('drugs_assignment');
@@ -350,18 +349,20 @@ final class PatientsRepository
         return ['status' => 'error', 'message' => 'Qualcosa è andato storto, riprova o contattaci'];
     }
 
-    function deletePatient(int $paz_id){
-        if($this->queryFactory->newUpdate('patients', ['doc_id' => null])
+    function deletePatient(int $paz_id)
+    {
+        if ($this->queryFactory->newUpdate('patients', ['doc_id' => null])
         ->where('paz_id = ' . $paz_id . ' AND doc_id = ' . $_SESSION['user_id'])
-        ->execute()){
+        ->execute()) {
             return ['status' => 'success', 'message' => 'Paziente eliminato con successo'];
         }
         return ['status' => 'error', 'message' => 'Qualcosa è andato storto, riprova o contattaci'];
     }
 
-    function listAnnotation($paz_id, $consulto = false){
+    function listAnnotation($paz_id, $consulto = false)
+    {
         $addWhere = "";
-        if( !$consulto){
+        if (!$consulto) {
             $addWhere = " AND doc_id = " . $_SESSION['user_id'];
         }
         return $this->queryFactory->newSelect('annotation')
@@ -372,23 +373,26 @@ final class PatientsRepository
             ->fetchAll('assoc');
     }
 
-    function addAnnotation(array $data){
+    function addAnnotation(array $data)
+    {
         $data['doc_id'] = $_SESSION['user_id'];
-        if( $this->queryFactory->newInsert('annotation', $data)
-            ->execute() ){
+        if ($this->queryFactory->newInsert('annotation', $data)
+            ->execute()) {
             return ['status' => 'success'];
         }
 
         return ['status' => 'error'];
     }
 
-    function deleteAnnotation(int $ann_id){
+    function deleteAnnotation(int $ann_id)
+    {
         return $this->queryFactory->newDelete('annotation')
             ->where('ann_id = '. $ann_id . " AND doc_id = ".$_SESSION['user_id'])
             ->execute();
     }
 
-    function caricaRelazione(int $paz_id){
+    function caricaRelazione(int $paz_id)
+    {
         return $this->queryFactory->newSelect('patients')
             ->select(['notes'])
             ->where('paz_id = ' . $paz_id . ' AND doc_id = ' . $_SESSION['user_id'])
@@ -396,9 +400,11 @@ final class PatientsRepository
             ->fetchAll('assoc');
     }
 
-    function salvaRelazione(int $paz_id, string $content){
-        return $this->queryFactory->newUpdate('patients',
-        ['notes' => $content]
+    function salvaRelazione(int $paz_id, string $content)
+    {
+        return $this->queryFactory->newUpdate(
+            'patients',
+            ['notes' => $content]
         )->where('paz_id = ' . $paz_id . ' AND doc_id = ' . $_SESSION['user_id'])
             ->execute();
     }
@@ -413,7 +419,8 @@ final class PatientsRepository
         return $this->queryFactory->rawQuery('SELECT paz_id AS id,CONCAT(name, \' \', surname, \' - \', dob) AS text FROM patients WHERE doc_id = ' . $_SESSION['user_id']);
     }
 
-    public function listDepressione(int $paz_id){
+    public function listDepressione(int $paz_id)
+    {
         $data = $this->queryFactory->rawQuery("SELECT
     (interesse + depresso + difficolta_sonno + stanco + poca_fame + sensi_di_colpa + difficolta_concentrazione + movimento + meglio_morte + difficolta_problemi ) AS y,
     data_compilazione AS x
@@ -422,7 +429,8 @@ WHERE paz_id = $paz_id ORDER BY data_compilazione ASC");
         return [$data];
     }
 
-    public function searchPatient($term){
+    public function searchPatient($term)
+    {
         if (!isset($_SESSION['user_id'])) {
             return  [];
         }
@@ -446,7 +454,7 @@ WHERE paz_id = $paz_id ORDER BY data_compilazione ASC");
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
             '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
         ]);
-        $query->where('patients.paz_id = ' . $id );
+        $query->where('patients.paz_id = ' . $id);
 
         $rows = $query->execute()->fetchAll('assoc') ?: [];
 

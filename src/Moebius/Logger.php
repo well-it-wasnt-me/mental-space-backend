@@ -10,7 +10,8 @@ namespace App\Moebius;
  * @package App\Moebius
  * @thanks to Luca Tortora <misfotto@gmail.com>
  */
-final class Logger {
+final class Logger
+{
 
     var ?string $uniqid = null;
     var bool $func_trace = false;
@@ -53,7 +54,6 @@ final class Logger {
             $logfile_descriptor = new \SplFileObject($this->filename, "a+");
             $logfile_descriptor->fwrite($this->_format_log_message($message, $type));
             return $this->uniqid;
-
         } catch (\Exception $e) {
             echo "Something went terribly wrong... \n" . $e->getMessage() . "\n-----\n";
             return false;
@@ -75,12 +75,11 @@ final class Logger {
         $uniqid = ($this->uniqid != null) ? $this->uniqid : "";
         $called_function = ($this->func_trace) ? "[ " . @debug_backtrace()[2]['function'] . " ]" : "";
 
-        if ( is_array($message) ) {
+        if (is_array($message)) {
             $message = json_encode($message);
         }
 
         return "[ {$date} ]{$uniqid}{$called_function}:[{$type}] {$message}\n";
-
     }
 
     function info($message)

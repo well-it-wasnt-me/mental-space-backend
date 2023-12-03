@@ -50,6 +50,6 @@ final class UserDeleteAction
         $this->userDeleter->deleteUser($userId);
 
         // Render the json response
-        return $this->responder->withJson($response,[])->withStatus(StatusCodeInterface::STATUS_OK);
+        return $this->responder->withJson($response, [])->withStatus(StatusCodeInterface::STATUS_OK);
     }
 }

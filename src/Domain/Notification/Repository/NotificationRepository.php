@@ -34,7 +34,8 @@ final class NotificationRepository
         $this->hydrator = $hydrator;
     }
 
-    public function registerDevice($uid, $token){
+    public function registerDevice($uid, $token)
+    {
         return $this->queryFactory->newInsert('notification_devices', [
             'uid' => $uid,
             'token' => $token

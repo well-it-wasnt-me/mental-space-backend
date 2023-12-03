@@ -53,4 +53,3 @@ final class UserUpdateAddrAction
         return $this->responder->withJson($response, $data)->withStatus(200);
     }
 }
-

@@ -28,7 +28,8 @@ final class ReportRepository
 
 
 
-    public function getUserReport(int $user_id): array {
+    public function getUserReport(int $user_id): array
+    {
         $paz_id = $this->getPazIDbyUserID($user_id);
 
         $diary = $this->queryFactory->rawQuery("
@@ -77,7 +78,8 @@ WHERE paz_id = $paz_id
         return ['diario' => $diary, 'comportamento' => $comportamento, 'emozioni' => ['stat'=>$emozioni, 'average'=> $avg]];
     }
 
-    private function getPazIDbyUserID(int $uid){
+    private function getPazIDbyUserID(int $uid)
+    {
         return $this->queryFactory->newSelect('patients')
             ->select(['paz_id'])
             ->where("user_id = $uid")
@@ -85,7 +87,8 @@ WHERE paz_id = $paz_id
             ->fetchAll('assoc')[0]['paz_id'];
     }
 
-    public function getDocStat($uid){
+    public function getDocStat($uid)
+    {
         $tot_pat = $this->queryFactory->rawQuery("SELECT COUNT(*) AS tot FROM patients WHERE doc_id = $uid")[0]['tot'];
         $tot_app = $this->queryFactory->rawQuery("SELECT COUNT(*) AS tot FROM calendar WHERE doc_id = $uid AND DATE(start) = CURRENT_DATE")[0]['tot'];
         $tot_money = 0;
@@ -99,13 +102,14 @@ WHERE paz_id = $paz_id
         ];
     }
 
-    public function generazioneReport(array $table, array $raggr, array $assistiti): array {
-        for($i=0; $i <= count($table); $i++){
-            if($table[$i] === 'diario'){
-                if(empty($assistiti)){
+    public function generazioneReport(array $table, array $raggr, array $assistiti): array
+    {
+        for ($i=0; $i <= count($table); $i++) {
+            if ($table[$i] === 'diario') {
+                if (empty($assistiti)) {
                     $cond = "AND user_id IN (SELECT user_id FROM patients WHERE doc_id = " . $_SESSION['user_id'] .")";
                 } else {
-                    $cond = "AND user_id IN (". implode(",",$assistiti ).")";
+                    $cond = "AND user_id IN (". implode(",", $assistiti).")";
                 }
                 $analisi_diario = $this->queryFactory->rawQuery("SELECT SUM(`total_count`) as `total`, `value`, user_id
 FROM (
@@ -131,8 +135,7 @@ WHERE LENGTH(`value`)>5
 GROUP BY `value`
 ORDER BY `total` DESC
 LIMIT 0,50;");
-            }
-            elseif($table[$i === 'diagnosi']){
+            } elseif ($table[$i === 'diagnosi']) {
                 $analisi_diagnosi = $this->queryFactory->rawQuery("");
             }
         }

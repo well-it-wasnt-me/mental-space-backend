@@ -61,7 +61,8 @@ final class DoctorRepository
         return $rows;
     }
 
-    public function updateDoctor(DoctorData $data){
+    public function updateDoctor(DoctorData $data)
+    {
 
 
         $data = [
@@ -78,14 +79,15 @@ final class DoctorRepository
         $query = $this->queryFactory->newUpdate('doctors', $data)
             ->execute();
 
-        if($query){
+        if ($query) {
             return ['status' => 'success'];
         } else {
             return ['status' => 'error'];
         }
     }
 
-    public function unsetPaz($uid){
+    public function unsetPaz($uid)
+    {
         $this->queryFactory->newUpdate('patients', ['doc_id' => 0])
             ->where('patients.user_id = ' . $uid)
             ->execute();

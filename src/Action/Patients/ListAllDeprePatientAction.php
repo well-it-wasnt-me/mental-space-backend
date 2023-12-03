@@ -41,7 +41,7 @@ final class ListAllDeprePatientAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if(empty($args)){
+        if (empty($args)) {
             $args = [];
         }
         $sb = $this->patientsList->listAllDepre((int)$args['user_id']);

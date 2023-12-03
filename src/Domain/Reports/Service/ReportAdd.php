@@ -23,8 +23,7 @@ final class ReportAdd
     public function __construct(
         ReportRepository $repository,
         ReportValidator  $reportValidator
-    )
-    {
+    ) {
         $this->repository = $repository;
         $this->reportValidator = $reportValidator;
     }
@@ -45,6 +44,5 @@ final class ReportAdd
 
         // Insert data
         return $this->repository->insertReport($report);
-
     }
 }

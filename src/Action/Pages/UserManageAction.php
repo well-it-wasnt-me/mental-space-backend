@@ -38,8 +38,5 @@ final class UserManageAction
         ]);
 
         return $this->renderer->render($response, 'users/manage.php');
-
     }
 }
-
-

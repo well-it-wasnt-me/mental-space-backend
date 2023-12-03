@@ -8,7 +8,6 @@ namespace App\Domain\Calendar\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class CalendarRepository
 {
 
@@ -42,7 +41,8 @@ final class CalendarRepository
         return $rows;
     }
 
-    public function addEvent(array $event){
+    public function addEvent(array $event)
+    {
         $event['doc_id'] = $_SESSION['user_id'];
         return $this->queryFactory->newInsert('calendar', $event)
             ->execute();

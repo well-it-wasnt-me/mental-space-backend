@@ -23,7 +23,6 @@ final class FileCreator
         UserRepository $repository,
         UserValidator $userValidator
     ) {
-
     }
 
     /**

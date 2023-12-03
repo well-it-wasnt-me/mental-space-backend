@@ -51,6 +51,5 @@ final class UserHistoryAction
         return $this->responder
                 ->withJson($response, ['status' => 'success', 'history' => $user])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
-
     }
 }

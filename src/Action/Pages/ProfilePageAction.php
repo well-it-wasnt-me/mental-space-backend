@@ -20,9 +20,8 @@ final class ProfilePageAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        if( $_SESSION['role'] == Definition::REPORTER ) {
+        if ($_SESSION['role'] == Definition::REPORTER) {
             $this->renderer->setLayout('layout/layout_reporter.php');
-
         } else {
             $this->renderer->setLayout('layout/layout.php');
         }
@@ -38,5 +37,4 @@ final class ProfilePageAction
 
         return $this->renderer->render($response, 'home/profile.php');
     }
-
 }

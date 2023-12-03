@@ -24,9 +24,10 @@ final class UserRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function insertPazUser($user_data){
+    public function insertPazUser($user_data)
+    {
 
-        if(empty($user_data)){
+        if (empty($user_data)) {
             return 0;
         }
 
@@ -68,7 +69,7 @@ final class UserRepository
         $row['reg_date'] = Chronos::now()->toDateTimeString();
 
         $doc_user['email'] = $row['email'];
-        $doc_user['password'] = hash('sha512',$row['password']);
+        $doc_user['password'] = hash('sha512', $row['password']);
         $doc_user['user_type'] = 2;
         $doc_user['reg_date'] = $row['reg_date'];
         $doc_user['account_status'] = 1;
@@ -86,8 +87,6 @@ final class UserRepository
         $this->queryFactory->newInsert('doctors', $doc_data)->execute();
 
         return $uid;
-
-
     }
 
     /**
@@ -260,8 +259,9 @@ final class UserRepository
         ];
     }
 
-    public function addTracking($user_id, $coords, $addr){
-        if( empty($addr) ){
+    public function addTracking($user_id, $coords, $addr)
+    {
+        if (empty($addr)) {
             $addr = $this->getaddress($coords);
         }
         $query = $this->queryFactory->newInsert('trackings', ['user_id' => $user_id, 'coords' => $coords, 'addr' => $addr]);
@@ -269,7 +269,8 @@ final class UserRepository
         return (bool)$query->execute();
     }
 
-    function getPazIDByUserID($user_id){
+    function getPazIDByUserID($user_id)
+    {
         return $this->queryFactory->newSelect('patients')
             ->select(['paz_id'])
             ->where("user_id = $user_id")
@@ -277,7 +278,8 @@ final class UserRepository
             ->fetchAll('assoc')[0];
     }
 
-    public function retrieveCalendar($user_id){
+    public function retrieveCalendar($user_id)
+    {
         try {
             $query = $this->queryFactory->newSelect('calendar');
             $query->select(
@@ -290,7 +292,7 @@ final class UserRepository
 
             $row = $query->execute()->fetchAll('assoc');
             return $row;
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             return ['status' => 'error', 'message' => $e->getMessage()];
         }
     }
@@ -317,17 +319,15 @@ final class UserRepository
         $json = @file_get_contents($url);
         $data=json_decode($json);
         $status = $data->status;
-        if($status=="OK")
-        {
+        if ($status=="OK") {
             return $data->results[0]->formatted_address;
-        }
-        else
-        {
+        } else {
             return $data->error_message;
         }
     }
 
-    public function trackUserList($uid){
+    public function trackUserList($uid)
+    {
         return $this->queryFactory->rawQuery("SELECT user_id,
        addr,
        FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7)) AS week_beginning,
@@ -339,7 +339,8 @@ GROUP BY FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7)),
 ORDER BY FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7))");
     }
 
-    public function historyAccess($uid){
+    public function historyAccess($uid)
+    {
         return $this->queryFactory->newSelect('access_log')
             ->select(['ip', 'browser', 'os','location', 'ts'])
             ->where('user_id = ' . $uid)
@@ -348,15 +349,16 @@ ORDER BY FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7))"
             ->fetchAll('assoc');
     }
 
-    public function pwdUpdate($data, $uid){
+    public function pwdUpdate($data, $uid)
+    {
         $data['password'] = hash('sha512', $data['password']);
 
-        if(!$this->checkPwd($data['old_password'], $uid)){
+        if (!$this->checkPwd($data['old_password'], $uid)) {
             return ['status'=>'error', 'message' => __('Password attuale non esatta, riprovare')];
         }
 
 
-        if (!$this->queryFactory->newUpdate('users', ['password' => $data['password']] )
+        if (!$this->queryFactory->newUpdate('users', ['password' => $data['password']])
             ->andWhere(['user_id' => $uid])
             ->execute()) {
             return ['status'=>'error', 'message' => __('Qualcosa è andato storto')];
@@ -365,18 +367,18 @@ ORDER BY FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7))"
         return ['status'=>'success', 'message' => __('Password Aggiornata con successo')];
     }
 
-    public function checkPwd($pwd, $uid){
+    public function checkPwd($pwd, $uid)
+    {
         $pwd_db = $this->queryFactory->newSelect('users')
             ->select(['password'])
             ->where('user_id = ' . $uid)
             ->execute()
             ->fetchAll('assoc')[0]['password'];
 
-        if($pwd_db === hash('sha512', $pwd)){
+        if ($pwd_db === hash('sha512', $pwd)) {
             return true;
         }
 
         return false;
-
     }
 }

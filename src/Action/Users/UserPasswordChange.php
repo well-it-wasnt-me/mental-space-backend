@@ -53,4 +53,3 @@ final class UserPasswordChange
         return $this->responder->withJson($response, $data);
     }
 }
-

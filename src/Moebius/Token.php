@@ -2,14 +2,16 @@
 
 namespace App\Moebius;
 
-final class Token {
+final class Token
+{
     /**
      * Create token
      *
      * @param int $length
      * @return string
      */
-    public function make_token($length = 16){
+    public function make_token($length = 16)
+    {
         if ($length < 8 || $length > 44) {
             die();
         }
@@ -58,7 +60,8 @@ final class Token {
      * @param $str
      * @return bool
      */
-    function verify_token($str) {
+    function verify_token($str)
+    {
         $length = strlen($str);
         $keys = str_split($str);
         $length_odd = (($length % 2) != 0);

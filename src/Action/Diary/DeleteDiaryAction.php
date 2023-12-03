@@ -36,15 +36,15 @@ final class DeleteDiaryAction
         $userId =  $request->getAttribute('uid');
         $diary_id = $args['diary_id'];
 
-        if(empty($userId)){
+        if (empty($userId)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('User Not Found, who are you ?')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-       $entries = $this->repository->deleteEntry($userId, $diary_id);
+        $entries = $this->repository->deleteEntry($userId, $diary_id);
 
-        if ( !$entries ) {
+        if (!$entries) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('Server Error')])
                 ->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);

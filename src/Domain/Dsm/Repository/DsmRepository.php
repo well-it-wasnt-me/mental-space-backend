@@ -8,7 +8,6 @@ namespace App\Domain\Dsm\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class DsmRepository
 {
 

@@ -33,5 +33,4 @@ final class Definition
     const PATIENT       = 1;
     const GAMING_HALL   = 4;
     const USER          = 5;
-
 }

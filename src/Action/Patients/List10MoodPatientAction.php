@@ -41,7 +41,7 @@ final class List10MoodPatientAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if(empty($args)){
+        if (empty($args)) {
             $args = [];
         }
         $sb = $this->patientsList->last10moods((int)$args['paz_id']);

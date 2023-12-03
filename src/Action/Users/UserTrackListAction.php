@@ -49,8 +49,7 @@ final class UserTrackListAction
         // Invoke the domain (service class)
         $user = $this->userReader->trackUserList($userId);
 
-        if ( $user )
-        {
+        if ($user) {
             return $this->responder
                 ->withJson($response, ['status' => 'success', 'locations' => $user])
                 ->withStatus(StatusCodeInterface::STATUS_OK);

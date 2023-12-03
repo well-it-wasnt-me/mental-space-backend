@@ -54,7 +54,8 @@ final class UserUpdater
         // Logging
     }
 
-    public function updateUserAddr(int $user_id, array $data){
+    public function updateUserAddr(int $user_id, array $data)
+    {
         return $this->repository->updateUserAddr($user_id, $data);
     }
 
@@ -73,7 +74,8 @@ final class UserUpdater
         // Logging
     }
 
-    public function updateUserPwd(int $user_id, array $data){
+    public function updateUserPwd(int $user_id, array $data)
+    {
         return $this->repository->pwdUpdate($data, $user_id);
     }
 }

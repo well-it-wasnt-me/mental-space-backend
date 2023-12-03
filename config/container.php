@@ -155,7 +155,7 @@ return [
         return $application;
     },
 
-    TransactionInterface::class => function(ContainerInterface $container){
+    TransactionInterface::class => function (ContainerInterface $container) {
         return new Transaction($container->get(Connection::class));
     },
 

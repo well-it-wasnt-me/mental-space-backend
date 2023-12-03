@@ -43,7 +43,7 @@ final class SelectSearchPatAction
     {
         // Optional: Pass parameters from the request to the findUsers method
         $denom = $request->getParsedBody();
-        if(empty($denom)){
+        if (empty($denom)) {
             $denom['term'] = "";
         }
 
@@ -65,7 +65,8 @@ final class SelectSearchPatAction
     {
 
         return $this->responder->withJson(
-            $response, ['results' => $sbs]
+            $response,
+            ['results' => $sbs]
         );
     }
 }

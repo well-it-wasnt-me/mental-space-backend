@@ -4,6 +4,7 @@
  */
 
 namespace App\Database;
+
 use Cake\Database\Connection;
 
 /**
@@ -17,7 +18,8 @@ final class Transaction implements TransactionInterface
      * Constructor
      * @param Connection $connection
      */
-    public function __construct(Connection $connection){
+    public function __construct(Connection $connection)
+    {
         $this->connection = $connection;
     }
 

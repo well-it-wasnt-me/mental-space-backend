@@ -11,11 +11,13 @@ final class DsmList
 {
     private DsmRepository $repository;
 
-    public function __construct(DsmRepository $repository){
+    public function __construct(DsmRepository $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function listDsm(): array {
+    public function listDsm(): array
+    {
         return $this->repository->listDsm();
     }
 }

@@ -5,7 +5,6 @@
 
 namespace App\Action\Obiettivi;
 
-
 use App\Domain\Obiettivi\Repository\ObiettiviRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -45,7 +44,7 @@ final class DeleteObiettivoAction
         $data = $request->getParsedBody();
         $q = $this->obiettiviRepository->deleteObjective($data['ob_id'], $request->getAttribute('uid'));
 
-        if( !$q ){
+        if (!$q) {
             $status = "error";
         } else {
             $status = "success";

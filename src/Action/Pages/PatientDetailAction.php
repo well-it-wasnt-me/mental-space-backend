@@ -78,7 +78,7 @@ final class PatientDetailAction
 
         $patient_detail = $this->repository->patientDetail((int)$args['paz_id']);
 
-        if ( !$patient_detail || empty($patient_detail) ) {
+        if (!$patient_detail || empty($patient_detail)) {
             return $this->renderer->render($response, 'errors/not_found.php');
         }
         $krypton = new Krypton();

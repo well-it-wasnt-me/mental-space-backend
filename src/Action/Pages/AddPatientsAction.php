@@ -68,7 +68,5 @@ final class AddPatientsAction
         ]);
 
         return $this->renderer->render($response, 'patients/add.php');
-
     }
 }
-

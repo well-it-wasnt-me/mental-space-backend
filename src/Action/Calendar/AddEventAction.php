@@ -5,7 +5,6 @@
 
 namespace App\Action\Calendar;
 
-
 use App\Domain\Calendar\Repository\CalendarRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -45,12 +44,12 @@ final class AddEventAction
         // Optional: Pass parameters from the request to the findUsers method
         $gh = $this->calRepo->addEvent($request->getParsedBody());
 
-        if($gh){
+        if ($gh) {
             $gh = ['status' => 'success'];
         } else {
             $gh = ['status' => 'error'];
         }
 
-        return $this->responder->withJson($response,$gh);
+        return $this->responder->withJson($response, $gh);
     }
 }

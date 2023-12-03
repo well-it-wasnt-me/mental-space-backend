@@ -5,7 +5,6 @@
 
 namespace App\Action\Consulti;
 
-
 use App\Domain\Consulti\Repository\ConsultiRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
@@ -38,7 +37,7 @@ final class PinCodeActionCheck
         }
 
         $result = [];
-        if( $this->consultiRepository->checkPinCode($pin['pin_code'])){
+        if ($this->consultiRepository->checkPinCode($pin['pin_code'])) {
             $result = ['status' => 'success'];
         } else {
             $result = ['status' => 'error'];
@@ -47,5 +46,5 @@ final class PinCodeActionCheck
         return $this->responder
                 ->withJson($response, $result)
                 ->withStatus(StatusCodeInterface::STATUS_OK);
-        }
+    }
 }

@@ -46,18 +46,22 @@ final class UserReader
         return $user;
     }
 
-    public function trackUser(int $user_id, $coord, $addr){
+    public function trackUser(int $user_id, $coord, $addr)
+    {
         return $this->repository->addTracking($user_id, $coord, $addr);
     }
-    public function trackUserList(int $user_id){
+    public function trackUserList(int $user_id)
+    {
         return $this->repository->trackUserList($user_id);
     }
 
-    public function getUserCalendar(int $user_id){
+    public function getUserCalendar(int $user_id)
+    {
         return $this->repository->retrieveCalendar($user_id);
     }
 
-    public function listHistoryAccess($uid){
+    public function listHistoryAccess($uid)
+    {
         return $this->repository->historyAccess($uid);
     }
 }

@@ -5,7 +5,6 @@
 
 namespace App\Action\Consulti;
 
-
 use App\Domain\Consulti\Repository\ConsultiRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
@@ -41,5 +40,5 @@ final class ListLinkConsultoAction
         return $this->responder
                 ->withJson($response, $result)
                 ->withStatus(StatusCodeInterface::STATUS_OK);
-        }
+    }
 }

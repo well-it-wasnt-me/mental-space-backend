@@ -40,20 +40,17 @@ final class HackAttemptAction
     {
         $data = (array)$request->getParsedBody();
 
-            if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
-                $ip = $_SERVER['HTTP_CLIENT_IP'];
-            }
-            else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-            }
-            else {
-                $ip = $_SERVER['REMOTE_ADDR'];
-            }
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
 
 
-            $this->monitor->logHackAttempt($ip,$_SERVER['HTTP_USER_AGENT'], $data['url']);
+            $this->monitor->logHackAttempt($ip, $_SERVER['HTTP_USER_AGENT'], $data['url']);
 
             return $response->withStatus(200);
-
     }
 }

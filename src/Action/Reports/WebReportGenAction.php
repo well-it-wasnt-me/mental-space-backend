@@ -39,7 +39,7 @@ final class WebReportGenAction
         $elenco_repo ="";
         $result = $this->repository->generazioneReport($tables, $raggr, $assistiti);
 
-        foreach ($tables AS $key=>$val){
+        foreach ($tables as $key => $val) {
             $elenco_repo .= '<tr>
                                 <th align="left" style="padding-bottom: 8px;">
                                     <p>'.$val.'</p>
@@ -49,18 +49,17 @@ final class WebReportGenAction
 
         $htmlReport = "";
 
-        if(!empty($result['diario'])){
+        if (!empty($result['diario'])) {
             $htmlReport .= "<h1>Analisi del Diario</h1>
                             <h2>Parole più usate</h2>
 <ul class=\"cloud\" role=\"navigation\" aria-label=\"Word Cloud\">";
 
-            foreach ($result['diario'] AS $key=>$val){
-               $htmlReport .= "<li><a href=\"#\" data-weight=\"".$val['total']."\">".$val['value']." Totale: " . $val['total']."</a></li>";
+            foreach ($result['diario'] as $key => $val) {
+                $htmlReport .= "<li><a href=\"#\" data-weight=\"".$val['total']."\">".$val['value']." Totale: " . $val['total']."</a></li>";
             }
 
-$htmlReport .= "</ul>";
-        } elseif ( !empty($result['diagnosi'])){
-
+            $htmlReport .= "</ul>";
+        } elseif (!empty($result['diagnosi'])) {
         }
 
         $cover_content = file_get_contents(__DIR__ . '/../../../data/pdf_template/report_cover_template');
@@ -71,7 +70,7 @@ $htmlReport .= "</ul>";
         $cover_content = str_replace('{ELENCO_REPORT}', $elenco_repo, $cover_content);
         $cover_content = str_replace('{FULL_DATE}', date("d/m/y H:i"), $cover_content);
 
-        $report_content = str_replace('{CONTENT}', $htmlReport , $report_content);
+        $report_content = str_replace('{CONTENT}', $htmlReport, $report_content);
 
         $pdf = new \Mpdf\Mpdf();
         $pdf->WriteHTML($cover_content);
@@ -79,10 +78,10 @@ $htmlReport .= "</ul>";
         $pdf->WriteHTML($report_content);
         ob_end_clean();
 
-        if(!is_dir(__DIR__ .'/../../../data/' . $_SESSION['user_id'])){
+        if (!is_dir(__DIR__ .'/../../../data/' . $_SESSION['user_id'])) {
             mkdir(__DIR__ .'/../../../data/' . $_SESSION['user_id']);
         }
-        if(!is_dir(__DIR__ .'/../../../data/' . $_SESSION['user_id']. "/report")){
+        if (!is_dir(__DIR__ .'/../../../data/' . $_SESSION['user_id']. "/report")) {
             mkdir(__DIR__ .'/../../../data/' . $_SESSION['user_id']."/report");
         }
 
@@ -93,9 +92,5 @@ $htmlReport .= "</ul>";
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

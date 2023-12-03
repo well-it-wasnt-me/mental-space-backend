@@ -33,7 +33,7 @@ final class WebReportsAction
         array $args
     ): ResponseInterface {
 
-        if(empty($args)){
+        if (empty($args)) {
             return $this->responder
                 ->withJson($response, [])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
@@ -44,9 +44,5 @@ final class WebReportsAction
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Action\Auth;
 
-
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Domain\Auth\UserAuth;
@@ -42,7 +41,6 @@ final class RegisterSubmitAction
 
 
         if ($userData) {
-
             $response = $response->withHeader('Content-Type', 'application/json');
             $response->getBody()->write((string)json_encode(['status'=>'success'], JSON_THROW_ON_ERROR));
             return $response->withStatus(201);

@@ -2,7 +2,6 @@
 
 namespace App\Action\Auth;
 
-
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Routing\RouteContext;

@@ -5,7 +5,6 @@
 
 namespace App\Action\Consulti;
 
-
 use App\Domain\Consulti\Repository\ConsultiRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
@@ -37,7 +36,7 @@ final class GeneraLinkConsultoAction
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        if( !filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('Indirizzo E-Mail non corretto')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
@@ -48,5 +47,5 @@ final class GeneraLinkConsultoAction
         return $this->responder
                 ->withJson($response, $result)
                 ->withStatus(StatusCodeInterface::STATUS_OK);
-        }
+    }
 }

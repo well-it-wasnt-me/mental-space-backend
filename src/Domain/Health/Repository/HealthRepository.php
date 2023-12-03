@@ -8,7 +8,6 @@ namespace App\Domain\Health\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class HealthRepository
 {
 
@@ -26,8 +25,9 @@ final class HealthRepository
         $this->transaction = $transaction;
     }
 
-    public function aggiungiPassi(int $uid, int $passi){
-        return $this->queryFactory->newInsert('passi',['user_id' => $uid, 'passi' => $passi, 'data_inserimento' => date('Y-m-d')])
+    public function aggiungiPassi(int $uid, int $passi)
+    {
+        return $this->queryFactory->newInsert('passi', ['user_id' => $uid, 'passi' => $passi, 'data_inserimento' => date('Y-m-d')])
             ->execute();
     }
 }

@@ -54,7 +54,7 @@ final class UserCreatePazAction
 
         $userId = $this->userCreator->createPazUser($data);
 
-        if( $userId == 0){
+        if ($userId == 0) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => 'Sono arrivati male i dati :('])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);

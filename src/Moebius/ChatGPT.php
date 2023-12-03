@@ -5,7 +5,8 @@ namespace App\Moebius;
  * Class Definition
  * @package App\Moebius
  */
-final class ChatGPT {
+final class ChatGPT
+{
     private $api_key;
     private $api_url;
 
@@ -21,7 +22,8 @@ final class ChatGPT {
         ];
     }
 
-    public function askQuestion($question){
+    public function askQuestion($question)
+    {
         $client = new \GuzzleHttp\Client();
 
         $response = $client->post($this->api_url, [

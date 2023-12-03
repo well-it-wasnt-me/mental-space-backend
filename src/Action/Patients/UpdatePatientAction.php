@@ -41,7 +41,7 @@ final class UpdatePatientAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $request->getParsedBody();
-        if ( $this->repository->updatePatient($data, $data)){
+        if ($this->repository->updatePatient($data, $data)) {
             return $this->responder
                 ->withJson($response, ['status' => 'success'])
                 ->withStatus(StatusCodeInterface::STATUS_OK);

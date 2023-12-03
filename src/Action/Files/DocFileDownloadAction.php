@@ -40,7 +40,7 @@ final class DocFileDownloadAction
 
         $filePath = __DIR__ . "/../../../data/$userId/" . $fileName['filename'];
 
-        if( !is_file($filePath)){
+        if (!is_file($filePath)) {
             return $this->responder
                 ->withJson($response, ['status' => 'success', 'message'=>__('File non trovato')])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
@@ -54,5 +54,4 @@ final class DocFileDownloadAction
                 ->withHeader('Pragma', 'no-cache')
                 ->withBody((new \Slim\Psr7\Stream(fopen($filePath, 'rb'))));
     }
-
 }

@@ -21,7 +21,6 @@ final class ReportsAction
     public function __construct(PhpRenderer $renderer)
     {
         $this->renderer = $renderer;
-
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

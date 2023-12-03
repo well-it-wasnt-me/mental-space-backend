@@ -5,7 +5,6 @@
 
 namespace App\Action\Dsm;
 
-
 use App\Domain\Dsm\Repository\DsmRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;

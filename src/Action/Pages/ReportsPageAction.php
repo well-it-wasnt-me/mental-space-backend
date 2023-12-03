@@ -41,6 +41,5 @@ final class ReportsPageAction
             ]);
 
             return $this->renderer->render($response, 'reports/reports.php');
-
     }
 }

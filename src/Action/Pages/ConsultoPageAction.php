@@ -32,7 +32,7 @@ final class ConsultoPageAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
-        if(!$this->consulti->checkCode($args['codice'])) {
+        if (!$this->consulti->checkCode($args['codice'])) {
             return $this->renderer->render($response, 'errors/not_found.php');
         }
 
@@ -89,7 +89,7 @@ final class ConsultoPageAction
 
         $diario_list = $this->repository->listDiary($uid);
         $diario = "";
-        foreach ($diario_list AS $key => $val){
+        foreach ($diario_list as $key => $val) {
             $diario .= '<div class="card accordion-item">' .
                 '   <h2 class="accordion-header" id="paymentOne">' .
                 '       <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#asd' . $val['diary_id'] . '" aria-expanded="false" aria-controls="asd' . $val['diary_id'] . '">' .
@@ -107,22 +107,22 @@ final class ConsultoPageAction
 
         $drugs = $this->repository->listPharmPat($paz_id, true);
         $farmaci = "";
-        foreach ($drugs AS $key => $val){
+        foreach ($drugs as $key => $val) {
             $farmaci .= '<li>'. $val['principio_attivo'].' - '. $val['denom'] .'</li>';
         }
         $moods = $this->repository->last10moods($uid);
         $mood = "";
-        foreach ($moods AS $key=>$val){
+        foreach ($moods as $key => $val) {
             $color = "";
             if ($val['value'] === 'OTTIMO') {
                 $color = "timeline-point-info";
-            } else if ($val['value'] === 'BUONO') {
+            } elseif ($val['value'] === 'BUONO') {
                 $color = "timeline-point-primary";
-            } else if ($val['value'] === 'STABILE') {
+            } elseif ($val['value'] === 'STABILE') {
                 $color = "timeline-point-secondary";
-            } else if ($val['value'] === 'BASSO') {
+            } elseif ($val['value'] === 'BASSO') {
                 $color = "timeline-point-warning";
-            } else if ($val['value'] === 'MOLTO DEPRESSO') {
+            } elseif ($val['value'] === 'MOLTO DEPRESSO') {
                 $color = 'timeline-point-danger';
             } else {
                 $color = "";
@@ -141,7 +141,7 @@ final class ConsultoPageAction
 
         $annot = $this->repository->listAnnotation($paz_id, true);
         $annotazioni = "";
-        foreach ($annot AS $key => $val){
+        foreach ($annot as $key => $val) {
             $annotazioni .= '<div class="card accordion-item">' .
                 '   <h2 class="accordion-header" id="paymentOnes">' .
                 '       <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#as' . $val['ann_id'] . '" aria-expanded="false" aria-controls="as' . $val['ann_id'] . '">' .
@@ -160,25 +160,25 @@ final class ConsultoPageAction
         $stats = $this->reportRepository->getUserReport($uid);
         //['diario' => $diary, 'comportamento' => $comportamento, 'emozioni' => ['stat'=>$emozioni, 'average'=> $avg]];
         $statDiario = "";
-        foreach ($stats['diario'] AS $key=>$val){
+        foreach ($stats['diario'] as $key => $val) {
             $statDiario .= "<b>Post Immessi</b> " . $val['tot_post'] ." <br>";
             $statDiario .= "<b>Data Raggruppamento</b> " . $val['post_ts'] ." <br><br>";
         }
 
         $statComportamento = "";
-        foreach ($stats['comportamento'] AS $key=>$val){
+        foreach ($stats['comportamento'] as $key => $val) {
             $statComportamento .= "<b>Test Compilati</b> " . $val['tot_test'] ." <br>";
             $statComportamento .= "<b>Data Raggruppamento</b> " . $val['compilazione_ts'] ." <br><br>";
         }
 
         $emozioni = "";
-        foreach ($stats['emozioni']['stat'] AS $key=>$val){
+        foreach ($stats['emozioni']['stat'] as $key => $val) {
             $emozioni .= "<b>Test Compilati</b> " . $val['tot_test'] ." <br>";
             $emozioni .= "<b>Data Raggruppamento</b> " . $val['compilazione_ts'] ." <br><br>";
         }
 
         $emozioniAvg = "";
-        foreach ($stats['emozioni']['average'] AS $key=>$val){
+        foreach ($stats['emozioni']['average'] as $key => $val) {
             $emozioniAvg .= "<b>Data Compilazione</b> " . $val['data_compilazione'] ." <br>";
             $emozioniAvg .= "<b>Rabbia</b> " . $val['rabbia'] ." <br>";
             $emozioniAvg .= "<b>Paura</b> " . $val['paura'] ." <br>";
@@ -194,16 +194,16 @@ final class ConsultoPageAction
 
         $phq = $this->testRepository->listPhq9Test($uid);
         $li = "";
-        foreach ($phq AS $key => $val){
+        foreach ($phq as $key => $val) {
             $li .= "<li>". $val['data_compilazione'] ."</li>";
             $li .= $this->convertResultPhq($val['result']) . "<br><br>";
         }
 
         $comportamentiImpulsivi = $this->testRepository->listComportamentoTest($uid);
         $cmp = "";
-        foreach ($comportamentiImpulsivi AS $key=>$val){
-            foreach ($val AS $a=>$b){
-                if ( $a != "cmp_id" && $a != "paz_id") {
+        foreach ($comportamentiImpulsivi as $key => $val) {
+            foreach ($val as $a => $b) {
+                if ($a != "cmp_id" && $a != "paz_id") {
                     $cmp .= $a . " - " . $b . "<br>";
                 }
             }
@@ -227,20 +227,20 @@ final class ConsultoPageAction
         ]);
     }
 
-    function convertResultPhq($result){
-        if($result < 5 ) {
+    function convertResultPhq($result)
+    {
+        if ($result < 5) {
             return "Depressione Non rilevata";
-        } else if ($result >= 5 && $result <= 9) {
+        } elseif ($result >= 5 && $result <= 9) {
             return "Depressione sottosoglia";
-        } else if ( $result >= 10 && $result <= 14){
+        } elseif ($result >= 10 && $result <= 14) {
             return "Depressione Maggiore lieve";
-        } else if ( $result >= 15 && $result <= 19){
+        } elseif ($result >= 15 && $result <= 19) {
             return "Depressione Maggiore Moderata";
-        } else if ( $result >= 20 ){
+        } elseif ($result >= 20) {
             return "Depression Maggiore Severa";
         } else {
             return "Errore, valore non presente in scale: $result";
         }
-
     }
 }

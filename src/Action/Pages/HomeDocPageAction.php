@@ -34,22 +34,21 @@ final class HomeDocPageAction
                 '../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js',
                 '../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js',
                 "../app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap5.js",
-    "../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/jszip.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js",
-    "../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js",
-    "../../../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js",
-    "../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js",
-    "../../../app-assets/vendors/js/forms/cleave/cleave.min.js",
-    "../../../app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js",
-    "../../../app-assets/js/scripts/moment/moment.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap5.js",
+        "../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/jszip.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js",
+        "../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js",
+        "../../../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js",
+        "../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js",
+        "../../../app-assets/vendors/js/forms/cleave/cleave.min.js",
+        "../../../app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js",
+        "../../../app-assets/js/scripts/moment/moment.min.js",
                 '../app-assets/js/scripts/pages/app-user-list.js',
             ]);
 
             return $this->renderer->render($response, 'home/doctor.php');
-
     }
 }

@@ -61,7 +61,8 @@ final class ListPharmPatientMobAction
     {
 
         return $this->responder->withJson(
-            $response,$sbs
+            $response,
+            $sbs
         );
     }
 }

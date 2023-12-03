@@ -60,7 +60,8 @@ final class SearchPatAction
     {
 
         return $this->responder->withJson(
-            $response, $sbs
+            $response,
+            $sbs
         );
     }
 }

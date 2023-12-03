@@ -54,6 +54,5 @@ final class CounterStatAction
         ]);
 
         return $this->renderer->render($response, 'statistics/counters.php');
-
     }
 }

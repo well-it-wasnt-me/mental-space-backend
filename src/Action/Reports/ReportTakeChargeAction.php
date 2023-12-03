@@ -24,7 +24,7 @@ final class ReportTakeChargeAction
      * @param ReportReader $reportReader The service
      * @param Responder $responder The responder
      */
-    public function __construct(ReportRepository $reportRepository,Responder $responder)
+    public function __construct(ReportRepository $reportRepository, Responder $responder)
     {
         $this->reportRepository = $reportRepository;
         $this->responder = $responder;

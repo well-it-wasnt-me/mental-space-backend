@@ -29,7 +29,4 @@ final class DocUpdate
         $data = new DoctorData($data);
         return $this->repository->updateDoctor($data);
     }
-
 }
-
-

@@ -8,7 +8,6 @@ namespace App\Domain\Obiettivi\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class ObiettiviRepository
 {
 
@@ -53,7 +52,8 @@ final class ObiettiviRepository
      * @param $uid int ID User
      * @return \Cake\Database\StatementInterface
      */
-    public function deleteObjective($id, $uid){
+    public function deleteObjective($id, $uid)
+    {
         return $this->queryFactory->newDelete('obiettivi')
             ->where('ob_id = ' . $id . ' AND user_id = ' . $uid)
             ->execute();
@@ -64,17 +64,21 @@ final class ObiettiviRepository
      * @param $uid int User ID
      * @return \Cake\Database\StatementInterface
      */
-    public function addObjective($data, $uid){
+    public function addObjective($data, $uid)
+    {
         $data['user_id'] = $uid;
 
         return $this->queryFactory->newInsert('obiettivi', $data)->execute();
     }
 
-    public function updateObjective($ob_id, $content, $uid){
-        return $this->queryFactory->newUpdate('obiettivi',
-        [
+    public function updateObjective($ob_id, $content, $uid)
+    {
+        return $this->queryFactory->newUpdate(
+            'obiettivi',
+            [
             'obiettivo' => $content
-        ])->where('ob_id = ' . $ob_id . " AND user_id = " . $uid )
+            ]
+        )->where('ob_id = ' . $ob_id . " AND user_id = " . $uid)
             ->execute();
     }
 }

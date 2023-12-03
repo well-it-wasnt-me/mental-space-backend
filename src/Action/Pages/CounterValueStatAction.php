@@ -54,6 +54,5 @@ final class CounterValueStatAction
         ]);
 
         return $this->renderer->render($response, 'statistics/counter_value.php');
-
     }
 }

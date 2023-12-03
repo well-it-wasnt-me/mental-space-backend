@@ -36,7 +36,7 @@ final class DocFileListAction
         }
 
         $directory = __DIR__ . "/../../../data/$userId";
-        if(!is_dir($directory)){
+        if (!is_dir($directory)) {
             return $this->responder
                 ->withJson($response, ['status' => 'success', 'files' => []])
                 ->withStatus(StatusCodeInterface::STATUS_OK);

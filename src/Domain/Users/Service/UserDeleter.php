@@ -36,7 +36,8 @@ final class UserDeleter
         $this->repository->deleteUserById($userId);
     }
 
-    public function delDocUser($user_id){
+    public function delDocUser($user_id)
+    {
         $this->repository->docDeleteUserById($user_id);
     }
 }

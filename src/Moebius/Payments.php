@@ -2,10 +2,13 @@
 namespace App\Moebius;
 
 use App\Factory\QueryFactory;
-final class Payments {
+
+final class Payments
+{
     private QueryFactory $queryFactory;
 
-    function __construct(QueryFactory $queryFactory){
+    function __construct(QueryFactory $queryFactory)
+    {
         $this->queryFactory = $queryFactory;
     }
 
@@ -14,8 +17,9 @@ final class Payments {
      * una sottoscrizione
      * @return bool
      */
-    public function hasActiveSubscription($uid): bool {
-        if(!$uid){
+    public function hasActiveSubscription($uid): bool
+    {
+        if (!$uid) {
             return false;
         }
 
@@ -27,7 +31,7 @@ final class Payments {
             ->execute()
             ->fetchAll('assoc');
 
-        if(empty($result[0])){
+        if (empty($result[0])) {
             return false;
         }
 
@@ -35,15 +39,16 @@ final class Payments {
         $your_date = strtotime($result[0]['ts']);
         $datediff = $now - $your_date;
 
-        if(round($datediff / (60 * 60 * 24)) >= 30) {
+        if (round($datediff / (60 * 60 * 24)) >= 30) {
             return false;
         }
 
         return true;
     }
 
-    public function addPayment($payment_intent, $raw_logs){
-       return $this->queryFactory->newInsert('payments',[
+    public function addPayment($payment_intent, $raw_logs)
+    {
+        return $this->queryFactory->newInsert('payments', [
             'user_id' => $payment_intent['client_reference_id'],
             'stripe_customer' => $payment_intent['customer'],
             'stripe_logs' => $raw_logs,

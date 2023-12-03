@@ -62,6 +62,5 @@ final class ReportReader
 
         // Fetch data from the database
         return $this->repository->listReportsUser($status);
-
     }
 }

@@ -5,7 +5,6 @@
 
 namespace App\Action\Cities;
 
-
 use App\Domain\Cities\Service\CitesList;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;

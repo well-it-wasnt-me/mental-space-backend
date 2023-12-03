@@ -53,4 +53,3 @@ final class UserUpdateAction
         return $this->responder->withJson($response, $data)->withStatus(200);
     }
 }
-

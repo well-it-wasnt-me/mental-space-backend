@@ -40,9 +40,5 @@ final class ListPhq9TestAction
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

@@ -8,7 +8,6 @@ namespace App\Domain\Tests\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class TestsRepository
 {
 
@@ -26,27 +25,31 @@ final class TestsRepository
         $this->transaction = $transaction;
     }
 
-    public function addComportamentoTest(int $uid, array $testData){
+    public function addComportamentoTest(int $uid, array $testData)
+    {
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
         return $this->queryFactory->newInsert('behaviours', $testData)
             ->execute();
     }
 
-    public function addEmozioneTest(int $uid, array $testData){
+    public function addEmozioneTest(int $uid, array $testData)
+    {
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
         return $this->queryFactory->newInsert('emozioni', $testData)
             ->execute();
     }
 
-    public function addPhq9Test(int $uid, array $testData){
+    public function addPhq9Test(int $uid, array $testData)
+    {
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
         return $this->queryFactory->newInsert('phq9', $testData)
             ->execute();
     }
-    public function listComportamentoTest(int $uid){
+    public function listComportamentoTest(int $uid)
+    {
         $paz_id = $this->getPazIDByUserID($uid);
         return $this->queryFactory->newSelect('behaviours')
             ->select(['*'])
@@ -54,10 +57,10 @@ final class TestsRepository
             ->where('paz_id = ' . $paz_id)
             ->execute()
             ->fetchAll('assoc');
-
     }
 
-    public function listEmozioniTest(int $uid){
+    public function listEmozioniTest(int $uid)
+    {
         $paz_id = $this->getPazIDByUserID($uid);
         return $this->queryFactory->newSelect('emozioni')
             ->select(['*'])
@@ -65,10 +68,10 @@ final class TestsRepository
             ->where('paz_id = ' . $paz_id)
             ->execute()
             ->fetchAll('assoc');
-
     }
 
-    public function listPhq9Test(int $uid){
+    public function listPhq9Test(int $uid)
+    {
         $paz_id = $this->getPazIDByUserID($uid);
         return $this->queryFactory->newSelect('phq9')
             ->select(['*',
@@ -78,18 +81,19 @@ final class TestsRepository
             ->where('paz_id = ' . $paz_id)
             ->execute()
             ->fetchAll('assoc');
-
     }
 
-    private function getPazIDByUserID($uid){
+    private function getPazIDByUserID($uid)
+    {
         return $this->queryFactory->newSelect('patients')
             ->select(['paz_id'])
-            ->where('user_id = ' . $uid )
+            ->where('user_id = ' . $uid)
             ->execute()
             ->fetchAll('assoc')[0]['paz_id'];
     }
 
-    public function listaPH9($user_id){
+    public function listaPH9($user_id)
+    {
         $paz_id = $this->getPazIDByUserID($user_id);
         return $this->queryFactory->newSelect('phq9')
             ->select(['*'])

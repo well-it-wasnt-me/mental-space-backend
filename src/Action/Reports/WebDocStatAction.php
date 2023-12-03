@@ -37,9 +37,5 @@ final class WebDocStatAction
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

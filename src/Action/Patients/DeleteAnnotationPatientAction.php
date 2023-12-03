@@ -42,13 +42,13 @@ final class DeleteAnnotationPatientAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
-        if(empty($args)){
+        if (empty($args)) {
             return $this->responder->withJson($response, ['status' => 'error', 'message' => __('No data received')]);
         }
 
         $sb = $this->patientsList->deleteAnnotation($args['ann_id']);
 
-        if( $sb ) {
+        if ($sb) {
             $sb = ['status' => 'success'];
         } else {
             $sb = ['status' => 'error'];

@@ -32,6 +32,5 @@ final class NewReportPageAction
         ]);
 
         return $this->renderer->render($response, 'reports/new_reports.php');
-
     }
 }

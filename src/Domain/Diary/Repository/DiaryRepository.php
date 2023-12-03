@@ -24,7 +24,8 @@ final class DiaryRepository
         $this->hydrator = $hydrator;
     }
 
-    public function getEntries($uid){
+    public function getEntries($uid)
+    {
         return $this->queryFactory->newSelect('diaries')
             ->select(['*'])
             ->where('user_id = ' . $uid)
@@ -33,13 +34,15 @@ final class DiaryRepository
             ->fetchAll('assoc');
     }
 
-    public function addEntry($uid, $content){
-        if($this->queryFactory->newInsert('diaries',
-        [
+    public function addEntry($uid, $content)
+    {
+        if ($this->queryFactory->newInsert(
+            'diaries',
+            [
             'content' => $content['diario'],
             'user_id' => $uid
-        ]
-        )->execute()){
+            ]
+        )->execute()) {
             return true;
         }
 
@@ -48,7 +51,7 @@ final class DiaryRepository
 
     public function deleteEntry($user_id, $diary_id)
     {
-        if($this->queryFactory->newDelete('diaries')->where('user_id = ' . $user_id . ' AND diary_id = ' . $diary_id)->execute()){
+        if ($this->queryFactory->newDelete('diaries')->where('user_id = ' . $user_id . ' AND diary_id = ' . $diary_id)->execute()) {
             return true;
         } else {
             return false;

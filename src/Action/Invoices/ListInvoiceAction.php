@@ -24,7 +24,7 @@ final class ListInvoiceAction
      * @param InvoicesRepository $invRepo The user index list viewer
      * @param Responder $responder The responder
      */
-    public function __construct( Responder $responder, InvoicesRepository $invRepo )
+    public function __construct(Responder $responder, InvoicesRepository $invRepo)
     {
         $this->invRepo = $invRepo;
         $this->responder = $responder;

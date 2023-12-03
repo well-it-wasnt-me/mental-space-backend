@@ -78,18 +78,16 @@ final class DocLoginSubmitAction
 
             set_language($userData['locale']);
 
-            if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
                 $ip = $_SERVER['HTTP_CLIENT_IP'];
-            }
-            else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
                 $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-            }
-            else {
+            } else {
                 $ip = $_SERVER['REMOTE_ADDR'];
             }
 
 
-            $this->monitor->logLogin($ip,$_SERVER['HTTP_USER_AGENT'],$userData['user_id']);
+            $this->monitor->logLogin($ip, $_SERVER['HTTP_USER_AGENT'], $userData['user_id']);
 
 
             // Redirect to protected page

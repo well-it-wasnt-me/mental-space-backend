@@ -8,7 +8,6 @@ namespace App\Domain\Pharm\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class PharmRepository
 {
 
@@ -29,7 +28,7 @@ final class PharmRepository
     public function listDrugs($for_select): array
     {
 
-        if($for_select){
+        if ($for_select) {
             $query = $this->queryFactory->newSelect('farmaci');
             $query->select([
                 'farmaci.id AS id',
@@ -64,7 +63,8 @@ final class PharmRepository
         return $rows;
     }
 
-    public function webSearchDrug($name): array {
+    public function webSearchDrug($name): array
+    {
             $query = $this->queryFactory->newSelect('farmaci');
             $query->select([
                 'id',
@@ -75,10 +75,10 @@ final class PharmRepository
             $rows = $query->execute()->fetchAll('assoc') ?: [];
 
             return ['results' => $rows];
-
     }
 
-    public function deleteDrug($id, $uid){
+    public function deleteDrug($id, $uid)
+    {
         $pid = $this->queryFactory->newSelect('patients')->select(['paz_id'])
             ->where('user_id = ' . $uid)
             ->execute()
@@ -89,7 +89,8 @@ final class PharmRepository
             ->execute();
     }
 
-    public function addDrug($data, $uid){
+    public function addDrug($data, $uid)
+    {
         $pid = $this->queryFactory->newSelect('patients')->select(['paz_id'])
             ->where('user_id = ' . $uid)
             ->execute()
@@ -100,7 +101,8 @@ final class PharmRepository
         return $this->queryFactory->newInsert('drugs_assignment', $data)->execute();
     }
 
-    public function userDrug($uid){
+    public function userDrug($uid)
+    {
         $paz_id = $this->queryFactory->newSelect('patients')
             ->select(['paz_id'])
             ->where('user_id = ' . $uid)

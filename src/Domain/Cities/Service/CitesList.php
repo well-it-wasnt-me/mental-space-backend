@@ -11,11 +11,13 @@ final class CitesList
 {
     private CitiesRepository $repository;
 
-    public function __construct(CitiesRepository $repository){
+    public function __construct(CitiesRepository $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function listCities(): array {
+    public function listCities(): array
+    {
         return $this->repository->listCities();
     }
 }

@@ -55,6 +55,6 @@ final class UserDocDeleteAction
         $this->session->destroy();
 
         // Render the json response
-        return $this->responder->withJson($response,[])->withStatus(StatusCodeInterface::STATUS_OK);
+        return $this->responder->withJson($response, [])->withStatus(StatusCodeInterface::STATUS_OK);
     }
 }

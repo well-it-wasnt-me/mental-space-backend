@@ -5,7 +5,6 @@
 
 namespace App\Action\Obiettivi;
 
-
 use App\Domain\Obiettivi\Repository\ObiettiviRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;

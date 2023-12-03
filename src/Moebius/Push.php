@@ -3,7 +3,8 @@ namespace App\Moebius;
 
 use App\Factory\QueryFactory;
 
-final class Push {
+final class Push
+{
     private QueryFactory $queryFactory;
     var $payload;
     function __construct(QueryFactory $queryFactory)
@@ -25,7 +26,8 @@ final class Push {
         return $this;
     }
 
-    function sendNotification($title, $body, $to){
+    function sendNotification($title, $body, $to)
+    {
         $this->payload['notifications']['title'] = $title;
         $this->payload['notifications']['body'] = $body;
         $this->payload['to'] = $to;
@@ -45,27 +47,29 @@ final class Push {
         return json_decode($result, true);
     }
 
-    public function sendToAll($title, $body){
+    public function sendToAll($title, $body)
+    {
         $users = $this->queryFactory->newSelect('notification_devices')
             ->distinct(['token'])
             ->execute()
             ->fetchAll('assoc');
         $result = [];
-        foreach ($users AS $key=>$val){
+        foreach ($users as $key => $val) {
             array_push($result, $this->sendNotification($title, $body, $val['token']));
         }
 
         return $result;
     }
 
-    public function sendNotificationTo($title, $body, $uid){
+    public function sendNotificationTo($title, $body, $uid)
+    {
         $users = $this->queryFactory->newSelect('notification_devices')
             ->distinct(['token'])
             ->where("uid = $uid")
             ->execute()
             ->fetchAll('assoc');
         $result = [];
-        foreach ($users AS $key=>$val){
+        foreach ($users as $key => $val) {
             array_push($result, $this->sendNotification($title, $body, $val['token']));
         }
 

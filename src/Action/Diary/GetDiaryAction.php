@@ -34,13 +34,13 @@ final class GetDiaryAction
 
         $userId =  $request->getAttribute('uid');
 
-        if(empty($userId)){
+        if (empty($userId)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('User Not Found, who are you ?')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-       $entries = $this->repository->getEntries($userId);
+        $entries = $this->repository->getEntries($userId);
 
         return $this->responder
             ->withJson($response, ['status' => 'success', 'entries' => $entries])

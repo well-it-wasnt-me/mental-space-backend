@@ -87,7 +87,8 @@ final class QueryFactory
         return $this->newQuery()->delete($table);
     }
 
-    public function rawQuery($q){
+    public function rawQuery($q)
+    {
         return $this->connection->query($q)->fetchAll('assoc');
     }
 }

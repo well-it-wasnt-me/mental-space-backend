@@ -24,7 +24,7 @@ function set_language(string $locale, string $domain = 'messages'): void
 {
     clearstatcache();
     $actual_locales = ['it_IT', 'en_US', 'hr_HR', 'es_ES'];
-    if(!in_array($locale, $actual_locales)){
+    if (!in_array($locale, $actual_locales)) {
         $locale = 'en_US';
     }
 
@@ -91,12 +91,13 @@ function get_gravatar($email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts 
     return $url;
 }
 
-function returnLocale(){
+function returnLocale()
+{
     clearstatcache();
-    $actual_locale = substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5);
+    $actual_locale = substr(str_replace("-", "_", $_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5);
     $registered_locale = ['it_IT', 'en_US', 'es_ES', 'hr_HR'];
 
-    if(!in_array($actual_locale, $registered_locale)){
+    if (!in_array($actual_locale, $registered_locale)) {
         return 'en_US';
     } else {
         return $actual_locale;

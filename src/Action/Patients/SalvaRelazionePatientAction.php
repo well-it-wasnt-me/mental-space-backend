@@ -43,13 +43,13 @@ final class SalvaRelazionePatientAction
     {
         $data = $request->getParsedBody();
 
-        if(empty($data)){
+        if (empty($data)) {
             return $this->responder->withJson($response, ['status' => 'error', 'message' => 'No data received']);
         }
 
         $sb = $this->patientsList->salvaRelazione($data['paz_id'], $data['content']);
 
-        if( $sb ) {
+        if ($sb) {
             $sb = ['status' => 'success'];
         } else {
             $sb = ['status' => 'error'];

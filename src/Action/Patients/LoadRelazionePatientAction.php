@@ -42,7 +42,7 @@ final class LoadRelazionePatientAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
-        if(empty($args)){
+        if (empty($args)) {
             return $this->responder->withJson($response, ['status' => 'error', 'message' => 'No data received']);
         }
 

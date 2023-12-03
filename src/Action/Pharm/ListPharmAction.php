@@ -5,7 +5,6 @@
 
 namespace App\Action\Pharm;
 
-
 use App\Domain\Pharm\Service\PharmList;
 use App\Domain\Cities\Service\CitesList;
 use App\Responder\Responder;

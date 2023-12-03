@@ -5,7 +5,6 @@
 
 namespace App\Action\Calendar;
 
-
 use App\Domain\Calendar\Repository\CalendarRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -45,6 +44,6 @@ final class ListEventAction
         // Optional: Pass parameters from the request to the findUsers method
         $gh = $this->calRepo->listEvents();
 
-        return $this->responder->withJson($response,$gh);
+        return $this->responder->withJson($response, $gh);
     }
 }

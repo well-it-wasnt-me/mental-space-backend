@@ -49,7 +49,6 @@ final class UserDownloadAction
         return $this->responder
             ->withHeader('Content-Type', 'application/json')
             ->withStatus(200);
-
     }
 
     /**

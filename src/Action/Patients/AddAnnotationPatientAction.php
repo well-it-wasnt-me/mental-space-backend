@@ -43,7 +43,7 @@ final class AddAnnotationPatientAction
     {
         $data = $request->getParsedBody();
 
-        if(empty($data)){
+        if (empty($data)) {
             return $this->responder->withJson($response, ['status' => 'error', 'message' => __('No data received')]);
         }
         $sb = $this->patientsList->addAnnotation($data);

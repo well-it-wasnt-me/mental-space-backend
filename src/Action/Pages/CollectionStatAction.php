@@ -54,6 +54,5 @@ final class CollectionStatAction
         ]);
 
         return $this->renderer->render($response, 'statistics/collection.php');
-
     }
 }

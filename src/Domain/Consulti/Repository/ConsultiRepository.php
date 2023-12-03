@@ -27,7 +27,8 @@ final class ConsultiRepository
     }
 
     public function checkCode($code): bool
-    {/*
+    {
+/*
         if (!$this->token->verify_token($code)) {
             return false;
         }*/
@@ -59,7 +60,7 @@ final class ConsultiRepository
     public function checkPinCode($pin): bool
     {
         $result = $this->queryFactory->rawQuery('SELECT con_id FROM consulti WHERE pin_code = "'.$pin.'"');
-        if(empty($result)){
+        if (empty($result)) {
             return false;
         }
 
@@ -77,18 +78,21 @@ final class ConsultiRepository
         return $this->queryFactory->rawQuery("SELECT user_id FROM patients WHERE paz_id = $paz_id")[0]['user_id'];
     }
 
-    public function generaLink($email, int $paz_id){
+    public function generaLink($email, int $paz_id)
+    {
         $codice = $this->token->make_token(44);
         $pin_code = $this->token->make_token(16);
-        $res = $this->queryFactory->newInsert('consulti',
+        $res = $this->queryFactory->newInsert(
+            'consulti',
             [
                 'destinatario' => $email,
                 'paz_id' => $paz_id,
                 'codice' => $codice,
                 'pin_code' => $pin_code
-            ])->execute();
+            ]
+        )->execute();
 
-        if( !$res ){
+        if (!$res) {
             return ['status' => 'error', 'message' => __('Server Error, contatta Mental Space Support Team')];
         }
 
@@ -117,7 +121,6 @@ final class ConsultiRepository
             $mail_body = str_replace($search, $replace, $mail_body);
             $mail->Body = $mail_body;
             $mail->send();
-
         } catch (\Exception $e) {
             return ['status' => 'error', 'message' => __('Errore invio E-Mail, se lo hai scritto correttamente contatta Mental Space Support Team'),
                 'link' => 'https://--INSERT KEY HERE--/public/consulto/' . $codice, 'pin_code' => $pin_code ];
@@ -127,7 +130,8 @@ final class ConsultiRepository
             'link' => 'https://--INSERT KEY HERE--/public/consulto/' . $codice, 'pin_code' => $pin_code ];
     }
 
-    public function listaConsulti($paz_id){
+    public function listaConsulti($paz_id)
+    {
         return $this->queryFactory->rawQuery("SELECT
     destinatario,
     CONCAT('https://--INSERT KEY HERE--/public/consulto/', codice) AS full_link,
@@ -141,7 +145,8 @@ FROM consulti
 WHERE paz_id = $paz_id AND stato = 1");
     }
 
-    public function disattivaConsulto($cons_id){
+    public function disattivaConsulto($cons_id)
+    {
         return $this->queryFactory->newUpdate('consulti', ['stato' => 0])
             ->where("con_id = $cons_id")
             ->execute();

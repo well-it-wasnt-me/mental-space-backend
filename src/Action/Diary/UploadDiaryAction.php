@@ -37,13 +37,12 @@ final class UploadDiaryAction
         }
 
         $data = (array)$request->getParsedBody();
-        if(empty($data)){
+        if (empty($data)) {
             $data = json_decode(file_get_contents('php://input'), true);
         }
 
         $entry = $this->repository->addEntry($user_id, $data);
-        if($entry){
-
+        if ($entry) {
             return $this->responder
                 ->withJson($response, ['status' => 'success', 'message' => __('Inserito con Successo')])
                 ->withStatus(StatusCodeInterface::STATUS_OK);

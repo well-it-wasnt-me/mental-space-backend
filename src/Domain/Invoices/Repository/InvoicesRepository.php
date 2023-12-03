@@ -8,7 +8,6 @@ namespace App\Domain\Invoices\Repository;
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
 
-
 final class InvoicesRepository
 {
 
@@ -26,7 +25,8 @@ final class InvoicesRepository
         $this->transaction = $transaction;
     }
 
-    public function listInvoices(){
+    public function listInvoices()
+    {
         $invoices = $this->queryFactory->newSelect('invoices')
             ->select(['*'])
             ->where('doc_id = ' . $_SESSION['user_id'])

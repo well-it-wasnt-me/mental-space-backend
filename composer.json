@@ -68,5 +68,12 @@
   "config": {
     "process-timeout": 0,
     "sort-packages": true
+  },
+
+  "scripts": {
+    "test": "phpunit",
+    "analyze": "phpstan analyze",
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf"
   }
 }

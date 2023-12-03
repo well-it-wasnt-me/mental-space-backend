@@ -47,7 +47,7 @@ final class ReportGenAction
         $body = file_get_contents(__DIR__ . '/../../../data/pdf_template/pill_template');
         $html = "";
 
-        foreach ($userPills AS $key=>$val){
+        foreach ($userPills as $key => $val) {
             $html .= "<tr><td style=\"font-family: 'Montserrat',Arial,sans-serif; font-size: 14px; padding-top: 10px; padding-bottom: 10px; width: 80%;\" width=\"80%\">
                                     ". $val['principio_attivo'] . " - " . $val['denom'] ."
                                   </td>
@@ -91,14 +91,10 @@ final class ReportGenAction
 
             return $this->responder->withJson($response, ['status' => 'success', 'message' => 'Report inviato alla tua E-Mail'])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
-
         } catch (\Exception $e) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'messsage' => $e->getMessage()])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
-
-
-
     }
 }

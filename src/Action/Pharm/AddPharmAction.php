@@ -5,7 +5,6 @@
 
 namespace App\Action\Pharm;
 
-
 use App\Domain\Pharm\Service\PharmList;
 use App\Domain\Cities\Service\CitesList;
 use App\Responder\Responder;
@@ -45,7 +44,7 @@ final class AddPharmAction
     {
         $data = $request->getParsedBody();
         $q = $this->dsmList->addDrugPaz($data, $request->getAttribute('uid'));
-        if( !$q ){
+        if (!$q) {
             $status = "error";
         } else {
             $status = "success";

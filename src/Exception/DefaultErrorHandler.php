@@ -2,7 +2,6 @@
 
 namespace App\Exception;
 
-
 use App\Moebius\Logger;
 use App\Responder\Responder;
 use DomainException;

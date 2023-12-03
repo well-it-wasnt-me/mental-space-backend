@@ -2,7 +2,6 @@
 
 namespace App\Action\Users;
 
-
 use App\Domain\Users\Service\UserFinder;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;

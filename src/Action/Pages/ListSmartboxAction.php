@@ -53,7 +53,5 @@ final class ListSmartboxAction
         ]);
 
         return $this->renderer->render($response, 'awp/list.php');
-
     }
 }
-

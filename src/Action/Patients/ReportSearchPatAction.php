@@ -61,7 +61,8 @@ final class ReportSearchPatAction
     {
 
         return $this->responder->withJson(
-            $response, ['results' => $sbs]
+            $response,
+            ['results' => $sbs]
         );
     }
 }

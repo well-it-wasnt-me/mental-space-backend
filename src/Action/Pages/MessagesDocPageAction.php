@@ -39,6 +39,5 @@ final class MessagesDocPageAction
             $docDetail = $this->repository->doctorDetail();
 
             return $this->renderer->render($response, 'doctor/messages.php', $docDetail[0]);
-
     }
 }

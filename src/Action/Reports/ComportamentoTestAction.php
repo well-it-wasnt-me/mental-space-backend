@@ -37,7 +37,7 @@ final class ComportamentoTestAction
         $data = $request->getParsedBody();
         $result = [];
 
-        if( $this->testsRepository->addComportamentoTest($uid, $data)){
+        if ($this->testsRepository->addComportamentoTest($uid, $data)) {
             $result = ['status' => 'success', 'message' => 'Inviato con successo'];
         } else {
             $result = ['status' => 'error', 'message' => 'Qualcosa è andato storto, riprova o contattaci'];
@@ -46,9 +46,5 @@ final class ComportamentoTestAction
         return $this->responder
             ->withJson($response, $result)
             ->withStatus(StatusCodeInterface::STATUS_OK);
-
-
-
-
     }
 }

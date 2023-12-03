@@ -41,7 +41,7 @@ final class RegisterNotificationAction
         $user_id = $request->getAttribute('uid');
 
         $esito = $this->repository->registerDevice($user_id, $token);
-        if($esito){
+        if ($esito) {
             $ret = ['status' => 'success'];
         } else {
             $ret = ['status' => 'error'];
