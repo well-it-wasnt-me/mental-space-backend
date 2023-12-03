@@ -19,7 +19,7 @@
     "fig/http-message-util": "^1.1",
     "guzzlehttp/guzzle": "^7.5",
     "lcobucci/jwt": "^4.3",
-    "lulco/phoenix": "^1.9",
+    "lulco/phoenix": "^2.4",
     "mpdf/mpdf": "^8.1",
     "nyholm/psr7": "^1.4",
     "nyholm/psr7-server": "^1.0",
