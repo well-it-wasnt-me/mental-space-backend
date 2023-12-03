@@ -2,7 +2,7 @@
   "name": "moebius/mental-space-backend",
   "type": "project",
   "description": "Mental Space Backend",
-  "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+  "license": "CC-BY-NC-SA-4.0",
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-curl": "*",
