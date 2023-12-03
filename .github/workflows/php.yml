@@ -33,13 +33,13 @@ jobs:
       run: composer install --prefer-dist --no-progress
 
     - name: Run tests
-      run: phpunit
+      run: phpunit tests
 
     - name: Check coding standards
-      run: phpcs
+      run: phpcs src tests
 
     - name: Check static analysis
-      run: phpstan analyze
+      run: phpstan analyze src
 
     - name: Check dependency vulnerabilities
       run: composer audit
