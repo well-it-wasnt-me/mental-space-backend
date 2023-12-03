@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class AddPassiAction
+final class AddStepsAction
 {
     private HealthRepository $health;
 
@@ -42,7 +42,7 @@ final class AddPassiAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $request->getParsedBody();
-        $gh = $this->health->aggiungiPassi($request->getAttribute('uid'), $data['passi']);
+        $gh = $this->health->aggiungiPassi($request->getAttribute('uid'), $data['steps']);
 
         if ($gh) {
             $result = ['status' => 'success'];

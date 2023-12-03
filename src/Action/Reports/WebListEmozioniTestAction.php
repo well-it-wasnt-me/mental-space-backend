@@ -40,7 +40,7 @@ final class WebListEmozioniTestAction
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $result = $this->testsRepository->listEmozioniTest($args['user_id']);
+        $result = $this->testsRepository->listEmotionsTest($args['user_id']);
 
         return $this->responder
             ->withJson($response, $result)

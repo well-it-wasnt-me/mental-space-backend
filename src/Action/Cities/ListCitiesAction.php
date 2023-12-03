@@ -41,7 +41,7 @@ final class ListCitiesAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        // Optional: Pass parameters from the request to the findUsers method
+
         $gh = $this->citiesList->listCities();
 
         return $this->responder->withJson($response, $gh);

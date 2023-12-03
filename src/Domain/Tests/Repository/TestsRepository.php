@@ -25,7 +25,7 @@ final class TestsRepository
         $this->transaction = $transaction;
     }
 
-    public function addComportamentoTest(int $uid, array $testData)
+    public function addBehaviourTest(int $uid, array $testData)
     {
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
@@ -33,7 +33,7 @@ final class TestsRepository
             ->execute();
     }
 
-    public function addEmozioneTest(int $uid, array $testData)
+    public function addEmotionTest(int $uid, array $testData)
     {
         $testData['paz_id'] = $this->getPazIDByUserID($uid);
 
@@ -48,7 +48,8 @@ final class TestsRepository
         return $this->queryFactory->newInsert('phq9', $testData)
             ->execute();
     }
-    public function listComportamentoTest(int $uid)
+
+    public function listBehaviourTest(int $uid)
     {
         $paz_id = $this->getPazIDByUserID($uid);
         return $this->queryFactory->newSelect('behaviours')
@@ -59,7 +60,7 @@ final class TestsRepository
             ->fetchAll('assoc');
     }
 
-    public function listEmozioniTest(int $uid)
+    public function listEmotionsTest(int $uid)
     {
         $paz_id = $this->getPazIDByUserID($uid);
         return $this->queryFactory->newSelect('emozioni')

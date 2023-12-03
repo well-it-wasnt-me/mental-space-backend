@@ -39,7 +39,7 @@ final class DoctorRepository
         return $rows;
     }
 
-    public function AppdoctorDetail($user_id): array
+    public function AppDoctorDetail($user_id): array
     {
         $doc_id = $this->queryFactory->newSelect('patients')
             ->select(['doc_id'])

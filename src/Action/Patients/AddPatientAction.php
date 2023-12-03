@@ -17,9 +17,9 @@ final class AddPatientAction
     private PatientsAdd $creator;
     private Responder $responder;
 
-    function __construct(PatientsAdd $smartboxAdd, Responder $responder)
+    function __construct(PatientsAdd $patientsAdd, Responder $responder)
     {
-        $this->creator = $smartboxAdd;
+        $this->creator = $patientsAdd;
         $this->responder = $responder;
     }
 

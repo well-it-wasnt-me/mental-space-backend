@@ -53,9 +53,9 @@ final class DocLoginSubmitAction
         $username = (string)($data['username'] ?? '');
         $password = (string)($data['password'] ?? '');
         $role = (string)($data['role'] ?? '');
-// Pseudo example
-// Check user credentials. You may use an application/domain service and the database here. $user = null;
+
         $userData = $this->userAuth->authenticate($username, $password, $role);
+
         // Clear all flash messages
         $flash = $this->session->getFlash();
         $flash->clear();

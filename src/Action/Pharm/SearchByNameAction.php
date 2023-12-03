@@ -23,7 +23,7 @@ final class SearchByNameAction
     /**
      * The constructor.
      *
-     * @param CitiesList $citiesList The user index list viewer
+     * @param PharmList $pharmList The user index list viewer
      * @param Responder $responder The responder
      */
     public function __construct(PharmList $pharmList, Responder $responder)

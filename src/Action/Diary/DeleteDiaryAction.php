@@ -51,7 +51,7 @@ final class DeleteDiaryAction
         }
 
         return $this->responder
-            ->withJson($response, ['status' => 'success', 'message' => __("Eliminato con successo")])
+            ->withJson($response, ['status' => 'success', 'message' => __("Deleted")])
             ->withStatus(StatusCodeInterface::STATUS_OK);
     }
 }

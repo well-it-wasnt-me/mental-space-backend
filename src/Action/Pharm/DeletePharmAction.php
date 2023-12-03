@@ -23,12 +23,12 @@ final class DeletePharmAction
     /**
      * The constructor.
      *
-     * @param CitiesList $citiesList The user index list viewer
+     * @param PharmList $pharmList The pharm list viewer
      * @param Responder $responder The responder
      */
-    public function __construct(PharmList $dsmList, Responder $responder)
+    public function __construct(PharmList $pharmList, Responder $responder)
     {
-        $this->dsmList = $dsmList;
+        $this->dsmList = $pharmList;
         $this->responder = $responder;
     }
 

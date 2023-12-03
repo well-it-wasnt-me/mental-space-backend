@@ -58,8 +58,7 @@ final class UserLoginSubmitAction
         $username = (string)($data['username'] ?? '');
         $password = (string)($data['password'] ?? '');
         $role = (string)($data['role'] ?? '');
-// Pseudo example
-// Check user credentials. You may use an application/domain service and the database here. $user = null;
+
         $userData = $this->userAuth->authenticate_paz($username, $password, $role);
         // Clear all flash messages
         $flash = $this->session->getFlash();
@@ -82,21 +81,7 @@ final class UserLoginSubmitAction
             $flash->add('success', 'Login successfully');
 
             set_language($userData['locale']);
-            /*
-             * $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
-            $algorithm = new Sha256();
-            $signingKey = getenv('JWT_SECRET');
 
-            $now = new \DateTimeImmutable();
-            $token = $tokenBuilder
-                ->issuedBy('https://app.mentalspace.com')
-                ->permittedFor('http://localhost:8100')
-                ->identifiedBy($userData['user_id'])
-                ->expiresAt($now->modify('+15 DAY'))
-                ->withClaim('uid',$userData['user_id'])
-                ->withClaim('email', $userData['email'])
-                ->getToken($algorithm, $signingKey);
-            */
             $token = $this->jwtAuth->createJwt(
                 [
                     'uid' => $userData['user_id'],

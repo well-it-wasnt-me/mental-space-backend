@@ -2,7 +2,7 @@
 
 namespace App\Action\Pages;
 
-use App\Domain\Consulti\Repository\ConsultiRepository;
+use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Domain\Patients\Repository\PatientsRepository;
 use App\Domain\Reports\Repository\ReportRepository;
 use App\Domain\Tests\Repository\TestsRepository;
@@ -20,7 +20,7 @@ final class ConsultoPageAction
     private $reportRepository;
     private $testRepository;
 
-    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultiRepository $consultiRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
+    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultRepository $consultiRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
     {
         $this->renderer = $renderer;
         $this->repository = $repository;
@@ -199,7 +199,7 @@ final class ConsultoPageAction
             $li .= $this->convertResultPhq($val['result']) . "<br><br>";
         }
 
-        $comportamentiImpulsivi = $this->testRepository->listComportamentoTest($uid);
+        $comportamentiImpulsivi = $this->testRepository->listBehaviourTest($uid);
         $cmp = "";
         foreach ($comportamentiImpulsivi as $key => $val) {
             foreach ($val as $a => $b) {

@@ -23,7 +23,7 @@ final class ListDsmAction
     /**
      * The constructor.
      *
-     * @param CitiesList $citiesList The user index list viewer
+     * @param DsmList $citiesList The dsm list viewer
      * @param Responder $responder The responder
      */
     public function __construct(DsmList $dsmList, Responder $responder)

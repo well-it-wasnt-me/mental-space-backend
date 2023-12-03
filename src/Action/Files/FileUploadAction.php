@@ -38,7 +38,7 @@ final class FileUploadAction
 
         if (!$uploadedFiles) {
             return $this->responder
-                ->withJson($response, ['status' => 'error', 'message' => __("Hai dimenticato di inviare file")])
+                ->withJson($response, ['status' => 'error', 'message' => __("Forgot to attach files ?")])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
@@ -53,12 +53,12 @@ final class FileUploadAction
         if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
             $filename = $this->moveUploadedFile($directory, $uploadedFile);
             return $this->responder
-                ->withJson($response, ['status' => 'success', 'message' => __("Caricato con successo")])
+                ->withJson($response, ['status' => 'success', 'message' => __("Uploaded")])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
         return $this->responder
-            ->withJson($response, ['status' => 'error', 'message' => __("Qualcosa è andato storto")])
+            ->withJson($response, ['status' => 'error', 'message' => __("Something went wrong")])
             ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
     }
 

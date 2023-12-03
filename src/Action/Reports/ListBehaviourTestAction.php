@@ -9,10 +9,11 @@ use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class EmozioniTestAction
+final class ListBehaviourTestAction
 {
     private Responder $responder;
     private TestsRepository $testsRepository;
+
     function __construct(Responder $responder, TestsRepository $testsRepository, UserRepository $userRepository)
     {
         $this->testsRepository = $testsRepository;
@@ -34,14 +35,8 @@ final class EmozioniTestAction
     ): ResponseInterface {
 
         $uid = $request->getAttribute('uid');
-        $data = $request->getParsedBody();
-        $result = [];
 
-        if ($this->testsRepository->addEmozioneTest($uid, $data)) {
-            $result = ['status' => 'success', 'message' => 'Inviato con successo'];
-        } else {
-            $result = ['status' => 'error', 'message' => 'Qualcosa è andato storto, riprova o contattaci'];
-        }
+        $result = $this->testsRepository->listBehaviourTest($uid);
 
         return $this->responder
             ->withJson($response, $result)

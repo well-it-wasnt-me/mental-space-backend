@@ -7,8 +7,9 @@ namespace App\Domain\Obiettivi\Repository;
 
 use App\Factory\QueryFactory;
 use App\Database\Transaction;
+use Cake\Database\StatementInterface;
 
-final class ObiettiviRepository
+final class ObjectiveRepository
 {
 
     private QueryFactory $queryFactory;
@@ -50,7 +51,7 @@ final class ObiettiviRepository
     /**
      * @param $id int ID Obiettivo
      * @param $uid int ID User
-     * @return \Cake\Database\StatementInterface
+     * @return StatementInterface
      */
     public function deleteObjective($id, $uid)
     {
@@ -62,7 +63,7 @@ final class ObiettiviRepository
     /**
      * @param $data array Array [nome_campo][valore]
      * @param $uid int User ID
-     * @return \Cake\Database\StatementInterface
+     * @return StatementInterface
      */
     public function addObjective($data, $uid)
     {

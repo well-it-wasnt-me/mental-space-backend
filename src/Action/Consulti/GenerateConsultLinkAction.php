@@ -5,19 +5,19 @@
 
 namespace App\Action\Consulti;
 
-use App\Domain\Consulti\Repository\ConsultiRepository;
+use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class GeneraLinkConsultoAction
+final class GenerateConsultLinkAction
 {
 
     private Responder $responder;
-    private ConsultiRepository $consultiRepository;
+    private ConsultRepository $consultiRepository;
 
-    function __construct(Responder $responder, ConsultiRepository $consultiRepository)
+    function __construct(Responder $responder, ConsultRepository $consultiRepository)
     {
         $this->responder = $responder;
         $this->consultiRepository = $consultiRepository;
@@ -38,7 +38,7 @@ final class GeneraLinkConsultoAction
 
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             return $this->responder
-                ->withJson($response, ['status' => 'error', 'message' => __('Indirizzo E-Mail non corretto')])
+                ->withJson($response, ['status' => 'error', 'message' => __('E-Mail Address is not correct')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 

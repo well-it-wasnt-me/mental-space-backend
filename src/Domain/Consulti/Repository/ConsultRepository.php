@@ -8,16 +8,18 @@ use App\Moebius\Definition;
 use App\Moebius\Token;
 use App\Support\Hydrator;
 use Cake\Chronos\Chronos;
+use DateTime;
 use Exception;
 use Fig\Http\Message\StatusCodeInterface;
 use PHPMailer\PHPMailer\PHPMailer;
 
-final class ConsultiRepository
+final class ConsultRepository
 {
     private QueryFactory $queryFactory;
     private Transaction $transaction;
     private Hydrator $hydrator;
     private Token $token;
+
     public function __construct(QueryFactory $queryFactory, Transaction $transaction, Hydrator $hydrator, Token $token)
     {
         $this->token = $token;
@@ -42,8 +44,8 @@ final class ConsultiRepository
             return false;
         }
 
-        $data1 = new \DateTime($data[0]['data_creazione']);
-        $data2 = new \DateTime(date("Y-m-d H:i:s"));
+        $data1 = new DateTime($data[0]['data_creazione']);
+        $data2 = new DateTime(date("Y-m-d H:i:s"));
 
         $diff = $data2->diff($data1);
         $hours = $diff->h;
@@ -121,7 +123,7 @@ final class ConsultiRepository
             $mail_body = str_replace($search, $replace, $mail_body);
             $mail->Body = $mail_body;
             $mail->send();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return ['status' => 'error', 'message' => __('Errore invio E-Mail, se lo hai scritto correttamente contatta Mental Space Support Team'),
                 'link' => 'https://--INSERT KEY HERE--/public/consulto/' . $codice, 'pin_code' => $pin_code ];
         }

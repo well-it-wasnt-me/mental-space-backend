@@ -38,7 +38,7 @@ final class ListMoodAction
 
 
 
-        $mood = $this->repository->ultimi10mood($user_id);
+        $mood = $this->repository->last10mood($user_id);
 
         return $this->responder
             ->withJson($response, $mood)

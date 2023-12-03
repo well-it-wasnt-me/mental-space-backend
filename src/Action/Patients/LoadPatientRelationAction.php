@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class LoadRelazionePatientAction
+final class LoadPatientRelationAction
 {
     private PatientsList $patientsList;
 
@@ -22,7 +22,7 @@ final class LoadRelazionePatientAction
     /**
      * The constructor.
      *
-     * @param PatientsList $smartboxList The user index list viewer
+     * @param PatientsList $patientsList The patient list viewer
      * @param Responder $responder The responder
      */
     public function __construct(PatientsList $patientsList, Responder $responder)

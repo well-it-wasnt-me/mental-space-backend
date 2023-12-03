@@ -9,6 +9,7 @@ use App\Domain\Doctors\Service\DocUpdate;
 use App\Domain\Patients\Repository\PatientsRepository;
 use App\Domain\Users\Repository\UserRepository;
 use App\Responder\Responder;
+use Exception;
 use Fig\Http\Message\StatusCodeInterface;
 use PHPMailer\PHPMailer\PHPMailer;
 use Psr\Http\Message\ResponseInterface;
@@ -74,14 +75,14 @@ final class InviteDoctorAction
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Invito a partecipare a Mental Space';
+                $mail->Subject = __('Invite to enter in Mental Space');
                 $mail_body = file_get_contents(__DIR__ . '/../../../data/mail_template/doctor_invitation');
                 $search = ['{{PAZ_NOME}}', '{{PAZ_COGNOME}}', '{{PAZ_EMAIL}}', '{{PAZ_USER_ID}}'  ];
                 $replace = [$userData['name'], $userData['surname'], $userData['email'], $userData['user_id']];
                 $mail_body = str_replace($search, $replace, $mail_body);
                 $mail->Body = $mail_body;
                 $mail->send();
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return $this->responder
                     ->withJson($response, ['status' => 'error', 'messsage' => $e->getMessage()])
                     ->withStatus(StatusCodeInterface::STATUS_OK);
@@ -110,14 +111,14 @@ final class InviteDoctorAction
 
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
-                    $mail->Subject = 'Un Nuovo Assistito per te!';
+                    $mail->Subject = __('A new Patient for you !');
                     $mail_body = file_get_contents(__DIR__ . '/../../../data/mail_template/patient_assigned');
                     $search = ["{{PAZ_NOME}}", '{{PAZ_COGNOME}}', '{{DOC_NOME}}', '{{DOC_COGNOME}}'];
                     $replace = [$userData['name'], $userData['surname']. $docData['doc_name'], $docData['doc_surname']];
                     $mail_body = str_replace($search, $replace, $mail_body);
                     $mail->Body = $mail_body;
                     $mail->send();
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     return $this->responder
                         ->withJson($response, ['status' => 'error', 'messsage' => $e->getMessage()])
                         ->withStatus(StatusCodeInterface::STATUS_OK);
@@ -128,7 +129,7 @@ final class InviteDoctorAction
                     ->withStatus(StatusCodeInterface::STATUS_OK);
             } else {
                 return $this->responder
-                    ->withJson($response, ['status' => 'error', 'message' => 'Errore durante assegnazione medico'])
+                    ->withJson($response, ['status' => 'error', 'message' => __('Error while assigning doctor')])
                     ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
             }
         }
