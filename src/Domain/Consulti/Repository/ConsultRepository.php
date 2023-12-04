@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Consulti\Repository;
+namespace App\Domain\Consult\Repository;
 
 use App\Domain\Doctors\Data\DoctorData;
 use App\Factory\QueryFactory;
@@ -34,7 +34,7 @@ final class ConsultRepository
         if (!$this->token->verify_token($code)) {
             return false;
         }*/
-        $data = $this->queryFactory->newSelect('consulti')
+        $data = $this->queryFactory->newSelect('Consult')
             ->select(['data_creazione', 'con_id'])
             ->where("codice = '$code'")
             ->execute()
@@ -61,7 +61,7 @@ final class ConsultRepository
 
     public function checkPinCode($pin): bool
     {
-        $result = $this->queryFactory->rawQuery('SELECT con_id FROM consulti WHERE pin_code = "'.$pin.'"');
+        $result = $this->queryFactory->rawQuery('SELECT con_id FROM Consult WHERE pin_code = "'.$pin.'"');
         if (empty($result)) {
             return false;
         }
@@ -71,12 +71,12 @@ final class ConsultRepository
 
     public function retrievePazID($code)
     {
-        return $this->queryFactory->rawQuery("SELECT paz_id FROM consulti WHERE codice = '$code'")[0]['paz_id'];
+        return $this->queryFactory->rawQuery("SELECT paz_id FROM Consult WHERE codice = '$code'")[0]['paz_id'];
     }
 
     public function retrieveUserID($code)
     {
-        $paz_id = $this->queryFactory->rawQuery("SELECT paz_id FROM consulti WHERE codice = '$code'")[0]['paz_id'];
+        $paz_id = $this->queryFactory->rawQuery("SELECT paz_id FROM Consult WHERE codice = '$code'")[0]['paz_id'];
         return $this->queryFactory->rawQuery("SELECT user_id FROM patients WHERE paz_id = $paz_id")[0]['user_id'];
     }
 
@@ -85,7 +85,7 @@ final class ConsultRepository
         $codice = $this->token->make_token(44);
         $pin_code = $this->token->make_token(16);
         $res = $this->queryFactory->newInsert(
-            'consulti',
+            'Consult',
             [
                 'destinatario' => $email,
                 'paz_id' => $paz_id,
@@ -132,7 +132,7 @@ final class ConsultRepository
             'link' => 'https://--INSERT KEY HERE--/public/consult/' . $codice, 'pin_code' => $pin_code ];
     }
 
-    public function listaConsulti($paz_id)
+    public function listaConsult($paz_id)
     {
         return $this->queryFactory->rawQuery("SELECT
     destinatario,
@@ -143,13 +143,13 @@ final class ConsultRepository
          WHEN stato = 0 THEN 'Inattivo'
          ELSE 'Sconosciuto'
         END) AS stato
-FROM consulti
+FROM Consult
 WHERE paz_id = $paz_id AND stato = 1");
     }
 
     public function disattivaConsulto($cons_id)
     {
-        return $this->queryFactory->newUpdate('consulti', ['stato' => 0])
+        return $this->queryFactory->newUpdate('Consult', ['stato' => 0])
             ->where("con_id = $cons_id")
             ->execute();
     }

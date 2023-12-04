@@ -1,0 +1,454 @@
+openapi: 3.0.2
+info:
+  version: 0.0.1
+  title: Mental Space Mobile API
+  contact:
+    name: well-it-wasnt-me
+    url: 'https://github.com/well-it-wasnt-me'
+  description: |-
+    All the API used by the mobile application of Mental Space
+  license:
+    name: CC BY-NC-SA 4.0
+    url: 'http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1'
+externalDocs:
+  description: External Documentation
+  url: 'https://github.com/well-it-wasnt-me/mental-space-backend/wiki'
+servers:
+  - description: Local Development with php built-in server
+    url: "http://localhost:8080"
+security:
+  - JWT: [ ]
+
+paths:
+  /mobile/api/mood:
+    post:
+      tags:
+        - Mood Management
+      summary: Add Mood
+      operationId: AddMoodAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/mood/delete/{mood_id}:
+    get:
+      tags:
+        - Mood Management
+      summary: Delete Mood
+      operationId: DeleteMoodAction
+      parameters:
+        - name: mood_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/last_10_mood:
+    get:
+      tags:
+        - Mood Management
+      summary: List Last 10 Moods
+      operationId: ListMoodAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/last_10_mood/graph:
+    get:
+      tags:
+        - Mood Management
+      summary: List Mood Graph
+      operationId: ListMoodGraphAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/update:
+    post:
+      tags:
+        - Patient Management
+      summary: Update Patient
+      operationId: UserUpdateAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/update/address:
+    post:
+      tags:
+        - Patient Management
+      summary: Update Patient Address
+      operationId: UserUpdateAddrAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/invite/doctor:
+    post:
+      tags:
+        - Patient Management
+      summary: Invite Doctor
+      operationId: InviteDoctorAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/my_doctor:
+    get:
+      tags:
+        - Patient Management
+      summary: Get Patient's Doctor
+      operationId: DocDetailAppAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/scollega_doc:
+    get:
+      tags:
+        - Patient Management
+      summary: Remove Doctor
+      operationId: DocRemoveAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/delete_account:
+    get:
+      tags:
+        - Patient Management
+      summary: Delete Patient Account
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/drugs/list:
+    get:
+      tags:
+        - Drugs Management
+      summary: List Drugs
+      operationId: MobileListPharmAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/drugs/list/search/{drug_name}:
+    get:
+      tags:
+        - Drugs Management
+      summary: Search Drugs by Name
+      operationId: SearchByNameAction
+      parameters:
+        - name: drug_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/diary:
+    get:
+      tags:
+        - Patient Management
+        - Diary Management
+      summary: Get Patient Diary
+      operationId: GetDiaryAction
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                status: success
+                message: Operation successful
+    post:
+      tags:
+        - Patient Management
+        - Diary Management
+      summary: Upload Diary
+      operationId: UploadDiaryAction
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                diario:
+                  type: string
+                  description: Long text (possibly in HTML)
+              required:
+                - diario
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                status: success
+                message: Operation successful
+        'default':
+          description: Error
+          content:
+            application/json:
+              example:
+                status: error
+                message: Something went wrong
+
+  /mobile/api/patient/diary/delete/{diary_id}:
+    get:
+      tags:
+        - Patient Management
+      summary: Delete Diary Entry
+      operationId: DeleteDiaryAction
+      parameters:
+        - name: diary_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/file/upload:
+    post:
+      tags:
+        - Patient Management
+      summary: Upload File
+      operationId: FileUploadAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/file/list:
+    get:
+      tags:
+        - Patient Management
+      summary: List Files
+      operationId: FileListAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/file/download:
+    post:
+      tags:
+        - Patient Management
+      summary: Download File
+      operationId: FileDownloadAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/tracking:
+    post:
+      tags:
+        - Patient Management
+      summary: Track User
+      operationId: UserTrackAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/tracking/list:
+    get:
+      tags:
+        - Patient Management
+      summary: List User Tracking
+      operationId: UserTrackListAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/calendar:
+    get:
+      tags:
+        - Patient Management
+      summary: Get User Calendar
+      operationId: UserCalendarAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/drug/list:
+    get:
+      tags:
+        - Patient Management
+      summary: List Patient Drugs
+      operationId: ListPharmPatientMobAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/drug/delete/{id}:
+    get:
+      tags:
+        - Patient Management
+      summary: Delete Patient Drug
+      operationId: DeletePharmAction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/drug/add:
+    post:
+      tags:
+        - Patient Management
+      summary: Add Patient Drug
+      operationId: AddPharmAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/account/delete:
+    get:
+      tags:
+        - Patient Management
+      summary: Delete Patient Account
+      operationId: UserDeleteAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/patient/account/download:
+    get:
+      tags:
+        - Patient Management
+      summary: Download Patient Account
+      operationId: UserDownloadAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/obiettivi/add:
+    post:
+      tags:
+        - Objective Management
+      summary: Add Objective
+      operationId: AddObjectiveAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/obiettivi/delete:
+    post:
+      tags:
+        - Objective Management
+      summary: Delete Objective
+      operationId: DeleteObjectiveAction
+      responses:
+        '200':
+          description: Successful operation
+  /mobile/api/obiettivi/update:
+    post:
+      tags:
+        - Objective Management
+      summary: Update Objective
+      operationId: UpdateObjectiveAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/obiettivi/list:
+    get:
+      tags:
+        - Objective Management
+      summary: List Objectives
+      operationId: ListObjectiveAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/report/pills:
+    get:
+      tags:
+        - Report
+      summary: Generate and send mail about actual drug treatment
+      operationId: ReportGenAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/report/mood:
+    post:
+      tags:
+        - Report
+      summary: Generate and send mail about actual mood
+      operationId: ReportMoodGenAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/test/comportamento:
+    post:
+      tags:
+        - Report
+      summary: Receive user input from behaviour
+      operationId: BehaviourTestAction
+      responses:
+        '200':
+          description: Successful operation
+    get:
+      tags:
+        - Tests
+      summary: List behaviour test
+      operationId: ListBehaviourTestAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/test/emozioni:
+    post:
+      tags:
+        - Tests
+      summary: Receive user input from behaviour
+      operationId: EmotionsTestAction
+      responses:
+        '200':
+          description: Successful operation
+    get:
+      tags:
+        - Tests
+      summary: List emotions test
+      operationId: ListEmotionsTestAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/health/passi:
+    post:
+      tags:
+        - Health
+      summary: Submit user steps
+      operationId: AddStepsAction
+      responses:
+        '200':
+          description: Successful operation
+
+  /mobile/api/patient/test/phq:
+    post:
+      tags:
+        - Tests
+      summary: Submit user test on depression
+      operationId: Phq9TestAction
+      responses:
+        '200':
+          description: Successful operation
+    get:
+      tags:
+        - Tests
+      summary: Return depression submitted test
+      operationId: ListPhq9TestAction
+      responses:
+        '200':
+          description: Successful operation
+
+
+  /mobile/api/register/notification:
+    post:
+      tags:
+        - Notifications
+      summary: Register user for in app notification
+      operationId: RegisterNotificationAction
+      responses:
+        '200':
+          description: Successful operation
+
+components:
+  securitySchemes:
+    JWT: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT received at login
+      in: header
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid

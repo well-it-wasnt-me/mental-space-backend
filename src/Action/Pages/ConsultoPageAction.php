@@ -2,7 +2,7 @@
 
 namespace App\Action\Pages;
 
-use App\Domain\Consulti\Repository\ConsultRepository;
+use App\Domain\Consult\Repository\ConsultRepository;
 use App\Domain\Patients\Repository\PatientsRepository;
 use App\Domain\Reports\Repository\ReportRepository;
 use App\Domain\Tests\Repository\TestsRepository;
@@ -16,15 +16,15 @@ final class ConsultoPageAction
      * @var PhpRenderer */
     private $renderer;
     private $repository;
-    private $consulti;
+    private $Consult;
     private $reportRepository;
     private $testRepository;
 
-    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultRepository $consultiRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
+    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultRepository $ConsultRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
     {
         $this->renderer = $renderer;
         $this->repository = $repository;
-        $this->consulti = $consultiRepository;
+        $this->Consult = $ConsultRepository;
         $this->reportRepository = $reportRepository;
         $this->testRepository = $testsRepository;
     }
@@ -32,7 +32,7 @@ final class ConsultoPageAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
-        if (!$this->consulti->checkCode($args['codice'])) {
+        if (!$this->Consult->checkCode($args['codice'])) {
             return $this->renderer->render($response, 'errors/not_found.php');
         }
 
@@ -83,8 +83,8 @@ final class ConsultoPageAction
 
         ]);
 
-        $paz_id = $this->consulti->retrievePazID($args['codice']);
-        $uid = $this->consulti->retrieveUserID($args['codice']);
+        $paz_id = $this->Consult->retrievePazID($args['codice']);
+        $uid = $this->Consult->retrieveUserID($args['codice']);
         $patientData = $this->repository->consultoPatientDetail($paz_id);
 
         $diario_list = $this->repository->listDiary($uid);

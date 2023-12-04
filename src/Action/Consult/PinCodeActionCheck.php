@@ -3,24 +3,24 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Consulti;
+namespace App\Action\Consult;
 
-use App\Domain\Consulti\Repository\ConsultRepository;
+use App\Domain\Consult\Repository\ConsultRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class GenerateConsultLinkAction
+final class PinCodeActionCheck
 {
 
     private Responder $responder;
-    private ConsultRepository $consultiRepository;
+    private ConsultRepository $ConsultRepository;
 
-    function __construct(Responder $responder, ConsultRepository $consultiRepository)
+    function __construct(Responder $responder, ConsultRepository $ConsultRepository)
     {
         $this->responder = $responder;
-        $this->consultiRepository = $consultiRepository;
+        $this->ConsultRepository = $ConsultRepository;
     }
 
     public function __invoke(
@@ -28,21 +28,20 @@ final class GenerateConsultLinkAction
         ResponseInterface      $response
     ): ResponseInterface {
 
-        $data = $request->getParsedBody();
+        $pin = $request->getParsedBody();
 
-        if (empty($data)) {
+        if (empty($pin)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('No Data Passed')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            return $this->responder
-                ->withJson($response, ['status' => 'error', 'message' => __('E-Mail Address is not correct')])
-                ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
+        $result = [];
+        if ($this->ConsultRepository->checkPinCode($pin['pin_code'])) {
+            $result = ['status' => 'success'];
+        } else {
+            $result = ['status' => 'error'];
         }
-
-        $result = $this->consultiRepository->generaLink($data['email'], $data['paz_id']);
 
         return $this->responder
                 ->withJson($response, $result)

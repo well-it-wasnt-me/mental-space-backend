@@ -3,9 +3,9 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Consulti;
+namespace App\Action\Consult;
 
-use App\Domain\Consulti\Repository\ConsultRepository;
+use App\Domain\Consult\Repository\ConsultRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -15,12 +15,12 @@ final class ListConsultLinkAction
 {
 
     private Responder $responder;
-    private ConsultRepository $consultiRepository;
+    private ConsultRepository $ConsultRepository;
 
-    function __construct(Responder $responder, ConsultRepository $consultiRepository)
+    function __construct(Responder $responder, ConsultRepository $ConsultRepository)
     {
         $this->responder = $responder;
-        $this->consultiRepository = $consultiRepository;
+        $this->ConsultRepository = $ConsultRepository;
     }
 
     public function __invoke(
@@ -35,7 +35,7 @@ final class ListConsultLinkAction
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $result = $this->consultiRepository->listaConsulti($args['paz_id']);
+        $result = $this->ConsultRepository->listaConsult($args['paz_id']);
 
         return $this->responder
                 ->withJson($response, $result)
