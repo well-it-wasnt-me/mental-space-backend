@@ -37,7 +37,7 @@ final class Version1DocAction
         ResponseInterface $response
     ): ResponseInterface {
         // Path to the yaml file
-        $yamlFile = __DIR__ . '/../../../resources/api/example_v1.yaml';
+        $yamlFile = __DIR__ . '/../../../resources/api/mobile_api.yaml';
 
         $viewData = [
             'spec' => json_encode(Yaml::parseFile($yamlFile)),

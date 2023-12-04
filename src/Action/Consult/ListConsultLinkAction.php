@@ -3,7 +3,7 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Consulti;
+namespace App\Action\Consult;
 
 use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Responder\Responder;
@@ -11,7 +11,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class GenerateConsultLinkAction
+final class ListConsultLinkAction
 {
 
     private Responder $responder;
@@ -25,24 +25,17 @@ final class GenerateConsultLinkAction
 
     public function __invoke(
         ServerRequestInterface $request,
-        ResponseInterface      $response
+        ResponseInterface      $response,
+        array $args
     ): ResponseInterface {
 
-        $data = $request->getParsedBody();
-
-        if (empty($data)) {
+        if (empty($args)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('No Data Passed')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            return $this->responder
-                ->withJson($response, ['status' => 'error', 'message' => __('E-Mail Address is not correct')])
-                ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
-        }
-
-        $result = $this->consultiRepository->generaLink($data['email'], $data['paz_id']);
+        $result = $this->consultiRepository->listaConsulti($args['paz_id']);
 
         return $this->responder
                 ->withJson($response, $result)

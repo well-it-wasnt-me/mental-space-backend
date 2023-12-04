@@ -3,7 +3,7 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Consulti;
+namespace App\Action\Consult;
 
 use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Responder\Responder;
@@ -11,7 +11,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class ListConsultLinkAction
+final class PinCodeActionCheck
 {
 
     private Responder $responder;
@@ -25,17 +25,23 @@ final class ListConsultLinkAction
 
     public function __invoke(
         ServerRequestInterface $request,
-        ResponseInterface      $response,
-        array $args
+        ResponseInterface      $response
     ): ResponseInterface {
 
-        if (empty($args)) {
+        $pin = $request->getParsedBody();
+
+        if (empty($pin)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('No Data Passed')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $result = $this->consultiRepository->listaConsulti($args['paz_id']);
+        $result = [];
+        if ($this->consultiRepository->checkPinCode($pin['pin_code'])) {
+            $result = ['status' => 'success'];
+        } else {
+            $result = ['status' => 'error'];
+        }
 
         return $this->responder
                 ->withJson($response, $result)

@@ -3,7 +3,7 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Consulti;
+namespace App\Action\Consult;
 
 use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Responder\Responder;
@@ -11,7 +11,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class PinCodeActionCheck
+final class GenerateConsultLinkAction
 {
 
     private Responder $responder;
@@ -28,20 +28,21 @@ final class PinCodeActionCheck
         ResponseInterface      $response
     ): ResponseInterface {
 
-        $pin = $request->getParsedBody();
+        $data = $request->getParsedBody();
 
-        if (empty($pin)) {
+        if (empty($data)) {
             return $this->responder
                 ->withJson($response, ['status' => 'error', 'message' => __('No Data Passed')])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $result = [];
-        if ($this->consultiRepository->checkPinCode($pin['pin_code'])) {
-            $result = ['status' => 'success'];
-        } else {
-            $result = ['status' => 'error'];
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            return $this->responder
+                ->withJson($response, ['status' => 'error', 'message' => __('E-Mail Address is not correct')])
+                ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
+
+        $result = $this->consultiRepository->generaLink($data['email'], $data['paz_id']);
 
         return $this->responder
                 ->withJson($response, $result)
