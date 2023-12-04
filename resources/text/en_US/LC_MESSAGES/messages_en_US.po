@@ -901,21 +901,21 @@ msgstr "Send"
 msgid "No data received"
 msgstr "No data received"
 
-#: src/Domain/Consulti/Repository/ConsultiRepository.php:92
+#: src/Domain/Consult/Repository/ConsultRepository.php:92
 msgid "Server Error, contatta Mental Space Support Team"
 msgstr "Server Error, contact Mnetal Space team"
 
-#: src/Domain/Consulti/Repository/ConsultiRepository.php:113
+#: src/Domain/Consult/Repository/ConsultRepository.php:113
 msgid "Consulto Medico"
 msgstr "Doctor Consultation"
 
-#: src/Domain/Consulti/Repository/ConsultiRepository.php:122
+#: src/Domain/Consult/Repository/ConsultRepository.php:122
 msgid ""
 "Errore invio E-Mail, se lo hai scritto correttamente contatta Mental Space "
 "Support Team"
 msgstr "Error while sending mail. if you wrote it right contact Mental Space"
 
-#: src/Domain/Consulti/Repository/ConsultiRepository.php:126
+#: src/Domain/Consult/Repository/ConsultRepository.php:126
 msgid "Richiesta consult inviata correttamente"
 msgstr "Medical Consultation request sent successfull"
 

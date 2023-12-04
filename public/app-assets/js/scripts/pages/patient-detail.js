@@ -9,7 +9,7 @@ $(document).ready(function () {
     retrieveEmozioniTest();
     reportVari();
     retrievePhqTest();
-    loadConsulti();
+    loadConsult();
 
 });
 
@@ -775,15 +775,15 @@ function richiediConsulto(){
     }, function(resp){
         if(resp.status === 'error'){
             Swal.fire('Whoops!', resp.message, 'error');
-            loadConsulti();
+            loadConsult();
         } else {
             Swal.fire('Successo!', resp.message, 'success');
-            loadConsulti();
+            loadConsult();
         }
     });
 }
 
-function loadConsulti(){
+function loadConsult() {
     $("#currentConsult").html("Caricamento in corso...");
     $.get('/api/consulto/list/' + $("#paz_id").text(), function(data){
         $("#currentConsult").html("");

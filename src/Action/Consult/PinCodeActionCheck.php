@@ -5,7 +5,7 @@
 
 namespace App\Action\Consult;
 
-use App\Domain\Consulti\Repository\ConsultRepository;
+use App\Domain\Consult\Repository\ConsultRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -15,12 +15,12 @@ final class PinCodeActionCheck
 {
 
     private Responder $responder;
-    private ConsultRepository $consultiRepository;
+    private ConsultRepository $ConsultRepository;
 
-    function __construct(Responder $responder, ConsultRepository $consultiRepository)
+    function __construct(Responder $responder, ConsultRepository $ConsultRepository)
     {
         $this->responder = $responder;
-        $this->consultiRepository = $consultiRepository;
+        $this->ConsultRepository = $ConsultRepository;
     }
 
     public function __invoke(
@@ -37,7 +37,7 @@ final class PinCodeActionCheck
         }
 
         $result = [];
-        if ($this->consultiRepository->checkPinCode($pin['pin_code'])) {
+        if ($this->ConsultRepository->checkPinCode($pin['pin_code'])) {
             $result = ['status' => 'success'];
         } else {
             $result = ['status' => 'error'];
