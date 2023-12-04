@@ -17,9 +17,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/pages/home_doctor">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="/pages/patients/list"><?php echo __("Pazienti"); ?></a>
+                                <li class="breadcrumb-item"><a href="/pages/patients/list"><?php echo __("Patients"); ?></a>
                                 </li>
-                                <li class="breadcrumb-item active"><?php echo __("Nuovo"); ?>
+                                <li class="breadcrumb-item active"><?php echo __("New"); ?>
                                 </li>
                             </ol>
                         </div>
@@ -36,8 +36,8 @@
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">1</span>
                                 <span class="bs-stepper-label">
-                                        <span class="bs-stepper-title"><?php echo __("Dati Base"); ?></span>
-                                        <span class="bs-stepper-subtitle"><?php echo __("Informazioni di base"); ?></span>
+                                        <span class="bs-stepper-title"><?php echo __("Basic Data"); ?></span>
+                                        <span class="bs-stepper-subtitle"><?php echo __("Basic Informations"); ?></span>
                                     </span>
                             </button>
                         </div>
@@ -48,8 +48,8 @@
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">2</span>
                                 <span class="bs-stepper-label">
-                                        <span class="bs-stepper-title"><?php echo __("Dati Clinici"); ?></span>
-                                        <span class="bs-stepper-subtitle"><?php echo __("Qualcosa di Rilevante"); ?></span>
+                                        <span class="bs-stepper-title"><?php echo __("Clinical Datas"); ?></span>
+                                        <span class="bs-stepper-subtitle"><?php echo __("Anything that might be relevant ?"); ?></span>
                                     </span>
                             </button>
                         </div>
@@ -60,8 +60,8 @@
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">3</span>
                                 <span class="bs-stepper-label">
-                                        <span class="bs-stepper-title"><?php echo __("Relazione"); ?></span>
-                                        <span class="bs-stepper-subtitle"><?php echo __("Una prima impressione"); ?></span>
+                                        <span class="bs-stepper-title"><?php echo __("Relation"); ?></span>
+                                        <span class="bs-stepper-subtitle"><?php echo __("What's your first impression ?"); ?></span>
                                     </span>
                             </button>
                         </div>
@@ -72,8 +72,8 @@
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">4</span>
                                 <span class="bs-stepper-label">
-                                        <span class="bs-stepper-title"><?php echo __("Applicazione"); ?></span>
-                                        <span class="bs-stepper-subtitle"><?php echo __("Invita ad usare App"); ?></span>
+                                        <span class="bs-stepper-title"><?php echo __("Mobile App"); ?></span>
+                                        <span class="bs-stepper-subtitle"><?php echo __("Invite to use the App"); ?></span>
                                     </span>
                             </button>
                         </div>
@@ -81,31 +81,31 @@
                     <div class="bs-stepper-content">
                         <div id="account-details" class="content" role="tabpanel" aria-labelledby="account-details-trigger">
                             <div class="content-header">
-                                <h5 class="mb-0"><?php echo __("Dati Base"); ?></h5>
-                                <small class="text-muted"><?php echo __("Ogni cosa è importante."); ?></small>
+                                <h5 class="mb-0"><?php echo __("Basic Datas"); ?></h5>
+                                <small class="text-muted"><?php echo __("Everything is important"); ?></small>
                             </div>
                             <form id="frm_add_paz">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label" for="nome_pdv"><?php echo __('Cognome');?></label>
+                                                <label class="form-label" for="nome_pdv"><?php echo __('Surname');?></label>
                                                 <input type="text" name="surname" id="surname" class="form-control" placeholder="Rossi" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="id_pdv"><?php echo __('Nome');?></label>
+                                                <label class="form-label" for="id_pdv"><?php echo __('Name');?></label>
                                                 <input type="text" name="name" id="name" class="form-control" placeholder="Giuseppe" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="cf"><?php echo __('Codice Fiscale');?></label>
+                                                <label class="form-label" for="cf"><?php echo __('SSN');?></label>
                                                 <input type="text" name="cf" id="cf" class="form-control" placeholder="RSSGPP80A01F839A" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="dob"><?php echo __('Data di Nascita');?></label>
+                                                <label class="form-label" for="dob"><?php echo __('Date of Birth');?></label>
                                                 <input type="date" name="dob" id="dob" class="form-control" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="telefono"><?php echo __('Telefono');?></label>
+                                                <label class="form-label" for="telefono"><?php echo __('Mobile');?></label>
                                                 <input type="text" name="telefono" id="telefono" class="form-control" placeholder="333..." />
                                             </div>
 
@@ -114,19 +114,19 @@
                                                 <input type="text" name="email" id="email" class="form-control" placeholder="nome@mail.com" />
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label" for="address"><?php echo __('Indirizzo Completo');?></label>
+                                                <label class="form-label" for="address"><?php echo __('Full Address');?></label>
                                                 <input type="text" class="form-control event_form_input" id="address" name="address" placeholder="Indirizzo Completo" value="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <small class="text-muted"><?php echo __('Contatto di Emergenza');?>.</small>
+                                        <small class="text-muted"><?php echo __('Emergency Contact');?>.</small>
                                         <div class="col-md-6">
-                                            <label class="form-label" for="em_nome"><?php echo __('Nome e Cognome');?></label>
+                                            <label class="form-label" for="em_nome"><?php echo __('Name and Surname');?></label>
                                             <input type="text" name="em_nome" id="em_nome" class="form-control" placeholder="Rossi Simona" />
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="form-label" for="em_telefono"><?php echo __('Telefono');?></label>
+                                            <label class="form-label" for="em_telefono"><?php echo __('Mobile');?></label>
                                             <input type="text" name="em_telefono" id="em_telefono" class="form-control" placeholder="333..." />
                                         </div>
                                     </div>
@@ -136,62 +136,62 @@
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-secondary btn-prev" disabled>
                                     <i data-feather="arrow-left" class="align-middle me-sm-25 me-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Indietro"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("back"); ?></span>
                                 </button>
                                 <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Avanti"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Next"); ?></span>
                                     <i data-feather="arrow-right" class="align-middle ms-sm-25 ms-0"></i>
                                 </button>
                             </div>
                         </div>
                         <div id="personal-info" class="content" role="tabpanel" aria-labelledby="personal-info-trigger">
                             <div class="content-header">
-                                <h5 class="mb-0"><?php echo __("Dati Clinici"); ?></h5>
-                                <small><?php echo __("Qualcosa di rilevante"); ?></small>
+                                <h5 class="mb-0"><?php echo __("Clinical Datas"); ?></h5>
+                                <small><?php echo __("Anything relevant ?"); ?></small>
                             </div>
                             <form>
                                 <div class="row">
                                     <div class="mb-1 col-md-4">
-                                        <label class="form-label" for="height"><?php echo __('Altezza (cm)');?></label>
+                                        <label class="form-label" for="height"><?php echo __('Height (cm)');?></label>
                                         <input type="number" name="height" id="height" class="form-control" placeholder="180" />
                                     </div>
                                     <div class="mb-1 col-md-4">
-                                        <label class="form-label" for="weight"><?php echo __('Peso (kg)');?></label>
+                                        <label class="form-label" for="weight"><?php echo __('Weight (kg)');?></label>
                                         <input type="number" name="weight" id="weight" class="form-control" placeholder="90" />
                                     </div>
                                     <div class="mb-1 col-md-4">
-                                        <label class="form-label" for="vendor"><?php echo __('Diagnosi (come da DSM-5)');?></label>
+                                        <label class="form-label" for="vendor"><?php echo __('Diagnosis (as per DSM-5)');?></label>
                                         <select class="select2 form-select" name="dsm_id[]" id="dsm_id" multiple>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="mb-1 col-md-9">
-                                        <label class="form-label" for="curr_pharms"><?php echo __("Trattamento Farmacologico in Corso"); ?></label>
+                                        <label class="form-label" for="curr_pharms"><?php echo __("Actual pharmacological Treatment"); ?></label>
                                         <select class="select2 w-100 js-data-example-ajax" id="curr_pharms" name="curr_pharms[]" multiple>
                                         </select>
                                     </div>
                                     <div class="mb-1 col-md-3">
-                                        <label class="form-label"><?php echo __("Farmaco non in elenco"); ?></label>
-                                        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><?php echo __("Aggiungi Nuovo Farmaco"); ?></a>
+                                        <label class="form-label"><?php echo __("Drug not in the list"); ?></label>
+                                        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><?php echo __("Add new Drug"); ?></a>
                                     </div>
                                 </div>
                             </form>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle me-sm-25 me-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Indietro"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Back"); ?></span>
                                 </button>
                                 <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Avanti"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Next"); ?></span>
                                     <i data-feather="arrow-right" class="align-middle ms-sm-25 ms-0"></i>
                                 </button>
                             </div>
                         </div>
                         <div id="address-step" class="content" role="tabpanel" aria-labelledby="address-step-trigger">
                             <div class="content-header">
-                                <h5 class="mb-0"><?php echo __("Relazione");?></h5>
-                                <small><?php echo __("Le tue impressioni"); ?></small>
+                                <h5 class="mb-0"><?php echo __("Relation");?></h5>
+                                <small><?php echo __("Your Impressions"); ?></small>
                             </div>
                             <form>
                                 <div class="row" id="snow_container">
@@ -241,7 +241,7 @@
                                                         </span>
                                                                 </div>
                                                                 <div class="editor" id="editor">
-                                                                    <h1 class="ql-align-center"><?php echo __("Relazione su Paziente"); ?></h1>
+                                                                    <h1 class="ql-align-center"><?php echo __("Relation on Patient"); ?></h1>
                                                                     <p class="card-text"><br /></p>
                                                                     <p class="card-text">
 <?php echo __("Scrivere qui"); ?>
@@ -261,33 +261,33 @@
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle me-sm-25 me-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Indietro");?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Back");?></span>
                                 </button>
                                 <button class="btn btn-primary btn-next">
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Avanti"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Next"); ?></span>
                                     <i data-feather="arrow-right" class="align-middle ms-sm-25 ms-0"></i>
                                 </button>
                             </div>
                         </div>
                         <div id="social-links" class="content" role="tabpanel" aria-labelledby="social-links-trigger">
                             <div class="content-header">
-                                <h5 class="mb-0"><?php echo __("Applicazione"); ?></h5>
-                                <small><?php echo __("Invito"); ?></small>
+                                <h5 class="mb-0"><?php echo __("Mobile App"); ?></h5>
+                                <small><?php echo __("Invite"); ?></small>
                             </div>
                             <form>
                                 <div class="row">
                                     <div class="mb-1 col-md-6">
                                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="checked" checked/>
-                                        <label class="form-check-label" for="inlineCheckbox1"><?php echo __("Invita a scaricare APP"); ?></label>
+                                        <label class="form-check-label" for="inlineCheckbox1"><?php echo __("Invite to download the App"); ?></label>
                                     </div>
                                 </div>
                             </form>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle me-sm-25 me-0"></i>
-                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Indietro"); ?></span>
+                                    <span class="align-middle d-sm-inline-block d-none"><?php echo __("Back"); ?></span>
                                 </button>
-                                <button class="btn btn-success btn-submit"><?php echo __("Inserisci"); ?></button>
+                                <button class="btn btn-success btn-submit"><?php echo __("Insert"); ?></button>
                             </div>
                         </div>
                     </div>

@@ -46,15 +46,7 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "c98ed8b1-7ba3-45d4-844a-24f0ec6ca917",
-            });
-        });
-    </script>
+
 
 </head>
 <!-- END: Head-->
@@ -71,8 +63,8 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
                 <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
             </ul>
             <ul class="nav navbar-nav bookmark-icons">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/pages/messages" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Messaggi"><i class="ficon" data-feather="mail"></i></a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/pages/calendar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Calendario"><i class="ficon" data-feather="calendar"></i></a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/pages/messages" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Messages"><i class="ficon" data-feather="mail"></i></a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/pages/calendar" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
             </ul>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
@@ -83,7 +75,7 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
             <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
                 <div class="search-input">
                     <div class="search-input-icon"><i data-feather="search"></i></div>
-                    <input class="form-control input" id="searchBarPaz" oninput="searchPaz()" type="text" placeholder="Cerca Paziente..." tabindex="-1" data-search="search">
+                    <input class="form-control input" id="searchBarPaz" oninput="searchPaz()" type="text" placeholder="Search Patient..." tabindex="-1" data-search="search">
                     <div class="search-input-close"><i data-feather="x"></i></div>
                     <ul class="search-list search-list-main"></ul>
                 </div>
@@ -93,11 +85,11 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
                     <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?php echo $_SESSION['fname'] . " " . $_SESSION['lname'];?></span><span class="user-status"><?php echo $_SESSION['email'];?></span></div><span class="avatar"><img class="round" src="<?php echo get_gravatar($_SESSION['email']);?>" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                    <a class="dropdown-item" href="/pages/doctor_detail"><i class="me-50" data-feather="user"></i> Profilo</a>
+                    <a class="dropdown-item" href="/pages/doctor_detail"><i class="me-50" data-feather="user"></i> Profile</a>
                     <!--<a class="dropdown-item" href="/pages/messages"><i class="me-50" data-feather="mail"></i> Messaggi</a>-->
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/pages/doctor_detail"><i class="me-50" data-feather="settings"></i> Impostazioni</a>
-                    <a class="dropdown-item" href="/pages/prices"><i class="me-50" data-feather="credit-card"></i> Prezzi</a>
+                    <a class="dropdown-item" href="/pages/doctor_detail"><i class="me-50" data-feather="settings"></i> Settings</a>
+                    <a class="dropdown-item" href="/pages/prices"><i class="me-50" data-feather="credit-card"></i> Prices</a>
                     <a class="dropdown-item" href="/pages/faq"><i class="me-50" data-feather="help-circle"></i> FAQ</a>
                     <a class="dropdown-item" href="/logout"><i class="me-50" data-feather="power"></i> Logout</a>
                 </div>
@@ -129,22 +121,22 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
 
             <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="Pazienti"><?php echo __("Pazienti");?></span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="Pazienti"><?php echo __("Patients");?></span></a>
                 <ul class="menu-content">
-                    <li><a url="/pages/patients/add" class="d-flex align-items-center"  href="/pages/patients/add"><i data-feather="user-plus"></i><span class="menu-item text-truncate" data-i18n="Aggiungi"><?php echo __("Aggiungi");?></span></a>
+                    <li><a url="/pages/patients/add" class="d-flex align-items-center"  href="/pages/patients/add"><i data-feather="user-plus"></i><span class="menu-item text-truncate" data-i18n="Aggiungi"><?php echo __("Add");?></span></a>
                     </li>
                     <li><a url="/pages/reports" class="d-flex align-items-center"  href="/pages/reports"><i data-feather="bar-chart-2"></i><span class="menu-item text-truncate" data-i18n="Report"><?php echo __("Report");?></span></a>
                     </li>
-                    <li><a url="/pages/calendar" class="d-flex align-items-center"  href="/pages/calendar"><i data-feather="calendar"></i><span class="menu-item text-truncate" data-i18n="Calendario"><?php echo __("Calendario");?></span></a>
+                    <li><a url="/pages/calendar" class="d-flex align-items-center"  href="/pages/calendar"><i data-feather="calendar"></i><span class="menu-item text-truncate" data-i18n="Calendario"><?php echo __("Calendar");?></span></a>
                     </li>
-                    <!--<li><a url="/pages/messages" class="d-flex align-items-center"  href="/pages/messages"><i data-feather="mail"></i><span class="menu-item text-truncate" data-i18n="Calendario"><?php echo __("Messaggi");?></span></a>
+                    <!--<li><a url="/pages/messages" class="d-flex align-items-center"  href="/pages/messages"><i data-feather="mail"></i><span class="menu-item text-truncate" data-i18n="Calendario"><?php echo __("Messages");?></span></a>
                     </li>-->
                 </ul>
             </li>
 
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Account"><?php echo __("Account");?></span></a>
                 <ul class="menu-content">
-                    <li><a url="/pages/doctor_detail" class="d-flex align-items-center" href="/pages/doctor_detail"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Dettagli"><?php echo __("Dettagli &<br> Impostazioni");?></span></a>
+                    <li><a url="/pages/doctor_detail" class="d-flex align-items-center" href="/pages/doctor_detail"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Dettagli"><?php echo __("Details &<br> Settings");?></span></a>
                     </li>
                 </ul>
             </li>
@@ -165,7 +157,7 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
 
 <!-- BEGIN: Footer-->
 <footer class="footer footer-static footer-light">
-    <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2022<a class="ms-25" href="#">Moebius Integrated System</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i> just for You</span></p>
+    <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">NO COPYRIGHT - Just CC BY-NC-SA License <a class="ms-25" href="#">The Community</a><span class="d-none d-sm-inline-block">, Feel free to help</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i> just for You</span></p>
 </footer>
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->

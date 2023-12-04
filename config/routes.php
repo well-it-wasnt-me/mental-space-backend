@@ -147,8 +147,8 @@ return function (App $app) {
         $group->get("/privacy", PrivacyPageAction::class)->setName('privacy-policy');
         $group->get("/terms", TermsPageAction::class)->setName('terms');
         $group->post("/stripe/webhook", webhook::class)->setName('wh');
-        $group->get("/consulto/{codice}", ConsultoPageAction::class)->setName('consulto');
-        $group->post("/pincode/check", PinCodeActionCheck::class)->setName('consulto-pin-check');
+        $group->get("/consult/{codice}", ConsultoPageAction::class)->setName('consult');
+        $group->post("/pincode/check", PinCodeActionCheck::class)->setName('consult-pin-check');
         $group->post("/hack/attempt", HackAttemptAction::class)->setName('log-hack-attempt');
         $group->get('/create-checkout-session', CreateCheckoutSession::class)->setName('payment-page');
     });
@@ -206,8 +206,8 @@ return function (App $app) {
         $group->post('/dsm/list/search', WebDsmSearchByNameAction::class);
         $group->post('/search/patient', ReportSearchPatAction::class);
         $group->post('/reports/generate', WebReportGenAction::class);
-        $group->post('/consulto/create', GenerateConsultLinkAction::class);
-        $group->get('/consulto/list/{paz_id}', ListConsultLinkAction::class);
+        $group->post('/consult/create', GenerateConsultLinkAction::class);
+        $group->get('/consult/list/{paz_id}', ListConsultLinkAction::class);
 
 
         /*** END PATIENTS ***/

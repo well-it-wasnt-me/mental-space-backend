@@ -40,9 +40,9 @@ final class Token
     }
 
     /**
-     * Funzione generazione caratteri random
+     * Generate random chars
      *
-     * @return string Caratteri random
+     * @return string Random Chars
      */
     function rand_alphanumeric()
     {

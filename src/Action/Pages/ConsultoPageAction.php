@@ -36,7 +36,7 @@ final class ConsultoPageAction
             return $this->renderer->render($response, 'errors/not_found.php');
         }
 
-        $this->renderer->setLayout('layout/consulto.php');
+        $this->renderer->setLayout('layout/consult.php');
 
         $this->renderer->addAttribute('css', [
             '/app-assets/vendors/css/forms/select/select2.min.css',
@@ -78,7 +78,7 @@ final class ConsultoPageAction
             '/app-assets/js/scripts/pages/patient-detail.js',
             '/app-assets/js/scripts/components/components-popovers.js',
             '/app-assets/js/scripts/components/mutation.js',
-            '/app-assets/js/scripts/pages/consulto.js',
+            '/app-assets/js/scripts/pages/consult.js',
 
 
         ]);
@@ -210,7 +210,7 @@ final class ConsultoPageAction
             $cmp .= "<hr>";
         }
 
-        return $this->renderer->render($response, 'consulto/home.php', [
+        return $this->renderer->render($response, 'consult/home.php', [
             'patient' => $patientData[0],
             'diario' => empty($diario) ? 'Non ha scritto nulla negli ultimi 7 giorni':$diario,
             'lista_farmaci' => $farmaci,

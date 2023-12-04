@@ -33,7 +33,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="payment" data-bs-toggle="pill" href="#faq-payment" aria-expanded="true" role="tab">
                                         <i data-feather="credit-card" class="font-medium-3 me-1"></i>
-                                        <span class="fw-bold">Pagamenti</span>
+                                        <span class="fw-bold">Payments</span>
                                     </a>
                                 </li>
 
@@ -41,7 +41,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="delivery" data-bs-toggle="pill" href="#faq-delivery" aria-expanded="false" role="tab">
                                         <i data-feather="wind" class="font-medium-3 me-1"></i>
-                                        <span class="fw-bold">Privacy & Contratti</span>
+                                        <span class="fw-bold">Privacy & Terms</span>
                                     </a>
                                 </li>
 
@@ -64,7 +64,7 @@
                                     </div>
                                     <div>
                                         <h4 class="mb-0">Pagamenti</h4>
-                                        <span>Informazioni Utili</span>
+                                        <span>Useful Informations</span>
                                     </div>
                                 </div>
 
@@ -73,38 +73,38 @@
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="paymentOne">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-payment-one" aria-expanded="false" aria-controls="faq-payment-one">
-                                                La mia sottoscrizione si rinnova in automatico ?
+                                                Is my subscription automatically renowed ?
                                             </button>
                                         </h2>
 
                                         <div id="faq-payment-one" class="collapse accordion-collapse" aria-labelledby="paymentOne" data-bs-parent="#faq-payment-qna">
                                             <div class="accordion-body">
-                                                Si, grazie al nostro partner Stripe la gestione dei pagamenti è semplificata ambo i lati :)
+                                                Yes, we use Stripe in order to handle this. If you want change this method feel free to go on stripe.com
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="paymentTwo">
                                             <button class="accordion-button" data-bs-toggle="collapse" role="button" data-bs-target="#faq-payment-two" aria-expanded="true" aria-controls="faq-payment-two">
-                                                Dove Trovo le Fatture ?
+                                                Where are my invoices ?
                                             </button>
                                         </h2>
                                         <div id="faq-payment-two" class="collapse accordion-collapse" aria-labelledby="paymentTwo" data-bs-parent="#faq-payment-qna">
                                             <div class="accordion-body">
-                                                Nella sezione Account > Dettaglio & Impostazioni -> Abbonamento
+                                                In the section Account > Detail & Settings -> My Subscription
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="paymentThree">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-payment-three" aria-expanded="false" aria-controls="faq-payment-three">
-                                                Posso cancellare il mio abbonamento ?
+                                                Can i delete my subscription ?
                                             </button>
                                         </h2>
                                         <div id="faq-payment-three" class="collapse" aria-labelledby="paymentThree" data-bs-parent="#faq-payment-qna">
                                             <div class="accordion-body">
-                                                Certo che puoi ! Hai piena liberta e controllo del tuo account. Fa solo attenzione ad una cosa però...
-                                                Non vi sarà alcun rimborso ed il tuo account rimarrà attivo fino allo scadere dell'abbonamento.
+                                                Of course you can ! You have total freedom about this. Just one thing...
+                                                No reimbursement will be done and the account will be active till the subscription end
                                             </div>
                                         </div>
                                     </div>
@@ -119,8 +119,8 @@
                                         <i data-feather="wind" class="font-medium-4"></i>
                                     </div>
                                     <div>
-                                        <h4 class="mb-0">Privacy & Contratti</h4>
-                                        <span>Cose buone da sapere</span>
+                                        <h4 class="mb-0">Privacy & Terms</h4>
+                                        <span>Good to Know</span>
                                     </div>
                                 </div>
 
@@ -129,7 +129,7 @@
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="deliveryOne">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-delivery-one" aria-expanded="false" aria-controls="faq-delivery-one">
-                                                Chi è il proprietario del dato ?
+                                                Who is the owner of the data ?
                                             </button>
                                         </h2>
 
@@ -145,7 +145,7 @@
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="deliveryTwo">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-delivery-two" aria-expanded="false" aria-controls="faq-delivery-two">
-                                                Chi è il responsabile del trattamento dei dati ?
+                                                Who is the responsible for the data ?
                                             </button>
                                         </h2>
                                         <div id="faq-delivery-two" class="collapse accordion-collapse" aria-labelledby="deliveryTwo" data-bs-parent="#faq-delivery-qna">
@@ -159,7 +159,7 @@
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="deliveryThree">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-delivery-three" aria-expanded="false" aria-controls="faq-delivery-three">
-                                                Dove trovo il mio contratto ?
+                                                Where are the terms  ?
                                             </button>
                                         </h2>
                                         <div id="faq-delivery-three" class="collapse" aria-labelledby="deliveryThree" data-bs-parent="#faq-delivery-qna">
@@ -174,7 +174,7 @@
                                     <div class="card accordion-item">
                                         <h2 class="accordion-header" id="deliveryFour">
                                             <button class="accordion-button collapsed" data-bs-toggle="collapse" role="button" data-bs-target="#faq-delivery-four" aria-expanded="false" aria-controls="faq-delivery-four">
-                                                Posso scaricare tutti i miei dati ?
+                                                Where can i download all my data ?
                                             </button>
                                         </h2>
                                         <div id="faq-delivery-four" class="collapse" aria-labelledby="deliveryFour" data-bs-parent="#faq-delivery-qna">

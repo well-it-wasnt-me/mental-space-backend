@@ -71,7 +71,7 @@ final class UserCreator
         }
 
         if (!$user->locale) {
-            $user->locale = 'it_IT';
+            $user->locale = 'en_EN';
         }
 
         // Insert user and get new user ID

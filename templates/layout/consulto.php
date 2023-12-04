@@ -87,7 +87,7 @@
            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
                    <i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="Pazienti">Mental Space</span></a>
                 <ul class="menu-content">
-                    <li><a url="/public/register_doc" class="d-flex align-items-center"  href="/public/register_doc"><i data-feather="user-plus"></i><span class="menu-item text-truncate" data-i18n="Aggiungi"><?php echo __("Crea Account"); ?></span></a>
+                    <li><a url="/public/register_doc" class="d-flex align-items-center"  href="/public/register_doc"><i data-feather="user-plus"></i><span class="menu-item text-truncate" data-i18n="Aggiungi"><?php echo __("Create Account"); ?></span></a>
                     </li>
                 </ul>
             </li>
