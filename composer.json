@@ -29,7 +29,7 @@
     "phpmailer/phpmailer": "^6.7",
     "selective/array-reader": "^2.1",
     "selective/basepath": "^2.0",
-    "selective/validation": "^1.1",
+    "selective/validation": "^2.1",
     "slim/php-view": "^3.1",
     "slim/psr7": "^1.4",
     "slim/slim": "4.*",
