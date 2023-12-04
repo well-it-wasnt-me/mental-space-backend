@@ -22,7 +22,7 @@ final class ListAnnotationPatientAction
     /**
      * The constructor.
      *
-     * @param PatientsList $smartboxList The user index list viewer
+     * @param PatientsList $patientsList The user index list viewer
      * @param Responder $responder The responder
      */
     public function __construct(PatientsList $patientsList, Responder $responder)

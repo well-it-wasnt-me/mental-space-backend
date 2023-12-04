@@ -50,7 +50,7 @@ final class ListContactsAction
      * This could also be done within a specific Responder class.
      *
      * @param ResponseInterface $response The response
-     * @param array $users The users
+     * @param array $sbs Dont remember
      *
      * @return ResponseInterface The response
      */

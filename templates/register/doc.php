@@ -83,16 +83,16 @@
                                 <h2 class="brand-text text-primary ms-1">Mental Space</h2>
                             </a>
 
-                            <h4 class="card-title mb-1"><?php echo __("La tua avventura comincia qui"); ?> 🚀</h4>
-                            <p class="card-text mb-2"><?php echo __("Registrati ora"); ?></p>
+                            <h4 class="card-title mb-1"><?php echo __("Your adventure starts here"); ?> 🚀</h4>
+                            <p class="card-text mb-2"><?php echo __("Register now"); ?></p>
 
                             <form class="auth-register-form mt-2" action="/register_doc" method="POST" id="register_form">
                                 <div class="mb-1">
-                                    <label for="first_name" class="form-label"><?php echo __("Nome"); ?></label>
+                                    <label for="first_name" class="form-label"><?php echo __("Name"); ?></label>
                                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Marco" aria-describedby="register-name" tabindex="1" autofocus />
                                 </div>
                                 <div class="mb-1">
-                                    <label for="last_name" class="form-label"><?php echo __("Cognome"); ?></label>
+                                    <label for="last_name" class="form-label"><?php echo __("Surname"); ?></label>
                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Rossi" aria-describedby="register-surname" tabindex="1" />
                                 </div>
                                 <div class="mb-1">
@@ -112,7 +112,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="register-privacy-policy" tabindex="4" />
                                         <label class="form-check-label" for="register-privacy-policy">
-                                            <?php echo __("Accetto le"); ?> <a href="/public/privacy" target="_blank">privacy policy </a>& <a href="/public/terms" target="_blank"><?php echo __("termini e condizioni"); ?></a>
+                                            <?php echo __("I Accept the "); ?> <a href="/public/privacy" target="_blank">privacy policy </a>& <a href="/public/terms" target="_blank"><?php echo __("terms and conditions"); ?></a>
                                         </label>
                                     </div>
                                 </div>
@@ -120,9 +120,9 @@
                             </form>
 
                             <p class="text-center mt-2">
-                                <span><?php echo __("Hai gia un account ?"); ?></span>
+                                <span><?php echo __("Already have an account ?"); ?></span>
                                 <a href="/public/doc_login">
-                                    <span><?php echo __("Effettua Login"); ?></span>
+                                    <span><?php echo __("Do Login"); ?></span>
                                 </a>
                             </p>
                         </div>
@@ -180,7 +180,7 @@
                 Swal.fire('Whoops!', e.statusText, 'error');
             });
         } else {
-            Swal.fire('Whoops!', '<?php echo __("Spiacente ma devi accettere privacy, termini e condizioni per poter usufruire del nostro servizio"); ?>', 'error');
+            Swal.fire('Whoops!', '<?php echo __("Sorry, but you have to accept privacy and T&C"); ?>', 'error');
         }
 
 

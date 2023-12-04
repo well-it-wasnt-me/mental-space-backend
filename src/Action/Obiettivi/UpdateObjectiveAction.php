@@ -5,7 +5,7 @@
 
 namespace App\Action\Obiettivi;
 
-use App\Domain\Obiettivi\Repository\ObiettiviRepository;
+use App\Domain\Obiettivi\Repository\ObjectiveRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,21 +13,21 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class DeleteObiettivoAction
+final class UpdateObjectiveAction
 {
-    private ObiettiviRepository $obiettiviRepository;
+    private ObjectiveRepository $obiettiviRepository;
 
     private Responder $responder;
 
     /**
      * The constructor.
      *
-     * @param CitiesList $citiesList The user index list viewer
+     * @param CitiesList $citiesList The cities list viewer
      * @param Responder $responder The responder
      */
-    public function __construct(ObiettiviRepository $obiettiviRepository, Responder $responder)
+    public function __construct(ObjectiveRepository $objectiveRepository, Responder $responder)
     {
-        $this->obiettiviRepository = $obiettiviRepository;
+        $this->obiettiviRepository = $objectiveRepository;
         $this->responder = $responder;
     }
 
@@ -41,14 +41,11 @@ final class DeleteObiettivoAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        $uid = $request->getAttribute('uid');
         $data = $request->getParsedBody();
-        $q = $this->obiettiviRepository->deleteObjective($data['ob_id'], $request->getAttribute('uid'));
+        // Optional: Pass parameters from the request to the findUsers method
+        $gh = $this->obiettiviRepository->updateObjective($data['ob_id'], $data['objective'], $uid);
 
-        if (!$q) {
-            $status = "error";
-        } else {
-            $status = "success";
-        }
-        return $this->responder->withJson($response, ['status' => $status]);
+        return $this->responder->withJson($response, $gh);
     }
 }

@@ -37,7 +37,7 @@ final class DocDetailAppAction
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $docData = $this->doctorRepository->AppdoctorDetail($userId);
+        $docData = $this->doctorRepository->AppDoctorDetail($userId);
 
         if (empty($docData)) {
             return $this->responder

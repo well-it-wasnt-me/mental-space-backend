@@ -38,7 +38,7 @@ final class ListMoodGraphAction
 
 
 
-        $mood = $this->repository->ultimi10moodGraph($user_id);
+        $mood = $this->repository->last10moodGraph($user_id);
 
         return $this->responder
             ->withJson($response, $mood)

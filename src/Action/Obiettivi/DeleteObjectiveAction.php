@@ -5,7 +5,7 @@
 
 namespace App\Action\Obiettivi;
 
-use App\Domain\Obiettivi\Repository\ObiettiviRepository;
+use App\Domain\Obiettivi\Repository\ObjectiveRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,18 +13,21 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class AddObiettivoAction
+final class DeleteObjectiveAction
 {
-    private ObiettiviRepository $obiettiviRepository;
+    private ObjectiveRepository $obiettiviRepository;
+
     private Responder $responder;
 
     /**
-     * @param ObiettiviRepository $obiettiviRepository
-     * @param Responder $responder
+     * The constructor.
+     *
+     * @param CitiesList $citiesList The user index list viewer
+     * @param Responder $responder The responder
      */
-    public function __construct(ObiettiviRepository $obiettiviRepository, Responder $responder)
+    public function __construct(ObjectiveRepository $objectiveRepository, Responder $responder)
     {
-        $this->obiettiviRepository = $obiettiviRepository;
+        $this->obiettiviRepository = $objectiveRepository;
         $this->responder = $responder;
     }
 
@@ -39,7 +42,7 @@ final class AddObiettivoAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $request->getParsedBody();
-        $q = $this->obiettiviRepository->addObjective($data, $request->getAttribute('uid'));
+        $q = $this->obiettiviRepository->deleteObjective($data['ob_id'], $request->getAttribute('uid'));
 
         if (!$q) {
             $status = "error";

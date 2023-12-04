@@ -44,13 +44,13 @@ final class UploadDiaryAction
         $entry = $this->repository->addEntry($user_id, $data);
         if ($entry) {
             return $this->responder
-                ->withJson($response, ['status' => 'success', 'message' => __('Inserito con Successo')])
+                ->withJson($response, ['status' => 'success', 'message' => __('Success')])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
 
         return $this->responder
-            ->withJson($response, ['status' => 'error', 'message' => __('Errore')])
+            ->withJson($response, ['status' => 'error', 'message' => __('Error')])
             ->withStatus(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
     }
 }

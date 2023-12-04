@@ -3,10 +3,9 @@
  * Mental Space Project - Creative Commons License
  */
 
-namespace App\Action\Pharm;
+namespace App\Action\Obiettivi;
 
-use App\Domain\Pharm\Service\PharmList;
-use App\Domain\Cities\Service\CitesList;
+use App\Domain\Obiettivi\Repository\ObjectiveRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,21 +13,18 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class AddPharmAction
+final class AddObjectiveAction
 {
-    private PharmList $dsmList;
-
+    private ObjectiveRepository $objectiveRepository;
     private Responder $responder;
 
     /**
-     * The constructor.
-     *
-     * @param PharmList $pharmList The user index list viewer
-     * @param Responder $responder The responder
+     * @param ObjectiveRepository $obiettiviRepository
+     * @param Responder $responder
      */
-    public function __construct(PharmList $pharmList, Responder $responder)
+    public function __construct(ObjectiveRepository $obiettiviRepository, Responder $responder)
     {
-        $this->dsmList = $pharmList;
+        $this->objectiveRepository = $obiettiviRepository;
         $this->responder = $responder;
     }
 
@@ -43,7 +39,8 @@ final class AddPharmAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $request->getParsedBody();
-        $q = $this->dsmList->addDrugPaz($data, $request->getAttribute('uid'));
+        $q = $this->objectiveRepository->addObjective($data, $request->getAttribute('uid'));
+
         if (!$q) {
             $status = "error";
         } else {

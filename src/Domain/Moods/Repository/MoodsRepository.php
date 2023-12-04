@@ -61,18 +61,18 @@ final class MoodsRepository
         return ['status' => 'success'];
     }
 
-    function ultimi10mood($uid)
+    function last10mood($uid)
     {
         $data = $this->queryFactory->newSelect('mood_trackings')
-        ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
-        ->select(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image','mood_trackings.trk_id', 'mood_trackings.warning_sign'])
-        ->where('mood_trackings.usr_id = ' . $uid)
-        ->orderDesc('mood_trackings.trk_id')->execute()->fetchAll('assoc');
+            ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
+            ->select(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image', 'mood_trackings.trk_id', 'mood_trackings.warning_sign'])
+            ->where('mood_trackings.usr_id = ' . $uid)
+            ->orderDesc('mood_trackings.trk_id')->execute()->fetchAll('assoc');
 
         return [$data];
     }
 
-    function ultimi10moodGraph($uid)
+    function last10moodGraph($uid)
     {
         $data = $this->queryFactory->newSelect('mood_trackings')
             ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")

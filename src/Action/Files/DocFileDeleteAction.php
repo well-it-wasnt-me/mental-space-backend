@@ -43,14 +43,14 @@ final class DocFileDeleteAction
 
         if (!is_file($file_path)) {
             return $this->responder
-                ->withJson($response, ['status' => 'success', 'message' => __("File non trovato")])
+                ->withJson($response, ['status' => 'success', 'message' => __("File not found")])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
         unlink($file_path);
 
         return $this->responder
-            ->withJson($response, ['status' => 'error', 'message' => __("File Cancellato con sucesso")])
+            ->withJson($response, ['status' => 'error', 'message' => __("File Deleted")])
             ->withStatus(StatusCodeInterface::STATUS_OK);
     }
 

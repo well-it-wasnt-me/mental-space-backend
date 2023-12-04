@@ -5,7 +5,7 @@
 
 namespace App\Action\Obiettivi;
 
-use App\Domain\Obiettivi\Repository\ObiettiviRepository;
+use App\Domain\Obiettivi\Repository\ObjectiveRepository;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,9 +13,9 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Action.
  */
-final class ListObiettivoAction
+final class ListObjectiveAction
 {
-    private ObiettiviRepository $obiettiviRepository;
+    private ObjectiveRepository $obiettiviRepository;
 
     /**
      * The constructor.
@@ -23,9 +23,9 @@ final class ListObiettivoAction
      * @param CitiesList $citiesList The user index list viewer
      * @param Responder $responder The responder
      */
-    public function __construct(ObiettiviRepository $obiettiviRepository, Responder $responder)
+    public function __construct(ObjectiveRepository $objectiveRepository, Responder $responder)
     {
-        $this->obiettiviRepository = $obiettiviRepository;
+        $this->obiettiviRepository = $objectiveRepository;
         $this->responder = $responder;
     }
 

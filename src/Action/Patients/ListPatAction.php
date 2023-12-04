@@ -22,7 +22,7 @@ final class ListPatAction
     /**
      * The constructor.
      *
-     * @param PatientsList $smartboxList The user index list viewer
+     * @param PatientsList $patientsList The user index list viewer
      * @param Responder $responder The responder
      */
     public function __construct(PatientsList $patientsList, Responder $responder)
@@ -52,7 +52,7 @@ final class ListPatAction
      * This could also be done within a specific Responder class.
      *
      * @param ResponseInterface $response The response
-     * @param array $users The users
+     * @param array $sbs I dont remember why i named this "sbs"
      *
      * @return ResponseInterface The response
      */

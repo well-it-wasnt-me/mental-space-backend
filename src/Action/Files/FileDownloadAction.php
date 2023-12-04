@@ -10,6 +10,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Slim\Psr7\Stream;
 
 final class FileDownloadAction
 {
@@ -42,7 +43,7 @@ final class FileDownloadAction
 
         if (!is_file($filePath)) {
             return $this->responder
-                ->withJson($response, ['status' => 'success', 'message'=>__('File non trovato')])
+                ->withJson($response, ['status' => 'success', 'message' => __('File not found')])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
@@ -52,6 +53,6 @@ final class FileDownloadAction
                 ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
                 ->withHeader('Cache-Control', 'post-check=0, pre-check=0')
                 ->withHeader('Pragma', 'no-cache')
-                ->withBody((new \Slim\Psr7\Stream(fopen($filePath, 'rb'))));
+                ->withBody((new Stream(fopen($filePath, 'rb'))));
     }
 }

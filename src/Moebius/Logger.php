@@ -8,7 +8,7 @@ namespace App\Moebius;
 /**
  * Class Logger
  * @package App\Moebius
- * @thanks to Luca Tortora <misfotto@gmail.com>
+ * @thanks to Luca Tortora
  */
 final class Logger
 {

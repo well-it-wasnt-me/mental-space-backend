@@ -2,7 +2,7 @@
 
 namespace App\Action\Pages;
 
-use App\Domain\Consulti\Repository\ConsultiRepository;
+use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Domain\Patients\Repository\PatientsRepository;
 use App\Domain\Reports\Repository\ReportRepository;
 use App\Domain\Tests\Repository\TestsRepository;
@@ -20,7 +20,7 @@ final class ConsultoPageAction
     private $reportRepository;
     private $testRepository;
 
-    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultiRepository $consultiRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
+    public function __construct(PhpRenderer $renderer, PatientsRepository $repository, ConsultRepository $consultiRepository, ReportRepository $reportRepository, TestsRepository $testsRepository)
     {
         $this->renderer = $renderer;
         $this->repository = $repository;
@@ -36,7 +36,7 @@ final class ConsultoPageAction
             return $this->renderer->render($response, 'errors/not_found.php');
         }
 
-        $this->renderer->setLayout('layout/consulto.php');
+        $this->renderer->setLayout('layout/consult.php');
 
         $this->renderer->addAttribute('css', [
             '/app-assets/vendors/css/forms/select/select2.min.css',
@@ -78,7 +78,7 @@ final class ConsultoPageAction
             '/app-assets/js/scripts/pages/patient-detail.js',
             '/app-assets/js/scripts/components/components-popovers.js',
             '/app-assets/js/scripts/components/mutation.js',
-            '/app-assets/js/scripts/pages/consulto.js',
+            '/app-assets/js/scripts/pages/consult.js',
 
 
         ]);
@@ -199,7 +199,7 @@ final class ConsultoPageAction
             $li .= $this->convertResultPhq($val['result']) . "<br><br>";
         }
 
-        $comportamentiImpulsivi = $this->testRepository->listComportamentoTest($uid);
+        $comportamentiImpulsivi = $this->testRepository->listBehaviourTest($uid);
         $cmp = "";
         foreach ($comportamentiImpulsivi as $key => $val) {
             foreach ($val as $a => $b) {
@@ -210,7 +210,7 @@ final class ConsultoPageAction
             $cmp .= "<hr>";
         }
 
-        return $this->renderer->render($response, 'consulto/home.php', [
+        return $this->renderer->render($response, 'consult/home.php', [
             'patient' => $patientData[0],
             'diario' => empty($diario) ? 'Non ha scritto nulla negli ultimi 7 giorni':$diario,
             'lista_farmaci' => $farmaci,

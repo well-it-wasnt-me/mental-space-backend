@@ -18,7 +18,7 @@
                                 <span class="avatar-status-online avatar-status-xl"></span>
                             </div>
                             <h4 class="chat-user-name"><?php echo $doc_name . " " . $doc_surname;?></h4>
-                            <span class="user-post">Medico</span>
+                            <span class="user-post">Doctor</span>
                         </div>
                         <!--/ User Information -->
                     </header>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="input-group input-group-merge ms-1 w-100">
                                 <span class="input-group-text round"><i data-feather="search" class="text-muted"></i></span>
-                                <input type="text" class="form-control round" id="chat-search" placeholder="Cerca o invia messaggio" aria-label="Cerca..." aria-describedby="chat-search" />
+                                <input type="text" class="form-control round" id="chat-search" placeholder="Search or send messages" aria-label="Search..." aria-describedby="chat-search" />
                             </div>
                         </div>
                     </div>
@@ -49,10 +49,10 @@
 
                     <!-- Sidebar Users start -->
                     <div id="users-list" class="chat-user-list-wrapper list-group">
-                        <h4 class="chat-list-title">Messaggi</h4>
+                        <h4 class="chat-list-title">Messages</h4>
                         <ul class="chat-users-list contact-list media-list" id="elenco_contatti">
                             <li class="no-results">
-                                <h6 class="mb-0">Non ho trovato nulla</h6>
+                                <h6 class="mb-0">Found nothing to show</h6>
                             </li>
                         </ul>
                     </div>
@@ -75,8 +75,8 @@
                             <div class="mb-1 start-chat-icon">
                                 <i data-feather="message-square"></i>
                             </div>
-                            <h4 class="sidebar-toggle start-chat-text">Seleziona un contatto</h4>
-                            <h3 class="sidebar-toggle start-chat-text msg-loader">Caricamento in corso...</h3>
+                            <h4 class="sidebar-toggle start-chat-text">Select a contact</h4>
+                            <h3 class="sidebar-toggle start-chat-text msg-loader">Loading...</h3>
                         </div>
                         <!--/ To load Conversation -->
 

@@ -40,7 +40,7 @@ final class WebListComportamentoTestAction
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
-        $result = $this->testsRepository->listComportamentoTest($args['user_id']);
+        $result = $this->testsRepository->listBehaviourTest($args['user_id']);
 
         return $this->responder
             ->withJson($response, $result)

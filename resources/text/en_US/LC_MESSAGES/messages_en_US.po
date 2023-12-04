@@ -916,7 +916,7 @@ msgid ""
 msgstr "Error while sending mail. if you wrote it right contact Mental Space"
 
 #: src/Domain/Consulti/Repository/ConsultiRepository.php:126
-msgid "Richiesta consulto inviata correttamente"
+msgid "Richiesta consult inviata correttamente"
 msgstr "Medical Consultation request sent successfull"
 
 #: src/Domain/Patients/Repository/PatientsRepository.php:103

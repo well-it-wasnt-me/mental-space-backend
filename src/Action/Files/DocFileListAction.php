@@ -42,11 +42,11 @@ final class DocFileListAction
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
-        $listaFiles = scandir($directory);
-        $listaFiles = array_diff($listaFiles, ['.', '..']);
+        $filesList = scandir($directory);
+        $filesList = array_diff($filesList, ['.', '..']);
 
         return $this->responder
-            ->withJson($response, ['status' => 'success', 'files' => $listaFiles])
+            ->withJson($response, ['status' => 'success', 'files' => $filesList])
             ->withStatus(StatusCodeInterface::STATUS_OK);
     }
 

@@ -54,13 +54,13 @@
             <!-- Not authorized-->
             <div class="misc-wrapper"><a class="brand-logo" href="#">
                     <img width="120px" height="auto" src="http://localhost:8080/app-assets/images/mental-space-logo/png/logo-no-background.png" />
-                    <h2 class="brand-text text-primary ms-1">NON AUTORIZZATO</h2>
+                    <h2 class="brand-text text-primary ms-1">WHOOPS!</h2>
                 </a>
                 <div class="misc-inner p-2 p-sm-3">
                     <div class="w-100 text-center">
-                        <h2 class="mb-1">Non sei autorizzato! 🔐</h2>
+                        <h2 class="mb-1">Not sure why you are here 🔐</h2>
                         <p class="mb-2">
-                            Non sappiamo che stai cercando di fare, ma sicuramente logghiamo tutto ed investigheremo
+                            We have no idea, but we'll investigate!
                         </p><img class="img-fluid" src="../../../app-assets/images/pages/not-authorized.svg" alt="Not authorized page" />
                     </div>
                 </div>

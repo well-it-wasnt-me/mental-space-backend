@@ -172,7 +172,7 @@ final class UserRepository
             return ['status'=>'error', 'message' => __('Something went wrong, try again later')];
         }
 
-        return ['status'=>'success', 'message' => __('Aggiornato con successo')];
+        return ['status'=>'success', 'message' => __('Updated')];
     }
 
     public function updateUserPassword(UserDataDoc $user): array
@@ -310,7 +310,7 @@ final class UserRepository
             return ['status'=>'error', 'message' => __('Something went wrong, try again later')];
         }
 
-        return ['status'=>'success', 'message' => __('Aggiornato con successo')];
+        return ['status'=>'success', 'message' => __('Updated')];
     }
 
     function getaddress($coord)
@@ -354,17 +354,17 @@ ORDER BY FROM_DAYS(TO_DAYS(effective_data) -MOD(TO_DAYS(effective_data) -2, 7))"
         $data['password'] = hash('sha512', $data['password']);
 
         if (!$this->checkPwd($data['old_password'], $uid)) {
-            return ['status'=>'error', 'message' => __('Password attuale non esatta, riprovare')];
+            return ['status'=>'error', 'message' => __('Actual password is not correct, try again')];
         }
 
 
         if (!$this->queryFactory->newUpdate('users', ['password' => $data['password']])
             ->andWhere(['user_id' => $uid])
             ->execute()) {
-            return ['status'=>'error', 'message' => __('Qualcosa è andato storto')];
+            return ['status'=>'error', 'message' => __('Something went wrong')];
         }
 
-        return ['status'=>'success', 'message' => __('Password Aggiornata con successo')];
+        return ['status'=>'success', 'message' => __('Password Updated')];
     }
 
     public function checkPwd($pwd, $uid)

@@ -41,15 +41,6 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <!-- END: Custom CSS-->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11128674332"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-11128674332');
-    </script>
 </head>
 <!-- END: Head-->
 
@@ -78,8 +69,8 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
                     <!-- Login-->
                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                            <h2 class="card-title fw-bold mb-1"><?php echo __('Benvenuto/a !');?> 👋</h2>
-                            <p class="card-text mb-2"><?php echo __('Perfavore, effettua il login');?></p>
+                            <h2 class="card-title fw-bold mb-1"><?php echo __('Welcome !');?> 👋</h2>
+                            <p class="card-text mb-2"><?php echo __('Please, insert your credentials');?></p>
                             <div class="login-box-msg"></div>
                             <form class="auth-login-form mt-2" id="frm_login" action="#" method="POST">
                                 <div class="mb-1">
@@ -88,14 +79,14 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
                                 </div>
                                 <div class="mb-1">
                                     <div class="d-flex justify-content-between">
-                                        <label class="form-label" for="login-password">Password</label><a href="#"><small><?php echo __("Password dimenticata ?");?></small></a> - <a href="/public/register_doc"><small><?php echo __("Crea Account"); ?></small></a>
+                                        <label class="form-label" for="login-password">Password</label><a href="#"><small><?php echo __("Forgot your password ?");?></small></a> - <a href="/public/register_doc"><small><?php echo __("Create Account"); ?></small></a>
                                     </div>
                                     <div class="input-group input-group-merge form-password-toggle">
                                         <input class="form-control form-control-merge" id="login-password" type="password" name="login-password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                     </div>
                                 </div>
                                 <button onclick="do_login();" class="btn btn-primary w-100" tabindex="4">Log In</button><hr>
-                                <a href="/public/register_doc" class="btn btn-secondary w-100" tabindex="4"><?php echo __("Crea Account"); ?></a>
+                                <a href="/public/register_doc" class="btn btn-secondary w-100" tabindex="4"><?php echo __("Create Account"); ?></a>
                             </form>
                         </div>
                     </div>
@@ -147,13 +138,13 @@ set_language(substr(str_replace("-", "_",$_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 5
             role: 'doctor'
         }, function(resp){
             if ( resp.status == 'success' ){
-                $(".login-box-msg").html("<?php echo __('Login Ok, andando alla tua dashboard');?>");
+                $(".login-box-msg").html("<?php echo __('Login Succesful, going to the Dashboard');?>");
                 window.location = "/pages/home_doctor";
             } else {
-                $(".login-box-msg").html("<b><?php echo __('Email o Password non validi');?></b>");
+                $(".login-box-msg").html("<b><?php echo __('Email or Password not valid');?></b>");
             }
         }).fail(function(){
-            $(".login-box-msg").html("<b><?php echo __('Qualcosa è andato storto, riprova tra poco o contattaci');?></b>");
+            $(".login-box-msg").html("<b><?php echo __('Something went wrong, if persist contact us!');?></b>");
         });
     }
 </script>

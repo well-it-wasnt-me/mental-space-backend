@@ -5,7 +5,7 @@
 
 namespace App\Action\Consulti;
 
-use App\Domain\Consulti\Repository\ConsultiRepository;
+use App\Domain\Consulti\Repository\ConsultRepository;
 use App\Responder\Responder;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -15,9 +15,9 @@ final class PinCodeActionCheck
 {
 
     private Responder $responder;
-    private ConsultiRepository $consultiRepository;
+    private ConsultRepository $consultiRepository;
 
-    function __construct(Responder $responder, ConsultiRepository $consultiRepository)
+    function __construct(Responder $responder, ConsultRepository $consultiRepository)
     {
         $this->responder = $responder;
         $this->consultiRepository = $consultiRepository;

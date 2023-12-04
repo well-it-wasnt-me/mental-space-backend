@@ -40,7 +40,7 @@ final class DocFileUploadAction
 
         if (!$uploadedFiles) {
             return $this->responder
-                ->withJson($response, ['status' => 'error', 'message' => __("Hai dimenticato di inviare file")])
+                ->withJson($response, ['status' => 'error', 'message' => __("Forgot to send the file ?")])
                 ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
         }
 
@@ -55,15 +55,16 @@ final class DocFileUploadAction
         if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
             $filename = $this->moveUploadedFile($directory, $uploadedFile);
             return $this->responder
-                ->withJson($response, ['status' => 'success', 'message' => __("Caricato con successo")])
+                ->withJson($response, ['status' => 'success', 'message' => __("Uploaded")])
                 ->withStatus(StatusCodeInterface::STATUS_OK);
         }
 
         return $this->responder
-            ->withJson($response, ['status' => 'error', 'message' => __("Qualcosa è andato storto")])
+            ->withJson($response, ['status' => 'error', 'message' => __("Something went wrong")])
             ->withStatus(StatusCodeInterface::STATUS_BAD_REQUEST);
     }
 
+    // @todo move this function in src/Support/functions.php and eliminate the duplicates
     private function moveUploadedFile(string $directory, UploadedFileInterface $uploadedFile)
     {
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);

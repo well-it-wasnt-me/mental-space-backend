@@ -8,16 +8,18 @@ use App\Moebius\Definition;
 use App\Moebius\Token;
 use App\Support\Hydrator;
 use Cake\Chronos\Chronos;
+use DateTime;
 use Exception;
 use Fig\Http\Message\StatusCodeInterface;
 use PHPMailer\PHPMailer\PHPMailer;
 
-final class ConsultiRepository
+final class ConsultRepository
 {
     private QueryFactory $queryFactory;
     private Transaction $transaction;
     private Hydrator $hydrator;
     private Token $token;
+
     public function __construct(QueryFactory $queryFactory, Transaction $transaction, Hydrator $hydrator, Token $token)
     {
         $this->token = $token;
@@ -42,8 +44,8 @@ final class ConsultiRepository
             return false;
         }
 
-        $data1 = new \DateTime($data[0]['data_creazione']);
-        $data2 = new \DateTime(date("Y-m-d H:i:s"));
+        $data1 = new DateTime($data[0]['data_creazione']);
+        $data2 = new DateTime(date("Y-m-d H:i:s"));
 
         $diff = $data2->diff($data1);
         $hours = $diff->h;
@@ -117,24 +119,24 @@ final class ConsultiRepository
             $mail->Subject = __('Consulto Medico');
             $mail_body = file_get_contents(__DIR__ . '/../../../../data/mail_template/'.returnLocale().'/consulto_invitation');
             $search = ['{{DOC_NOME}}', '{{DOC_COGNOME}}', '{{FULL_LINK}}', '{{PIN_CODE}}'];
-            $replace = [$_SESSION['fname'], $_SESSION['lname'], 'https://--INSERT KEY HERE--/public/consulto/' . $codice, $pin_code];
+            $replace = [$_SESSION['fname'], $_SESSION['lname'], 'https://--INSERT KEY HERE--/public/consult/' . $codice, $pin_code];
             $mail_body = str_replace($search, $replace, $mail_body);
             $mail->Body = $mail_body;
             $mail->send();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return ['status' => 'error', 'message' => __('Errore invio E-Mail, se lo hai scritto correttamente contatta Mental Space Support Team'),
-                'link' => 'https://--INSERT KEY HERE--/public/consulto/' . $codice, 'pin_code' => $pin_code ];
+                'link' => 'https://--INSERT KEY HERE--/public/consult/' . $codice, 'pin_code' => $pin_code ];
         }
 
-        return ['status' => 'success', 'message' => __('Richiesta consulto inviata correttamente'),
-            'link' => 'https://--INSERT KEY HERE--/public/consulto/' . $codice, 'pin_code' => $pin_code ];
+        return ['status' => 'success', 'message' => __('Richiesta consult inviata correttamente'),
+            'link' => 'https://--INSERT KEY HERE--/public/consult/' . $codice, 'pin_code' => $pin_code ];
     }
 
     public function listaConsulti($paz_id)
     {
         return $this->queryFactory->rawQuery("SELECT
     destinatario,
-    CONCAT('https://--INSERT KEY HERE--/public/consulto/', codice) AS full_link,
+    CONCAT('https://--INSERT KEY HERE--/public/consult/', codice) AS full_link,
     pin_code,
     (CASE
          WHEN stato = 1 THEN 'Attivo'
