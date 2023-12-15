@@ -1,3 +1,5 @@
+[![Join Slack](https://img.shields.io/badge/slack%20community-join-blue)](https://join.slack.com/t/opensource-osp5634/shared_invite/zt-292mlna6b-KSXN4TLHojD9pbjyVu1g7g)
+
 # Mental Space
 As per it's counter part (mental-space-app) reachable [HERE](https://github.com/pazDontExist/mental-space-app), this project is very important to me.
 
