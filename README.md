@@ -44,3 +44,9 @@ Honestly i can't remember everything since it's quite some time i don't open thi
 
   Thank you !
 
+# A special thank you
+A special thank you to JetBrains for giving a free license in order to help me in continuing this project with PHPStorm !
+
+<p align="center" width="100%">
+    <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png">
+</p>
