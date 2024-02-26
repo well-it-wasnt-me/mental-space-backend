@@ -54,6 +54,7 @@ final class PatientsRepository
             'height' => $patientData->height,
             'weight' => $patientData->weight,
             'notes' => $patientData->relazione,
+            'cf' => $patientData->cf,
             //'dsm_id' => $patientData->dsm_id,
             'doc_id' => $_SESSION['user_id'],
             'telefono' => $patientData->telefono,
@@ -159,7 +160,7 @@ final class PatientsRepository
             '"" AS icd_ten',
             '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = ' . $id .') AS descrizione',
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
-            '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
+            '(SELECT steps FROM steps WHERE user_id = users.user_id AND data_insert = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
         ], ['patients']);
         $query->leftJoin('users', 'patients.user_id = users.user_id');
         $query->leftJoin('dsm', 'patients.dsm_id = dsm.id');
@@ -180,10 +181,10 @@ final class PatientsRepository
         }
 
         $query = $this->queryFactory->newSelect([
-            'farmaci.*',
+            'drugs.*',
             'drugs_assignment.id',
         ], ['drugs_assignment']);
-        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
+        $query->innerJoin('drugs', 'drugs_assignment.farm_id = drugs.id');
         $query->where('drugs_assignment.paz_id = ' . $id_paz);
 
         return $query->execute()->fetchAll('assoc') ?: [];
@@ -407,11 +408,13 @@ final class PatientsRepository
 
     public function listDepressione(int $paz_id)
     {
-        $data = $this->queryFactory->rawQuery("SELECT
-    (interesse + depresso + difficolta_sonno + stanco + poca_fame + sensi_di_colpa + difficolta_concentrazione + movimento + meglio_morte + difficolta_problemi ) AS y,
-    data_compilazione AS x
+        $data = $this->queryFactory->rawQuery("
+SELECT
+    (interest + depressed + sleep_difficulty + tired + notso_hungry + sense_of_guilt + 
+     trouble_concentrating + movement + better_dead + problems_difficulty ) AS y,
+    submission_date AS x
 FROM phq9
-WHERE paz_id = $paz_id ORDER BY data_compilazione ASC");
+WHERE paz_id = $paz_id ORDER BY submission_date ASC");
         return [$data];
     }
 
