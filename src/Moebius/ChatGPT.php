@@ -14,7 +14,7 @@ final class ChatGPT
 
     function __construct()
     {
-        $this->api_key = getenv('CHATGPT_KEY');
+        $this->api_key = env('CHATGPT_KEY');
         $this->api_url = 'https://api.openai.com/v1/engines/davinci-codex/completions';
         $this->headers = [
             'Content-Type' => 'application/json',

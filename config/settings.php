@@ -3,10 +3,10 @@
 $dotenv = \Dotenv\Dotenv::create(__DIR__ . '/../');
 $dotenv->load();
 // Should be set to 0 in production
-getenv('ENVIRONMENT') == 'prod' ? error_reporting(0) : error_reporting(E_ALL);
+env('ENVIRONMENT') == 'prod' ? error_reporting(0) : error_reporting(E_ALL);
 
 // Should be set to '0' in production
-getenv('ENVIRONMENT') == 'prod' ? ini_set('display_errors', '0') : ini_set('display_errors', '1');
+env('ENVIRONMENT') == 'prod' ? ini_set('display_errors', '0') : ini_set('display_errors', '1');
 
 // Timezone
 date_default_timezone_set('Europe/Rome');
@@ -21,7 +21,7 @@ $settings['public'] = $settings['root'] . '/public';
 $settings['template'] = $settings['root'] . '/templates';
 
 // Error Handling Middleware settings
-if (getenv('ENVIRONMENT') == 'dev') {
+if (env('ENVIRONMENT') == 'dev') {
     $settings['error'] = [
 
         // Should be set to false in production
@@ -54,10 +54,10 @@ if (getenv('ENVIRONMENT') == 'dev') {
 // Database settings
 $settings['db'] = [
     'driver' => \Cake\Database\Driver\Mysql::class,
-    'host' => getenv('DB_HOST'),
-    'username' => getenv('DB_USER'),
-    'database' => getenv('DB_NAME'),
-    'password' => getenv('DB_PASS'),
+    'host' => env('DB_HOST'),
+    'username' => env('DB_USER'),
+    'database' => env('DB_NAME'),
+    'password' => env('DB_PASS'),
     // Enable identifier quoting
     'quoteIdentifiers' => true,
     // Set to null to use MySQL servers timezone
@@ -98,11 +98,11 @@ $settings['phoenix'] = [
     'environments' => [
         'local' => [
             'adapter' => 'mysql',
-            'host' => getenv('DB_HOST'),
+            'host' => env('DB_HOST'),
             'port' => 3306,
-            'username' => getenv('DB_USER'),
-            'password' => getenv('DB_PASS'),
-            'db_name' => getenv('DB_NAME'),
+            'username' => env('DB_USER'),
+            'password' => env('DB_PASS'),
+            'db_name' => env('DB_NAME'),
             'charset' => 'utf8',
         ],
     ],
@@ -145,11 +145,11 @@ $settings['upload_directory'] = __DIR__ . '/../data';
 // E-Mail settings
 $settings['smtp'] = [
     // use 'null' for the null adapter
-    'type' => getenv('MAIL_TYPE'),
-    'host' => getenv('MAIL_SMTP'),
-    'port' => getenv('MAIL_PORT'),
-    'username' => getenv('MAIL_USER'),
-    'password' => getenv('MAIL_PASS'),
+    'type' => env('MAIL_TYPE'),
+    'host' => env('MAIL_SMTP'),
+    'port' => env('MAIL_PORT'),
+    'username' => env('MAIL_USER'),
+    'password' => env('MAIL_PASS'),
 ];
 
 $settings['jwt'] = [

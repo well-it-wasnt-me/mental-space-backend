@@ -36,8 +36,8 @@ final class Push
 
         $header = array();
         $header[] = 'Content-type: application/json';
-        $header[] = 'Authorization: key='.getenv('GOOGLE_FCM_KEY');
-        curl_setopt($curl, CURLOPT_URL, getenv('GOOGLE_FCM_URL'));
+        $header[] = 'Authorization: key='.env('GOOGLE_FCM_KEY');
+        curl_setopt($curl, CURLOPT_URL, env('GOOGLE_FCM_URL'));
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($this->payload));

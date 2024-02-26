@@ -62,15 +62,15 @@ final class InviteDoctorAction
                 //Server settings
                 //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host = getenv('MAIL_SMTP');                     //Set the SMTP server to send through
+                $mail->Host = env('MAIL_SMTP');                     //Set the SMTP server to send through
                 $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-                $mail->Username = getenv('MAIL_USER');                     //SMTP username
-                $mail->Password = getenv('MAIL_PASS');                               //SMTP password
+                $mail->Username = env('MAIL_USER');                     //SMTP username
+                $mail->Password = env('MAIL_PASS');                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom(getenv('MAIL_FROM'), 'Mental Space');
+                $mail->setFrom(env('MAIL_FROM'), 'Mental Space');
                 $mail->addAddress($data['doc_email']);
 
                 //Content
@@ -98,15 +98,15 @@ final class InviteDoctorAction
                     //Server settings
                     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                     $mail->isSMTP();                                            //Send using SMTP
-                    $mail->Host = getenv('MAIL_SMTP');                     //Set the SMTP server to send through
+                    $mail->Host = env('MAIL_SMTP');                     //Set the SMTP server to send through
                     $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-                    $mail->Username = getenv('MAIL_USER');                     //SMTP username
-                    $mail->Password = getenv('MAIL_PASS');                               //SMTP password
+                    $mail->Username = env('MAIL_USER');                     //SMTP username
+                    $mail->Password = env('MAIL_PASS');                               //SMTP password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                     $mail->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                     //Recipients
-                    $mail->setFrom(getenv('MAIL_FROM'), 'Mental Space');
+                    $mail->setFrom(env('MAIL_FROM'), 'Mental Space');
                     $mail->addAddress($data['doc_email']);
 
                     //Content

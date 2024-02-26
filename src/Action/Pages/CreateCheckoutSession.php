@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\PhpRenderer;
 use Stripe\StripeClient;
 
-\Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY'));
+\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
 final class CreateCheckoutSession
 {
@@ -23,9 +23,9 @@ final class CreateCheckoutSession
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
-        $YOUR_DOMAIN = getenv('DOMAIN');
+        $YOUR_DOMAIN = env('DOMAIN');
 
         if (!isset($_SESSION['user_id'])) {
             header("HTTP/1.1 303 See Other");

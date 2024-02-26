@@ -27,7 +27,7 @@ final class Logger
      */
     function __construct(string $filename = 'general.log', bool $with_uniq_id = false, bool $called_function = false)
     {
-        $this->greylog_url = getenv('LOG_SERVER');
+        $this->greylog_url = env('LOG_SERVER');
         $this->filename = __DIR__ . '/../../logs/' . $filename;
 
         /*

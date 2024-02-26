@@ -87,15 +87,15 @@ final class PatientsRepository
                 //Server settings
                 //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host = getenv('MAIL_SMTP');                     //Set the SMTP server to send through
+                $mail->Host = env('MAIL_SMTP');                     //Set the SMTP server to send through
                 $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-                $mail->Username = getenv('MAIL_USER');                     //SMTP username
-                $mail->Password = getenv('MAIL_PASS');                               //SMTP password
+                $mail->Username = env('MAIL_USER');                     //SMTP username
+                $mail->Password = env('MAIL_PASS');                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom(getenv('MAIL_FROM'), 'Mental Space');
+                $mail->setFrom(env('MAIL_FROM'), 'Mental Space');
                 $mail->addAddress($patientData->email, $patientData->name . " " . $patientData->surname);
 
                 //Content
@@ -123,19 +123,19 @@ final class PatientsRepository
     }
     public function listPatients(): array
     {
-        $query = $this->queryFactory->newSelect('patients');
+        $query = $this->queryFactory->newSelect(
+            [
+            'patients.paz_id',
+            'patients.name',
+            'patients.surname',
+            'patients.dob',
+            'patients.photo',
+            'patients.data_inizio_cure',
+            'users.email',
+            'users.account_status',
+            '(SELECT GROUP_CONCAT(dsm.description) FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = patients.paz_id) AS descrizione',
+        ], ['patients']);
         $query->leftJoin('users', 'patients.user_id = users.user_id');
-        $query->select([
-           'patients.paz_id',
-           'patients.name',
-           'patients.surname',
-           'patients.dob',
-           'patients.photo',
-           'patients.data_inizio_cure',
-           'users.email',
-           'users.account_status',
-           '(SELECT GROUP_CONCAT(dsm.descrizione) FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = patients.paz_id) AS descrizione',
-        ]);
 
         $query->where('patients.doc_id = ' . $_SESSION['user_id']);
 
