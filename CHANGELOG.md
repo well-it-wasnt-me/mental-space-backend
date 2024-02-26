@@ -3,6 +3,13 @@
 Greetings, dear user! 🎉 Here's a dazzling list of changes and updates. Brace yourself, for the excitement is overwhelming.. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/well-it-wasnt-me/mental-space-backend/compare/v1.0.0...v1.0.1) (2024-02-26)
+
+
+### Bug Fixes
+
+* forgot to clean previous changelog ([bc894d3](https://github.com/well-it-wasnt-me/mental-space-backend/commit/bc894d367a55ab9efe4a33fea5bc02b296690f61))
+
 ## 1.0.0 (2024-02-26)
 
 
