@@ -139,9 +139,7 @@ final class PatientsRepository
 
         $query->where('patients.doc_id = ' . $_SESSION['user_id']);
 
-        $rows = $query->execute()->fetchAll('assoc') ?: [];
-
-        return $rows;
+        return $query->execute()->fetchAll('assoc') ?: [];
     }
 
     /**
@@ -151,28 +149,25 @@ final class PatientsRepository
      */
     public function patientDetail($id): array
     {
-        $query = $this->queryFactory->newSelect('patients');
-        $query->leftJoin('users', 'patients.user_id = users.user_id');
-        $query->leftJoin('dsm', 'patients.dsm_id = dsm.id');
-        $query->select([
+        $query = $this->queryFactory->newSelect([
             'patients.*',
             'users.*',
             '"" AS icd_ten',
             '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = ' . $id .') AS descrizione',
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
             '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
-        ]);
+        ], ['patients']);
+        $query->leftJoin('users', 'patients.user_id = users.user_id');
+        $query->leftJoin('dsm', 'patients.dsm_id = dsm.id');
         $query->where('patients.paz_id = ' . $id . ' AND patients.doc_id = ' . $_SESSION['user_id']);
 
-        $rows = $query->execute()->fetchAll('assoc') ?: [];
-
-        return $rows;
+        return $query->execute()->fetchAll('assoc') ?: [];
     }
 
     public function listPharmPat($id_paz, $consulto = false): array
     {
 
-        $doc_id = $this->queryFactory->newSelect('patients')->select(['doc_id'])->where('paz_id = ' . $id_paz)->execute()->fetchAll();
+        $doc_id = $this->queryFactory->newSelect(['doc_id'], ['patients'])->where('paz_id = ' . $id_paz)->execute()->fetchAll();
 
         if (!$consulto) {
             if ($doc_id[0][0] != $_SESSION['user_id']) {
@@ -180,17 +175,14 @@ final class PatientsRepository
             }
         }
 
-        $query = $this->queryFactory->newSelect('drugs_assignment');
-        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
-        $query->select([
+        $query = $this->queryFactory->newSelect([
             'farmaci.*',
             'drugs_assignment.id',
-        ]);
+        ], ['drugs_assignment']);
+        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
         $query->where('drugs_assignment.paz_id = ' . $id_paz);
 
-        $rows = $query->execute()->fetchAll('assoc') ?: [];
-
-        return $rows;
+        return $query->execute()->fetchAll('assoc') ?: [];
     }
 
 
@@ -252,9 +244,7 @@ final class PatientsRepository
     public function listPharmPatMobile($id_paz): array
     {
 
-        $query = $this->queryFactory->newSelect('drugs_assignment');
-        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
-        $query->select([
+        $query = $this->queryFactory->newSelect([
             'farmaci.*',
             'drugs_assignment.id',
             'drugs_assignment.farm_id',
@@ -264,18 +254,16 @@ final class PatientsRepository
             'drugs_assignment.hourFirstSingleDose',
             'drugs_assignment.hourSecondDoubleDose',
             'drugs_assignment.scheduled',
-        ]);
+        ], ['drugs_assignment']);
+        $query->innerJoin('farmaci', 'drugs_assignment.farm_id = farmaci.id');
         $query->where('drugs_assignment.paz_id = ' . $this->getPazId($id_paz)['paz_id']);
 
-        $rows = $query->execute()->fetchAll('assoc') ?: [];
-
-        return $rows;
+        return $query->execute()->fetchAll('assoc') ?: [];
     }
 
     function getPazId($uid)
     {
-        $q = $this->queryFactory->newSelect('patients')
-            ->select(['paz_id'])
+        $q = $this->queryFactory->newSelect(['paz_id'], ['patients'])
             ->where('user_id = ' . $uid)
             ->execute()->fetchAll('assoc');
 
@@ -284,9 +272,8 @@ final class PatientsRepository
 
     public function last10moods($uid)
     {
-        $data = $this->queryFactory->newSelect('mood_trackings')
+        $data = $this->queryFactory->newSelect(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image','mood_trackings.trk_id', 'mood_trackings.warning_sign'], ['mood_trackings'])
             ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
-            ->select(['moods.value', 'mood_trackings.effective_datetime', 'moods.slogan', 'moods.image','mood_trackings.trk_id', 'mood_trackings.warning_sign'])
             ->where('mood_trackings.usr_id = ' . $uid)
             ->orderDesc('mood_trackings.trk_id')->limit(10)
             ->execute()->fetchAll('assoc');
@@ -296,8 +283,7 @@ final class PatientsRepository
 
     public function listDiary($uid)
     {
-        return $this->queryFactory->newSelect('diaries')
-            ->select(['content', 'diary_id', 'creation_date'])
+        return $this->queryFactory->newSelect(['content', 'diary_id', 'creation_date'], ['diaries'])
             ->orderDesc("creation_date")
             ->where('user_id = ' . $uid)
             ->execute()
@@ -306,9 +292,8 @@ final class PatientsRepository
 
     public function listAllmoods($uid)
     {
-        $data = $this->queryFactory->newSelect('mood_trackings')
+        $data = $this->queryFactory->newSelect(['COUNT(*) AS y', 'moods.value as x'], ['mood_trackings'])
             ->innerJoin('moods', "mood_trackings.mood_id = moods.mood_id")
-            ->select(['COUNT(*) AS y', 'moods.value as x'])
             ->group('mood_trackings.mood_id')
             ->where('mood_trackings.usr_id = ' . $uid)->execute()->fetchAll('assoc');
 
@@ -320,8 +305,7 @@ final class PatientsRepository
         if (!isset($_SESSION['user_id'])) {
             return  [];
         }
-        return $this->queryFactory->newSelect('patients')
-            ->select(['paz_id', 'name', 'surname', 'dob'])
+        return $this->queryFactory->newSelect(['paz_id', 'name', 'surname', 'dob'], ['patients'])
             ->where('doc_id = ' . $_SESSION['user_id'] . ' AND (name LIKE "%' . $full_name . '%" OR surname LIKE "%'.$full_name.'%")')
             ->execute()
             ->fetchAll('assoc');
@@ -365,8 +349,7 @@ final class PatientsRepository
         if (!$consulto) {
             $addWhere = " AND doc_id = " . $_SESSION['user_id'];
         }
-        return $this->queryFactory->newSelect('annotation')
-            ->select(['annotation', 'ann_id', 'creation_date'])
+        return $this->queryFactory->newSelect(['annotation', 'ann_id', 'creation_date'], ['annotation'])
             ->orderDesc("creation_date")
             ->where('paz_id = ' . $paz_id . " $addWhere")
             ->execute()
@@ -393,8 +376,7 @@ final class PatientsRepository
 
     function caricaRelazione(int $paz_id)
     {
-        return $this->queryFactory->newSelect('patients')
-            ->select(['notes'])
+        return $this->queryFactory->newSelect(['notes'], ['patients'])
             ->where('paz_id = ' . $paz_id . ' AND doc_id = ' . $_SESSION['user_id'])
             ->execute()
             ->fetchAll('assoc');
@@ -443,17 +425,16 @@ WHERE paz_id = $paz_id ORDER BY data_compilazione ASC");
 
     public function consultoPatientDetail($id): array
     {
-        $query = $this->queryFactory->newSelect('patients');
-        $query->leftJoin('users', 'patients.user_id = users.user_id');
-        $query->leftJoin('dsm', 'patients.dsm_id = dsm.id');
-        $query->select([
+        $query = $this->queryFactory->newSelect([
             'patients.*',
             'users.*',
             '"" AS icd_ten',
             '(SELECT GROUP_CONCAT(dsm.id, " * ", dsm.descrizione SEPARATOR ";") FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = ' . $id .') AS descrizione',
             '(SELECT COUNT(*) FROM diaries WHERE user_id = users.user_id) AS tot_post',
             '(SELECT passi FROM passi WHERE user_id = users.user_id AND data_inserimento = DATE(NOW()) ORDER BY pass_id DESC LIMIT 1) AS tot_passi',
-        ]);
+        ], ['patients']);
+        $query->leftJoin('users', 'patients.user_id = users.user_id');
+        $query->leftJoin('dsm', 'patients.dsm_id = dsm.id');
         $query->where('patients.paz_id = ' . $id);
 
         $rows = $query->execute()->fetchAll('assoc') ?: [];
