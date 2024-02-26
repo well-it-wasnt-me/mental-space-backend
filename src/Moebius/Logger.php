@@ -18,14 +18,16 @@ final class Logger
     var $greylog_url;
     var bool $grey_log_on = false;
 
+    var string $filename = "";
+
     /**
      * @param string $filename
-     * @param false $with_uniq_id
-     * @param false $called_function
+     * @param bool $with_uniq_id
+     * @param bool $called_function
      */
-    function __construct(string $filename = 'general.log', bool $with_uniq_id = false, bool $called_function = false, $gray_log = false)
+    function __construct(string $filename = 'general.log', bool $with_uniq_id = false, bool $called_function = false)
     {
-        $this->greylog_url = getenv('LOG_SERVER');
+        $this->greylog_url = env('LOG_SERVER');
         $this->filename = __DIR__ . '/../../logs/' . $filename;
 
         /*

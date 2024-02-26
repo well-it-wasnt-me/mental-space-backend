@@ -68,12 +68,12 @@
                         <div class="line">
                             <i data-feather="chevron-right" class="font-medium-2"></i>
                         </div>
-                        <div class="step" data-target="#social-links" role="tab" id="social-links-trigger">
+                        <div class="step" data-target="#final-step" role="tab" id="final-step-trigger">
                             <button type="button" class="step-trigger">
                                 <span class="bs-stepper-box">4</span>
                                 <span class="bs-stepper-label">
-                                        <span class="bs-stepper-title"><?php echo __("Mobile App"); ?></span>
-                                        <span class="bs-stepper-subtitle"><?php echo __("Invite to use the App"); ?></span>
+                                        <span class="bs-stepper-title"><?php echo __("Final Step"); ?></span>
+                                        <span class="bs-stepper-subtitle"><?php echo __("Review and Add Patient"); ?></span>
                                     </span>
                             </button>
                         </div>
@@ -89,11 +89,11 @@
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label" for="nome_pdv"><?php echo __('Surname');?></label>
+                                                <label class="form-label" for="surname"><?php echo __('Surname');?></label>
                                                 <input type="text" name="surname" id="surname" class="form-control" placeholder="Rossi" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="id_pdv"><?php echo __('Name');?></label>
+                                                <label class="form-label" for="name"><?php echo __('Name');?></label>
                                                 <input type="text" name="name" id="name" class="form-control" placeholder="Giuseppe" />
                                             </div>
                                             <div class="col-md-6">
@@ -160,7 +160,7 @@
                                         <input type="number" name="weight" id="weight" class="form-control" placeholder="90" />
                                     </div>
                                     <div class="mb-1 col-md-4">
-                                        <label class="form-label" for="vendor"><?php echo __('Diagnosis (as per DSM-5)');?></label>
+                                        <label class="form-label" for="dsm_id"><?php echo __('Diagnosis (as per DSM-5)');?></label>
                                         <select class="select2 form-select" name="dsm_id[]" id="dsm_id" multiple>
                                         </select>
                                     </div>
@@ -269,19 +269,11 @@
                                 </button>
                             </div>
                         </div>
-                        <div id="social-links" class="content" role="tabpanel" aria-labelledby="social-links-trigger">
+                        <div id="final-step" class="content" role="tabpanel" aria-labelledby="final-step">
                             <div class="content-header">
-                                <h5 class="mb-0"><?php echo __("Mobile App"); ?></h5>
-                                <small><?php echo __("Invite"); ?></small>
+                                <h5 class="mb-0"><?php echo __("Final Step");?></h5>
+                                <small><?php echo __("Confirm and Insert"); ?></small>
                             </div>
-                            <form>
-                                <div class="row">
-                                    <div class="mb-1 col-md-6">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="checked" checked/>
-                                        <label class="form-check-label" for="inlineCheckbox1"><?php echo __("Invite to download the App"); ?></label>
-                                    </div>
-                                </div>
-                            </form>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary btn-prev">
                                     <i data-feather="arrow-left" class="align-middle me-sm-25 me-0"></i>
@@ -290,6 +282,7 @@
                                 <button class="btn btn-success btn-submit"><?php echo __("Insert"); ?></button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>

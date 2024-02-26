@@ -23,26 +23,18 @@ final class UserAuthMiddleware implements MiddlewareInterface
     /**
      * @var SessionInterface */
     private $session;
-    private $payment;
-    public function __construct(ResponseFactoryInterface $responseFactory, SessionInterface $session, Payments $payments)
+    public function __construct(ResponseFactoryInterface $responseFactory, SessionInterface $session)
     {
         $this->responseFactory = $responseFactory;
         $this->session = $session;
-        $this->payment = $payments;
     }
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        if ($this->session->get('user_id') && $this->payment->hasActiveSubscription($this->session->get('user_id'))) {
+        if ($this->session->get('user_id')) {
             // User is logged in
             return $handler->handle($request);
         }
 
-        if (!$this->payment->hasActiveSubscription($this->session->get('user_id'))) {
-            $routeParser = RouteContext::fromRequest($request)->getRouteParser();
-            $url = $routeParser->urlFor('payment-page');
-            return $this->responseFactory->createResponse() ->withStatus(302)
-                ->withHeader('Location', $url);
-        }
 
         // User is not logged in. Redirect to login page.
         $routeParser = RouteContext::fromRequest($request)->getRouteParser();

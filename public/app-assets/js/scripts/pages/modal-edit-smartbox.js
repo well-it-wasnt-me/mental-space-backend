@@ -57,8 +57,8 @@ dtUserTable = $("#tbl_trattamento_farmacologico").DataTable({
         columns: [
             // columns according to JSON
             { data: 'id' },
-            { data: 'principio_attivo' },
-            { data: 'descrizione_gruppo' },
+            { data: 'active_principle' },
+            { data: 'group_description' },
             { data: '' }
         ],
         columnDefs: [

@@ -33,7 +33,7 @@ final class webhook
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response)
     {
 
-            $stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
+            $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
             // This is your Stripe CLI webhook secret for testing your endpoint locally.
             $endpoint_secret = '-- SECRET HERE --';
 

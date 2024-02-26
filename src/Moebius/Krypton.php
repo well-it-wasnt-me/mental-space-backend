@@ -22,7 +22,7 @@ class Krypton
     public function __construct($key = false, $method = false)
     {
         if (!$key) {
-            $key = getenv('KRYPTON_KEY'); // default encryption key if none supplied
+            $key = env('KRYPTON_KEY'); // default encryption key if none supplied
         }
 
         if (ctype_print($key)) {

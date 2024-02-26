@@ -40,7 +40,7 @@ final class AddPatientsAction
         ]);
 
         $this->renderer->addAttribute('js', [
-            'https://maps.googleapis.com/maps/api/js?key=--INSER KEY HERE--&libraries=places',
+            'https://maps.googleapis.com/maps/api/js?key='. env('GOOLE_MAP_API_KEY') .'&libraries=places',
             '/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js',
             '/app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js',
             '/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js',
