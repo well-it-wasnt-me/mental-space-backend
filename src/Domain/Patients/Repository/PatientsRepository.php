@@ -192,8 +192,9 @@ final class PatientsRepository
 
 
     /**
-     * Update smartbox settings data
+     * Update Patient settings data
      * @param array $data Form Data
+     * @param array $rawData Form Data
      * @return bool
      */
     public function updatePatient($data, $rawData): bool
