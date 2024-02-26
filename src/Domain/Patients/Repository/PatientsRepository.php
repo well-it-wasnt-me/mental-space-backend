@@ -68,14 +68,18 @@ final class PatientsRepository
             $this->transaction->rollback();
             echo $e->getMessage();
         }
-        $arr = (array)$rawData['curr_pharms'];
-        foreach ($arr as $val) {
-            $this->queryFactory->newInsert('drugs_assignment', ['paz_id' => $paz_id, 'farm_id' => $val])->execute();
+        if(isset($rawData['curr_pharms'])){
+            $arr = (array)$rawData['curr_pharms'];
+            foreach ($arr as $val) {
+                $this->queryFactory->newInsert('drugs_assignment', ['paz_id' => $paz_id, 'farm_id' => $val])->execute();
+            }
         }
 
-        $arr = (array)$rawData['dsm_id'];
-        foreach ($arr as $val) {
-            $this->queryFactory->newInsert('assignment_diagnosis', ['paz_id' => $paz_id, 'dsm_id' => $val])->execute();
+        if(isset($rawData['dsm_id'])) {
+            $arr = (array)$rawData['dsm_id'];
+            foreach ($arr as $val) {
+                $this->queryFactory->newInsert('assignment_diagnosis', ['paz_id' => $paz_id, 'dsm_id' => $val])->execute();
+            }
         }
 
         if ($patientData->invito === 'checked') {
