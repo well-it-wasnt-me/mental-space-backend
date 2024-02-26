@@ -27,10 +27,7 @@ final class DsmRepository
 
     public function listDsm(): array
     {
-        $query = $this->queryFactory->newSelect('dsm');
-        $query->select([
-            '*',
-        ]);
+        $query = $this->queryFactory->newSelect(['*'], ['dsm']);
 
         $rows = $query->execute()->fetchAll('assoc') ?: [];
 
@@ -39,8 +36,7 @@ final class DsmRepository
 
     public function selectListDsm($term):array
     {
-        $dsm = $this->queryFactory->newSelect('dsm')
-            ->select(['id', 'descrizione AS text'])
+        $dsm = $this->queryFactory->newSelect(['id', 'descrizione AS text'], ['dsm'])
             ->where("descrizione LIKE '%$term%'")
             ->execute()
             ->fetchAll('assoc');

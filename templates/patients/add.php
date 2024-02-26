@@ -89,11 +89,11 @@
                                     <div class="col-6">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label" for="nome_pdv"><?php echo __('Surname');?></label>
+                                                <label class="form-label" for="surname"><?php echo __('Surname');?></label>
                                                 <input type="text" name="surname" id="surname" class="form-control" placeholder="Rossi" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label" for="id_pdv"><?php echo __('Name');?></label>
+                                                <label class="form-label" for="name"><?php echo __('Name');?></label>
                                                 <input type="text" name="name" id="name" class="form-control" placeholder="Giuseppe" />
                                             </div>
                                             <div class="col-md-6">
@@ -160,7 +160,7 @@
                                         <input type="number" name="weight" id="weight" class="form-control" placeholder="90" />
                                     </div>
                                     <div class="mb-1 col-md-4">
-                                        <label class="form-label" for="vendor"><?php echo __('Diagnosis (as per DSM-5)');?></label>
+                                        <label class="form-label" for="dsm_id"><?php echo __('Diagnosis (as per DSM-5)');?></label>
                                         <select class="select2 form-select" name="dsm_id[]" id="dsm_id" multiple>
                                         </select>
                                     </div>

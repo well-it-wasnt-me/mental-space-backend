@@ -65,12 +65,11 @@ final class PharmRepository
 
     public function webSearchDrug($name): array
     {
-            $query = $this->queryFactory->newSelect('farmaci');
-            $query->select([
+            $query = $this->queryFactory->newSelect([
                 'id',
                 'denom AS text'
-            ]);
-            $query->where("denom LIKE '%$name%' OR principio_attivo LIKE '%$name%'");
+            ], ['drugs']);
+            $query->where("denom LIKE '%$name%' OR active_principle LIKE '%$name%'");
 
             $rows = $query->execute()->fetchAll('assoc') ?: [];
 
