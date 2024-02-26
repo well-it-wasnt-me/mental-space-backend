@@ -32,20 +32,11 @@ final class QueryFactory
      *
      * @return Query A new select query
      */
-    public function newSelect(string $table): Query
+    public function newSelect(array $fields, array $table): Query
     {
-        return $this->newQuery()->from($table);
+        return $this->connection->selectQuery($fields, $table);
     }
 
-    /**
-     * Create a new query.
-     *
-     * @return Query The query
-     */
-    public function newQuery(): Query
-    {
-        return $this->connection->newQuery();
-    }
 
     /**
      * Create an 'update' statement for the given table.
@@ -57,7 +48,7 @@ final class QueryFactory
      */
     public function newUpdate(string $table, array $data): Query
     {
-        return $this->newQuery()->update($table)->set($data);
+        return $this->connection->updateQuery($table, $data);
     }
 
     /**
@@ -70,9 +61,7 @@ final class QueryFactory
      */
     public function newInsert(string $table, array $data): Query
     {
-        return $this->newQuery()->insert(array_keys($data))
-            ->into($table)
-            ->values($data);
+        return $this->connection->insertQuery($table, $data);
     }
 
     /**
@@ -84,11 +73,11 @@ final class QueryFactory
      */
     public function newDelete(string $table): Query
     {
-        return $this->newQuery()->delete($table);
+        return $this->connection->deleteQuery($table);
     }
 
     public function rawQuery($q)
     {
-        return $this->connection->query($q)->fetchAll('assoc');
+        return $this->connection->execute($q)->fetchAll('assoc');
     }
 }
