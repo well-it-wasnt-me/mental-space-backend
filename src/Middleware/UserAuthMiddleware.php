@@ -23,12 +23,10 @@ final class UserAuthMiddleware implements MiddlewareInterface
     /**
      * @var SessionInterface */
     private $session;
-    private $payment;
-    public function __construct(ResponseFactoryInterface $responseFactory, SessionInterface $session, Payments $payments)
+    public function __construct(ResponseFactoryInterface $responseFactory, SessionInterface $session)
     {
         $this->responseFactory = $responseFactory;
         $this->session = $session;
-        $this->payment = $payments;
     }
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
