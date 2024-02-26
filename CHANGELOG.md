@@ -41,12 +41,3 @@ Greetings, dear user! 🎉 Here's a dazzling list of changes and updates. Brace 
 * pretty sure i broke something with this refactor ([f82eae1](https://github.com/well-it-wasnt-me/mental-space-backend/commit/f82eae1ddae1b973c811fb5c57acceb6f939cccf))
 * pretty sure i broke something with this refactor ([58d879e](https://github.com/well-it-wasnt-me/mental-space-backend/commit/58d879efd8737e18a2edeb595ce70c814c59817c))
 * **translation:** translation of everything remotely italian to english. ([1754c59](https://github.com/well-it-wasnt-me/mental-space-backend/commit/1754c593811d9f0cb5d4ee3a0edecda1a4bfe37d)), closes [#7](https://github.com/well-it-wasnt-me/mental-space-backend/issues/7)
-
-# Mental Space Back End
-
-This file is auto generated using [auto-changelog](https://github.com/cookpete/auto-changelog)
-
-## Changelog - Because We Love Change
-
-Greetings, dear user! 🎉 Here's a dazzling list of changes and updates. Brace yourself, for the excitement is
-overwhelming.
