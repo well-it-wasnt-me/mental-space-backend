@@ -1,6 +1,6 @@
 <?php
 
-$dotenv = \Dotenv\Dotenv::create(__DIR__ . '/../');
+$dotenv = \Dotenv\Dotenv::createMutable(__DIR__ . '/../');
 $dotenv->load();
 // Should be set to 0 in production
 env('ENVIRONMENT') == 'prod' ? error_reporting(0) : error_reporting(E_ALL);
