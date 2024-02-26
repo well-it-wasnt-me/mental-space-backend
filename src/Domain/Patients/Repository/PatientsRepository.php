@@ -133,7 +133,7 @@ final class PatientsRepository
             'patients.data_inizio_cure',
             'users.email',
             'users.account_status',
-            '(SELECT GROUP_CONCAT(dsm.description) FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = patients.paz_id) AS descrizione',
+            '(SELECT GROUP_CONCAT(dsm.descrizione) FROM dsm INNER JOIN assignment_diagnosis ON assignment_diagnosis.dsm_id = dsm.id AND assignment_diagnosis.paz_id = patients.paz_id) AS descrizione',
         ], ['patients']);
         $query->leftJoin('users', 'patients.user_id = users.user_id');
 
