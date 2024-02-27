@@ -6,3 +6,5 @@ data/*.png
 data/*.jpeg
 logs/*.log
 .DS_Store
+/.phpdoc/cache/
+/docs/

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+>
+    <setting name="template.color" value="red"/>
+    <title>Mental Space</title>
+    <paths>
+        <output>docs/</output>
+    </paths>
+    <version number="1.0.0">
+        <api>
+            <source dsn=".">
+                <path>src</path>
+                <path>tests</path>
+                <path>config</path>
+            </source>
+            <markers>
+                <marker>TODO</marker>
+                <marker>FIXME</marker>
+            </markers>
+        </api>
+    </version>
+</phpdocumentor>
