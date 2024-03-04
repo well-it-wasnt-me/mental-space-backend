@@ -15,7 +15,7 @@
     "ext-zip": "*",
     "cakephp/chronos": "2.4.4",
     "cakephp/database": "4.5.3",
-    "cakephp/validation": "4.5.3",
+    "cakephp/validation": "4.5.4",
     "fig/http-message-util": "1.1.5",
     "guzzlehttp/guzzle": "7.8.1",
     "lcobucci/jwt": "^5.2",
