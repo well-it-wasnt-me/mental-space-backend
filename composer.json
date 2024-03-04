@@ -36,7 +36,7 @@
     "slim/twig-view": "^3.3",
     "stripe/stripe-php": "^13.12",
     "symfony/console": "^6.4.3",
-    "symfony/mailer": "^6.4.3",
+    "symfony/mailer": "^7.0.4",
     "symfony/polyfill-uuid": "^1.29",
     "symfony/uid": "^6.4.3",
     "symfony/yaml": "^6.4.3",
